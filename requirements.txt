@@ -1,0 +1,12 @@
+# analysis and verification
+pandas>=2.0
+numpy>=1.24
+pyyaml>=6.0
+scikit-learn>=1.3
+
+# dataset preparation
+pillow>=10.0
+pillow-heif>=0.13
+
+# training and evaluation
+ultralytics>=8.3

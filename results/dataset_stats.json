@@ -1,0 +1,42 @@
+{
+  "merged_peninsula": {
+    "images": 1033,
+    "boxes": 15373,
+    "classes": [
+      "Algal",
+      "Leaf_rot",
+      "Phomopsis",
+      "Psyllid",
+      "Psyllid_damage",
+      "leaf_hopper_damage"
+    ],
+    "boxes_per_class": {
+      "Algal": 2312,
+      "Leaf_rot": 570,
+      "Phomopsis": 6627,
+      "Psyllid": 3472,
+      "Psyllid_damage": 2258,
+      "leaf_hopper_damage": 134
+    }
+  },
+  "merged_sabah": {
+    "images": 281,
+    "boxes": 3400,
+    "classes": [
+      "Algal",
+      "Leaf_rot",
+      "Phomopsis",
+      "Psyllid",
+      "Psyllid_damage",
+      "leaf_hopper_damage"
+    ],
+    "boxes_per_class": {
+      "Algal": 819,
+      "Leaf_rot": 362,
+      "Phomopsis": 620,
+      "Psyllid": 921,
+      "Psyllid_damage": 666,
+      "leaf_hopper_damage": 12
+    }
+  }
+}

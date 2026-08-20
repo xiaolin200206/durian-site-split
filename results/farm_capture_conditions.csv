@@ -1,0 +1,8 @@
+farm,images,mAP50_fold,hour_median,solar_median,midday_share,dates,devices,iso_median,focal_median_mm
+0,165,0.3938,10.067,40.52,0.0,1,iPhone 13;iPhone 16 Pro Max,80.0,6.76
+2,154,0.1389,14.35,61.99,0.987012987012987,1,iPhone 13 Pro;iPhone 16 Pro Max,64.0,6.76
+3,59,0.2921,14.467,57.43,1.0,1,iPhone 16 Pro Max,64.0,6.76
+5,141,0.2091,13.05,72.07,1.0,1,iPhone 13 Pro;iPhone 16 Pro Max,50.0,6.76
+6,39,0.1964,8.867,25.52,0.0,1,iPhone 16 Pro Max,50.0,2.22
+7,1,,12.5,67.13,1.0,1,iPhone 16 Pro Max,40.0,2.22
+8,1,,14.683,62.38,1.0,1,iPhone 16 Pro Max,80.0,6.76

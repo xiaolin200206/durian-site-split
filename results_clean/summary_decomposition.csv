@@ -1,0 +1,5 @@
+﻿dataset,design,models,unit,model,interaction,seed,fold,residual
+durian,"crossed, fold = one farm","rtdetr-l,yolo11l,yolo11m,yolo11n,yolo11s",82.4,0.0,7.8,9.8,,
+gwhd,"nested, unit within fold","yolo11n,yolo11s",68.0,0.3,,0.1,9.6,22.1
+breakhis,"nested, unit within fold","yolo11n-cls,yolo11s-cls",88.1,0.0,,0.0,1.9,9.9
+har,"nested, unit within fold","mlp256,rf",73.3,2.7,,0.0,13.3,10.6

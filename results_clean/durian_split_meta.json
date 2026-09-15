@@ -1,0 +1,61 @@
+{
+ "inner_frac": 0.1,
+ "inner_seed": 20260911,
+ "stratified_by": "primary",
+ "folds": {
+  "byfarm_fold0": {
+   "outer_val": 141,
+   "inner_train": 617,
+   "inner_val": 69,
+   "inner_classes": 7
+  },
+  "byfarm_fold1": {
+   "outer_val": 102,
+   "inner_train": 652,
+   "inner_val": 73,
+   "inner_classes": 7
+  },
+  "byfarm_fold2": {
+   "outer_val": 147,
+   "inner_train": 612,
+   "inner_val": 68,
+   "inner_classes": 7
+  },
+  "byfarm_fold3": {
+   "outer_val": 62,
+   "inner_train": 690,
+   "inner_val": 75,
+   "inner_classes": 7
+  },
+  "byfarm_fold4": {
+   "outer_val": 101,
+   "inner_train": 654,
+   "inner_val": 72,
+   "inner_classes": 7
+  },
+  "byfarm_fold5": {
+   "outer_val": 135,
+   "inner_train": 622,
+   "inner_val": 70,
+   "inner_classes": 7
+  },
+  "byfarm_fold6": {
+   "outer_val": 82,
+   "inner_train": 672,
+   "inner_val": 73,
+   "inner_classes": 7
+  },
+  "byfarm_fold7": {
+   "outer_val": 57,
+   "inner_train": 694,
+   "inner_val": 76,
+   "inner_classes": 7
+  },
+  "random": {
+   "outer_val": 165,
+   "inner_train": 595,
+   "inner_val": 67,
+   "inner_classes": 7
+  }
+ }
+}

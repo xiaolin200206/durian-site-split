@@ -1,0 +1,9 @@
+﻿dataset,model,old_best,old_last,clean
+durian,rtdetr-l,41.1,58.2,55.8
+durian,yolo11m,42.7,55.0,49.9
+durian,yolo11n,37.4,51.6,47.8
+durian,yolo11s,44.3,,53.8
+gwhd,yolo11n,19.6,28.5,22.5
+gwhd,yolo11s,22.4,30.1,29.1
+breakhis,yolo11n-cls,8.0,10.4,8.1
+breakhis,yolo11s-cls,8.7,11.6,9.2

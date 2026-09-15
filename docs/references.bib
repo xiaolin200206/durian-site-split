@@ -1,0 +1,339 @@
+% ---------------------------------------------------------------------------
+% References for "A single accuracy figure for crop disease detection
+% describes the sample, not the model"
+%
+% Grouped by the role each plays in the argument. Entries marked VERIFY
+% need their details checked against the publisher record before submission:
+% they were located by search and the bibliographic fields are reconstructed.
+% ---------------------------------------------------------------------------
+
+
+% === The concern has already been stated in agricultural vision ============
+% Cite this in the first paragraph of Related Work. It states the random-split
+% problem in almost the terms this paper uses, without measuring it.
+
+@article{lu2024plantdisease,
+  title   = {Plant disease recognition datasets in the age of deep learning:
+             challenges and opportunities},
+  author  = {Lu, Mingle and Others},                     % VERIFY authors
+  journal = {Frontiers in Plant Science},                % VERIFY venue
+  year    = {2024},
+  note    = {PMC11466843. States that random splitting can place
+             near-identical images of one observation on both sides of the
+             boundary, overestimating test performance.}
+}
+
+
+% === The clearest positive precedent: grouped splits are already standard ===
+% in one agricultural vision task. Cite when arguing that the practice exists
+% but has not reached disease detection.
+
+@article{david2020gwhd,
+  title   = {Global Wheat Head Detection (GWHD) dataset: a large and diverse
+             dataset of high-resolution RGB labelled images to develop and
+             benchmark wheat head detection methods},
+  author  = {David, Etienne and Madec, Simon and Sadeghi-Tehran, Pouria and
+             others},
+  journal = {Plant Phenomics},
+  volume  = {2020},
+  pages   = {3521852},
+  year    = {2020},
+  doi     = {10.34133/2020/3521852},
+  note    = {Explicitly rejects random splitting: images are grouped by
+             continent so the test set covers unseen genotypes, environments
+             and observational conditions.}
+}
+
+@article{david2021gwhd,
+  title   = {Global Wheat Head Detection 2021: an improved dataset for
+             benchmarking wheat head detection methods},
+  author  = {David, Etienne and Serouart, Mario and Smith, Daniel and others},
+  journal = {Plant Phenomics},
+  volume  = {2021},
+  pages   = {9846158},
+  year    = {2021},
+  doi     = {10.34133/2021/9846158},
+  note    = {Defines a subdataset as a consistent set of images acquired over
+             the same experimental unit, during the same acquisition session,
+             with the same vector and sensor. 47 such domains.}
+}
+
+@article{david2023gwc,
+  title   = {Global Wheat Head Detection challenges: winning models and
+             application for head counting},
+  author  = {David, Etienne and others},                 % VERIFY
+  journal = {Plant Phenomics},
+  year    = {2023},
+  doi     = {10.34133/plantphenomics.0059},
+  note    = {PMC10795497. Reports per-session error distributions; the
+             validation and test sets are made entirely disjoint by session,
+             where the 2020 competition drew them from shared subdatasets.}
+}
+
+@inproceedings{koh2021wilds,
+  title     = {{WILDS}: a benchmark of in-the-wild distribution shifts},
+  author    = {Koh, Pang Wei and Sagawa, Shiori and Marklund, Henrik and
+               others},
+  booktitle = {Proceedings of the 38th International Conference on Machine
+               Learning},
+  year      = {2021},
+  note      = {Adopts GWHD as a domain-generalisation task in which the
+               domain is an acquisition session: a location, time and sensor.}
+}
+
+
+% === Established elsewhere: identity confounding =============================
+% The same failure has a name and a standard remedy in medical imaging and
+% physiological signals. Cite to show the contribution is the measurement in
+% this setting, not the concept.
+
+@article{saeb2017needtoconsider,
+  title   = {The need to approximate the use-case in clinical machine
+             learning},
+  author  = {Saeb, Sohrab and Lonini, Luca and Jayaraman, Arun and
+             Mohr, David C and Kording, Konrad P},
+  journal = {GigaScience},
+  volume  = {6},
+  number  = {5},
+  year    = {2017},
+  doi     = {10.1093/gigascience/gix019},
+  note    = {Record-wise cross-validation inflates accuracy relative to
+             subject-wise; the origin of the identity-confounding literature.}
+}
+
+@article{chaibubneto2019identity,
+  title   = {Detecting the impact of subject characteristics on machine
+             learning-based diagnostic applications},
+  author  = {Chaibub Neto, Elias and others},            % VERIFY
+  journal = {npj Digital Medicine},
+  year    = {2019},
+  note    = {Introduces the term identity confounding.}
+}
+
+@article{brookshire2024eegleakage,
+  title   = {Data leakage in deep learning studies of translational {EEG}},
+  author  = {Brookshire, Geoffrey and others},           % VERIFY
+  journal = {Frontiers in Neuroscience},
+  volume  = {18},
+  pages   = {1373515},
+  year    = {2024},
+  doi     = {10.3389/fnins.2024.1373515},
+  note    = {PMC11099244. Surveys identity confounding across MRI, OCT,
+             accelerometry, voice and motor tasks; shows it is not specific
+             to deep networks.}
+}
+
+@article{tampu2022octleakage,
+  title   = {Inflation of test accuracy due to data leakage in deep learning
+             analysis of optical coherence tomography},
+  author  = {Tampu, Iulian Emil and Eklund, Anders and Haj-Hosseini, Neda},
+  journal = {Scientific Data},
+  volume  = {9},
+  pages   = {580},
+  year    = {2022},
+  doi     = {10.1038/s41597-022-01618-6}
+}
+
+@article{varoquaux2022machine,
+  title   = {Machine learning for medical imaging: methodological failures
+             and recommendations for the future},
+  author  = {Varoquaux, Ga{\"e}l and Cheplygina, Veronika},
+  journal = {npj Digital Medicine},
+  volume  = {5},
+  pages   = {48},
+  year    = {2022},
+  doi     = {10.1038/s41746-022-00592-y}
+}
+
+@article{kapoor2023leakage,
+  title   = {Leakage and the reproducibility crisis in machine-learning-based
+             science},
+  author  = {Kapoor, Sayash and Narayanan, Arvind},
+  journal = {Patterns},
+  volume  = {4},
+  number  = {9},
+  pages   = {100804},
+  year    = {2023},
+  doi     = {10.1016/j.patter.2023.100804}
+}
+
+
+% === The datasets the field is built on =====================================
+
+@article{hughes2015plantvillage,
+  title   = {An open access repository of images on plant health to enable
+             the development of mobile disease diagnostics},
+  author  = {Hughes, David P and Salath{\'e}, Marcel},
+  journal = {arXiv preprint arXiv:1511.08060},
+  year    = {2015},
+  note    = {54,305 images of detached leaves on uniform backgrounds; no
+             field or plot identifier is released.}
+}
+
+@article{mohanty2016using,
+  title   = {Using deep learning for image-based plant disease detection},
+  author  = {Mohanty, Sharada P and Hughes, David P and Salath{\'e}, Marcel},
+  journal = {Frontiers in Plant Science},
+  volume  = {7},
+  pages   = {1419},
+  year    = {2016},
+  doi     = {10.3389/fpls.2016.01419}
+}
+
+@article{noyan2022uncovering,
+  title   = {Uncovering bias in the {PlantVillage} dataset},
+  author  = {Noyan, Mehmet Alican},
+  journal = {arXiv preprint arXiv:2206.04374},
+  year    = {2022},
+  note    = {A classifier trained on eight background pixels reaches 49.0\%
+             accuracy against a 2.6\% chance baseline.}
+}
+
+@inproceedings{singh2020plantdoc,
+  title     = {{PlantDoc}: a dataset for visual plant disease detection},
+  author    = {Singh, Davinder and Jain, Naman and Jain, Pranjali and
+               Kayal, Pratik and Kumawat, Sudhakar and Batra, Nipun},
+  booktitle = {Proceedings of the 7th ACM IKDD CoDS and 25th COMAD},
+  pages     = {249--253},
+  year      = {2020},
+  doi       = {10.1145/3371158.3371196},
+  note      = {2,598 images scraped from the internet; the authors state that
+               collecting plant disease data through fieldwork requires
+               enormous effort.}
+}
+
+@article{moupojou2023fieldplant,
+  title   = {{FieldPlant}: a dataset of field plant images for plant disease
+             detection and classification with deep learning},
+  author  = {Moupojou, Emmanuel and Tagne, Appolinaire and Retraint, Florent
+             and others},
+  journal = {IEEE Access},
+  volume  = {11},
+  pages   = {35398--35410},
+  year    = {2023},
+  doi     = {10.1109/ACCESS.2023.3263042},
+  note    = {5,170 images collected directly in plantations.}
+}
+
+
+% === Durian specifically ====================================================
+
+@article{nguyen2025durian,
+  title   = {Image dataset of ten durian diseases captured in real-field
+             conditions from a family orchard in {Vinh Long}, {Vietnam}},
+  author  = {Nguyen, T},
+  journal = {Data in Brief},
+  volume  = {63},
+  pages   = {112244},
+  year    = {2025},
+  note    = {VERIFIED against publisher record. Mendeley Data
+             10.17632/mhjwyb5p48.1. Files inspected 2026-08: 5,274 RGBA PNGs
+             whose XMP carries exif:UserComment = Screenshot, no camera
+             model, timestamp or GPS in ten sampled files, plus 177 JPEGs
+             including 224x224-named files. Directory is Test/Train/
+             Validation x ten classes; filenames are bare integers. No farm,
+             tree or session identifier is recoverable.}
+}
+
+@article{durian2025binhphuoc,
+  title   = {A durian leaf image dataset of common diseases in {Vietnam}
+             for agricultural diagnosis},
+  author  = {VERIFY},
+  journal = {Data in Brief},
+  volume  = {61},
+  pages   = {111845},
+  year    = {2025},
+  note    = {Mendeley Data 10.17632/pxzvksbwnj.4. This is the dataset behind
+             the 64.1 percentage-point drop cited in the Discussion; it was
+             previously conflated with the Vinh Long release under one key.
+             2,595 images, six classes, four orchards across Binh Phuoc and
+             Tien Giang, background-removed and resized to 400x400. Files
+             inspected 2026-08: filenames are class name plus a global index,
+             no side-car metadata, EXIF stripped in 20 of 20 sampled files.
+             Preset random train/test/val drawn across all four orchards.}
+}
+
+@article{ogara2004durian,
+  title   = {Managing {Phytophthora} diseases of durian},
+  author  = {O'Gara, Eric and Guest, David I and Hassan, N M},
+  journal = {ACIAR Monograph},
+  year    = {2004},
+  note    = {VERIFY. Cited for the clinical course of Phytophthora palmivora
+             in durian.}
+}
+
+
+% === Taxonomy of the pathogens named by the class list ======================
+
+@article{gomes2013diaporthe,
+  title   = {{Diaporthe}: a genus of endophytic, saprobic and plant
+             pathogenic fungi},
+  author  = {Gomes, R R and Glienke, C and Videira, S I R and
+             Lombard, L and Groenewald, J Z and Crous, P W},
+  journal = {Persoonia},
+  volume  = {31},
+  pages   = {1--41},
+  year    = {2013},
+  doi     = {10.3767/003158513X666844},
+  note    = {Diaporthe and its Phomopsis anamorph are one genus; species
+             boundaries require sequence data.}
+}
+
+@article{udayanga2011diaporthe,
+  title   = {The genus {Phomopsis}: biology, applications, species concepts
+             and names of common phytopathogens},
+  author  = {Udayanga, Dhanushka and Liu, Xingzhong and McKenzie, Eric H C
+             and others},
+  journal = {Fungal Diversity},
+  volume  = {50},
+  pages   = {189--225},
+  year    = {2011},
+  doi     = {10.1007/s13225-011-0126-9}
+}
+
+
+% === Model and tooling ======================================================
+
+@misc{ultralytics2024yolo11,
+  title  = {{YOLO11}},
+  author = {{Ultralytics}},
+  year   = {2024},
+  url    = {https://docs.ultralytics.com/models/yolo11/}
+}
+
+@inproceedings{lin2014coco,
+  title     = {Microsoft {COCO}: common objects in context},
+  author    = {Lin, Tsung-Yi and Maire, Michael and Belongie, Serge and
+               others},
+  booktitle = {European Conference on Computer Vision},
+  pages     = {740--755},
+  year      = {2014}
+}
+
+
+% === Optional: the deployment context ======================================
+% Only cite if the Introduction keeps the national-programme framing. Verify
+% every figure before citing, and consider whether naming a specific
+% programme is worth the risk.
+
+@misc{malaysia2026rakantani,
+  title  = {VERIFY BEFORE CITING},
+  note   = {Malaysian national AI advisory rollout for rice growers, 2026.
+             Figures located by search only: a ten-week pilot with 42 farmers
+             in Sungai Manik, Perak, scaling toward roughly 110,000
+             registered growers. Confirm against a primary source or drop
+             the specific numbers from the Introduction.}
+}
+
+@article{eljarroudi2024edgeai,
+  title   = {Leveraging edge artificial intelligence for sustainable
+             agriculture},                                % VERIFY exact title
+  author  = {El Jarroudi, Moussa and others},             % VERIFY
+  journal = {Nature Sustainability},
+  volume  = {7},
+  pages   = {846--854},
+  year    = {2024},
+  note    = {Argues that on-device inference is limited chiefly by energy
+             efficiency, and that stakeholders including farmers should be
+             involved in model development and validation.}
+}

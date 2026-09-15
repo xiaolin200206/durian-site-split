@@ -1,0 +1,268 @@
+{
+  "holdout": [
+    "UQ_8",
+    "Terraref_2",
+    "Terraref_1",
+    "NMBU_2",
+    "NAU_2",
+    "Arvalis_10"
+  ],
+  "n_val": 545,
+  "n_train": 600,
+  "ks": [
+    2,
+    4,
+    8,
+    16,
+    24,
+    38
+  ],
+  "draws": 8,
+  "jobs": [
+    {
+      "name": "k02_d2",
+      "k": 2,
+      "draw": 2,
+      "n_train": 600,
+      "sites": "Arvalis_3;UQ_9"
+    },
+    {
+      "name": "k04_d2",
+      "k": 4,
+      "draw": 2,
+      "n_train": 600,
+      "sites": "CIMMYT_2;NAU_1;UQ_11;Utokyo_2"
+    },
+    {
+      "name": "k04_d3",
+      "k": 4,
+      "draw": 3,
+      "n_train": 600,
+      "sites": "Arvalis_11;Arvalis_5;Arvalis_6;CIMMYT_2"
+    },
+    {
+      "name": "k04_d7",
+      "k": 4,
+      "draw": 7,
+      "n_train": 600,
+      "sites": "Arvalis_2;KSU_3;UQ_6;Usask_1"
+    },
+    {
+      "name": "k08_d0",
+      "k": 8,
+      "draw": 0,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_7;CIMMYT_2;CIMMYT_3;NAU_3;Rres_1;UQ_6;Ukyoto_1"
+    },
+    {
+      "name": "k08_d1",
+      "k": 8,
+      "draw": 1,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_7;CIMMYT_3;NMBU_1;Rres_1;ULi\u00e8ge-GxABT_1;UQ_10;Utokyo_3"
+    },
+    {
+      "name": "k08_d2",
+      "k": 8,
+      "draw": 2,
+      "n_train": 600,
+      "sites": "Arvalis_6;KSU_1;NMBU_1;Rres_1;UQ_3;UQ_6;Usask_1;Utokyo_3"
+    },
+    {
+      "name": "k08_d4",
+      "k": 8,
+      "draw": 4,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_2;Arvalis_6;Arvalis_9;ETHZ_1;UQ_2;Ukyoto_1;Usask_1"
+    },
+    {
+      "name": "k08_d5",
+      "k": 8,
+      "draw": 5,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_6;Arvalis_7;ETHZ_1;UQ_3;UQ_6;UQ_9;Ukyoto_1"
+    },
+    {
+      "name": "k08_d6",
+      "k": 8,
+      "draw": 6,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_2;Arvalis_8;KSU_4;UQ_1;UQ_6;Usask_1;Utokyo_1"
+    },
+    {
+      "name": "k08_d7",
+      "k": 8,
+      "draw": 7,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_2;KSU_1;NAU_3;Rres_1;UQ_4;UQ_5;UQ_9"
+    },
+    {
+      "name": "k16_d0",
+      "k": 16,
+      "draw": 0,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_2;Arvalis_6;CIMMYT_1;ETHZ_1;KSU_2;KSU_3;KSU_4;UQ_10;UQ_2;UQ_3;UQ_4;UQ_9;Ukyoto_1;Utokyo_1;Utokyo_3"
+    },
+    {
+      "name": "k16_d1",
+      "k": 16,
+      "draw": 1,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_11;Arvalis_2;Arvalis_5;Arvalis_8;CIMMYT_2;Inrae_1;KSU_1;NAU_1;ULi\u00e8ge-GxABT_1;UQ_3;UQ_6;UQ_7;UQ_9;Ukyoto_1;Utokyo_3"
+    },
+    {
+      "name": "k16_d2",
+      "k": 16,
+      "draw": 2,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_12;Arvalis_3;Arvalis_7;CIMMYT_2;CIMMYT_3;KSU_4;NAU_1;NAU_3;UQ_1;UQ_2;UQ_5;UQ_7;Usask_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k16_d3",
+      "k": 16,
+      "draw": 3,
+      "n_train": 600,
+      "sites": "Arvalis_12;Arvalis_2;Arvalis_4;Arvalis_5;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_2;KSU_1;KSU_4;NAU_3;NMBU_1;Rres_1;UQ_11;UQ_5;Utokyo_1"
+    },
+    {
+      "name": "k16_d4",
+      "k": 16,
+      "draw": 4,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_11;Arvalis_3;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_2;ETHZ_1;KSU_1;KSU_4;NAU_3;UQ_10;UQ_2;UQ_4;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k16_d5",
+      "k": 16,
+      "draw": 5,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_12;Arvalis_2;Arvalis_3;Arvalis_5;Arvalis_6;Arvalis_9;CIMMYT_2;Inrae_1;KSU_1;NAU_3;UQ_10;UQ_11;UQ_2;Usask_1"
+    },
+    {
+      "name": "k16_d6",
+      "k": 16,
+      "draw": 6,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_6;Arvalis_7;CIMMYT_1;NAU_1;NMBU_1;ULi\u00e8ge-GxABT_1;UQ_2;UQ_7;Usask_1;Utokyo_1;Utokyo_3"
+    },
+    {
+      "name": "k16_d7",
+      "k": 16,
+      "draw": 7,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_2;Arvalis_3;Arvalis_4;Arvalis_5;CIMMYT_2;CIMMYT_3;ETHZ_1;KSU_2;KSU_4;NAU_3;UQ_3;UQ_4;UQ_5;UQ_7;Usask_1"
+    },
+    {
+      "name": "k24_d0",
+      "k": 24,
+      "draw": 0,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_11;Arvalis_3;Arvalis_5;Arvalis_6;Arvalis_8;CIMMYT_2;ETHZ_1;Inrae_1;KSU_1;KSU_2;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;UQ_1;UQ_10;UQ_2;UQ_5;UQ_9;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k24_d1",
+      "k": 24,
+      "draw": 1,
+      "n_train": 600,
+      "sites": "Arvalis_11;Arvalis_12;Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_7;Arvalis_9;CIMMYT_3;Inrae_1;KSU_2;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;UQ_10;UQ_3;UQ_5;UQ_6;UQ_7;UQ_9;Utokyo_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k24_d2",
+      "k": 24,
+      "draw": 2,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_3;Arvalis_4;Arvalis_7;Arvalis_8;CIMMYT_3;Inrae_1;KSU_1;KSU_2;KSU_4;NMBU_1;ULi\u00e8ge-GxABT_1;UQ_11;UQ_3;UQ_5;UQ_7;UQ_9;Usask_1;Utokyo_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k24_d3",
+      "k": 24,
+      "draw": 3,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_12;Arvalis_3;Arvalis_5;Arvalis_6;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_1;ETHZ_1;Inrae_1;KSU_1;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;UQ_10;UQ_11;UQ_3;UQ_4;Utokyo_2"
+    },
+    {
+      "name": "k24_d4",
+      "k": 24,
+      "draw": 4,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_11;Arvalis_2;Arvalis_3;Arvalis_5;Arvalis_7;Arvalis_8;CIMMYT_1;CIMMYT_2;KSU_1;KSU_2;NAU_3;ULi\u00e8ge-GxABT_1;UQ_11;UQ_2;UQ_3;UQ_4;UQ_5;UQ_6;UQ_7;UQ_9;Usask_1;Utokyo_1;Utokyo_3"
+    },
+    {
+      "name": "k24_d5",
+      "k": 24,
+      "draw": 5,
+      "n_train": 600,
+      "sites": "Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_8;Arvalis_9;CIMMYT_1;Inrae_1;KSU_1;KSU_2;KSU_3;NAU_3;Rres_1;ULi\u00e8ge-GxABT_1;UQ_10;UQ_11;UQ_2;UQ_3;UQ_4;UQ_6;UQ_7;UQ_9;Ukyoto_1;Utokyo_1;Utokyo_2"
+    },
+    {
+      "name": "k24_d6",
+      "k": 24,
+      "draw": 6,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_2;Arvalis_4;Arvalis_6;Arvalis_9;CIMMYT_3;Inrae_1;KSU_1;KSU_2;KSU_3;NMBU_1;UQ_1;UQ_2;UQ_4;UQ_6;UQ_7;UQ_9;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k24_d7",
+      "k": 24,
+      "draw": 7,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_11;Arvalis_2;Arvalis_5;Arvalis_6;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_3;Inrae_1;KSU_2;NAU_1;NAU_3;NMBU_1;UQ_1;UQ_10;UQ_11;UQ_6;UQ_7;UQ_9;Ukyoto_1;Usask_1;Utokyo_1"
+    },
+    {
+      "name": "k38_d0",
+      "k": 38,
+      "draw": 0,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_2;Arvalis_5;Arvalis_6;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_2;CIMMYT_3;ETHZ_1;Inrae_1;KSU_2;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;ULi\u00e8ge-GxABT_1;UQ_1;UQ_10;UQ_11;UQ_2;UQ_3;UQ_4;UQ_5;UQ_6;UQ_7;UQ_9;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k38_d1",
+      "k": 38,
+      "draw": 1,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_2;Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_6;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_2;CIMMYT_3;ETHZ_1;Inrae_1;KSU_1;KSU_2;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;ULi\u00e8ge-GxABT_1;UQ_1;UQ_10;UQ_11;UQ_2;UQ_3;UQ_4;UQ_6;UQ_7;UQ_9;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k38_d2",
+      "k": 38,
+      "draw": 2,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_6;Arvalis_8;Arvalis_9;CIMMYT_2;CIMMYT_3;ETHZ_1;Inrae_1;KSU_1;KSU_2;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;ULi\u00e8ge-GxABT_1;UQ_1;UQ_10;UQ_11;UQ_2;UQ_3;UQ_4;UQ_5;UQ_6;UQ_7;UQ_9;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k38_d3",
+      "k": 38,
+      "draw": 3,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_2;Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_6;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_2;ETHZ_1;Inrae_1;KSU_1;KSU_2;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;ULi\u00e8ge-GxABT_1;UQ_1;UQ_10;UQ_11;UQ_3;UQ_4;UQ_5;UQ_6;UQ_7;UQ_9;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k38_d4",
+      "k": 38,
+      "draw": 4,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_2;Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_6;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_2;CIMMYT_3;ETHZ_1;KSU_1;KSU_2;KSU_3;KSU_4;NAU_1;NMBU_1;ULi\u00e8ge-GxABT_1;UQ_1;UQ_10;UQ_11;UQ_2;UQ_3;UQ_4;UQ_5;UQ_6;UQ_7;UQ_9;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_2;Utokyo_3"
+    },
+    {
+      "name": "k38_d5",
+      "k": 38,
+      "draw": 5,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_6;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_2;CIMMYT_3;ETHZ_1;Inrae_1;KSU_1;KSU_2;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;ULi\u00e8ge-GxABT_1;UQ_1;UQ_10;UQ_11;UQ_2;UQ_3;UQ_4;UQ_5;UQ_6;UQ_9;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_2"
+    },
+    {
+      "name": "k38_d6",
+      "k": 38,
+      "draw": 6,
+      "n_train": 600,
+      "sites": "ARC_1;Arvalis_1;Arvalis_12;Arvalis_2;Arvalis_3;Arvalis_5;Arvalis_6;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_2;CIMMYT_3;ETHZ_1;Inrae_1;KSU_1;KSU_2;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;ULi\u00e8ge-GxABT_1;UQ_1;UQ_10;UQ_11;UQ_2;UQ_3;UQ_4;UQ_5;UQ_6;UQ_7;UQ_9;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_3"
+    },
+    {
+      "name": "k38_d7",
+      "k": 38,
+      "draw": 7,
+      "n_train": 600,
+      "sites": "Arvalis_1;Arvalis_11;Arvalis_12;Arvalis_2;Arvalis_3;Arvalis_4;Arvalis_5;Arvalis_6;Arvalis_7;Arvalis_8;Arvalis_9;CIMMYT_1;CIMMYT_2;CIMMYT_3;ETHZ_1;Inrae_1;KSU_1;KSU_2;KSU_3;KSU_4;NAU_1;NAU_3;NMBU_1;Rres_1;ULi\u00e8ge-GxABT_1;UQ_1;UQ_11;UQ_2;UQ_3;UQ_4;UQ_5;UQ_6;UQ_7;Ukyoto_1;Usask_1;Utokyo_1;Utokyo_2;Utokyo_3"
+    }
+  ]
+}

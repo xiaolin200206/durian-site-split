@@ -1,0 +1,16 @@
+﻿dataset,component,variance,share_pct
+GWHD,fold (training set),0.00090736,4.05
+GWHD,unit within fold,0.01410182,62.87
+GWHD,model,0.00013303,0.59
+GWHD,seed,0.00065021,2.9
+GWHD,residual,0.00663838,29.59
+BreaKHis,fold (training set),0.0,0.0
+BreaKHis,unit within fold,0.02956766,86.8
+BreaKHis,model,0.0,0.0
+BreaKHis,seed,1.239e-05,0.04
+BreaKHis,residual,0.00448429,13.16
+HAR,fold (training set),6.669e-05,1.86
+HAR,unit within fold,0.00293251,81.76
+HAR,model,0.00018177,5.07
+HAR,seed,0.0,0.0
+HAR,residual,0.00040593,11.32

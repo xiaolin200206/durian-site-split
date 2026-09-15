@@ -1,0 +1,27 @@
+# Reproducing every number in the manuscript needs only these.
+# `python verify_claims.py` runs on CPU in a few minutes and touches no
+# model weights and no image data — it recomputes all 185 quantitative
+# claims from the released result tables.
+pandas>=2.0
+numpy>=1.24
+scipy>=1.11
+
+# Figures (scripts/analyse/make_figures_clean.py)
+matplotlib>=3.7
+
+# ---------------------------------------------------------------------------
+# NOT needed to reproduce the manuscript. Required only to re-run training or
+# to rebuild the corpus from the original photographs, both of which need GPUs
+# and several days. Listed so the training scripts in scripts/clean/ can be
+# read and audited against the environment they ran in.
+#
+# ultralytics>=8.3        YOLO11 and RT-DETR training and evaluation
+# torch>=2.1              Faster R-CNN (torchvision) and the timm classifier
+# torchvision>=0.16
+# torchmetrics>=1.2       COCO-style mAP for the Faster R-CNN runs
+# pycocotools>=2.0        backend for the above
+# timm>=1.0               cross-family classifier on BreaKHis
+# scikit-learn>=1.3       HAR perceptron and random forest
+# pyyaml>=6.0             split manifests
+# pillow>=10.0            corpus preparation
+# pillow-heif>=0.13       HEIC decoding from the field captures

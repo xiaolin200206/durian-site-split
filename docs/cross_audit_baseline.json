@@ -1,0 +1,39 @@
+{
+ "BreaKHis patients": [],
+ "GWHD sessions": [],
+ "HAR subjects": [],
+ "Sabah trees": [],
+ "checkpoint combinations": [],
+ "d range": [],
+ "durian bursts": [],
+ "durian farms": [
+  2,
+  3,
+  4,
+  6,
+  7,
+  8
+ ],
+ "heterogeneity share": [],
+ "model pairs resolvable": [
+  4
+ ],
+ "overstatement range": [
+  3.7,
+  47.8
+ ],
+ "re-validations": [],
+ "resampling draws": [
+  5.0,
+  6.0,
+  40.0,
+  1500.0,
+  3000.0,
+  4000.0,
+  6000.0
+ ],
+ "runs total": [
+  135.0
+ ],
+ "unit component": []
+}

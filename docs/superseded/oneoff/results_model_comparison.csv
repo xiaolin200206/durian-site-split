@@ -1,0 +1,10 @@
+﻿dataset,pair,n_units,mean_diff,sd_diff,d,flip_k5,k_for_5pct,flip_k10,flip_k16,flip_k32
+Durian farms,rtdetr-l vs yolo11m,8,0.025,0.0288,0.87,0.0,4,,,
+Durian farms,rtdetr-l vs yolo11n,8,0.0242,0.0585,0.414,0.072,16,,,
+Durian farms,rtdetr-l vs yolo11s,8,0.0346,0.0364,0.95,0.0,3,,,
+Durian farms,yolo11m vs yolo11n,8,-0.0008,0.0398,0.02,0.473,6519,,,
+Durian farms,yolo11m vs yolo11s,8,0.0095,0.0237,0.402,0.051,17,,,
+Durian farms,yolo11n vs yolo11s,8,0.0103,0.0295,0.351,0.124,22,,,
+GWHD sessions,yolo11n vs yolo11s,47,-0.019,0.0476,0.399,0.177,18,0.084,0.022,0.0
+BreaKHis patients,yolo11n-cls vs yolo11s-cls,81,0.0042,0.0499,0.084,0.412,384,0.38,0.37,0.275
+HAR subjects,mlp256 vs rf,30,0.0192,0.037,0.519,0.09,11,0.019,0.0,

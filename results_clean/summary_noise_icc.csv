@@ -1,0 +1,25 @@
+﻿dataset,model,rho,mean_design_effect,noise_share,het_share,rho_for_half_variance
+BreaKHis patients,yolo11n-cls,0.0,1.0,1.71,99.14,
+BreaKHis patients,yolo11n-cls,0.05,5.83,8.8,95.5,
+BreaKHis patients,yolo11n-cls,0.1,10.66,15.89,91.71,
+BreaKHis patients,yolo11n-cls,0.2,20.33,30.07,83.63,
+BreaKHis patients,yolo11n-cls,0.5,49.32,72.6,52.35,
+BreaKHis patients,yolo11n-cls,-1.0,,,,0.345
+BreaKHis patients,yolo11s-cls,0.0,1.0,3.17,98.4,
+BreaKHis patients,yolo11s-cls,0.05,5.83,9.14,95.32,
+BreaKHis patients,yolo11s-cls,0.1,10.66,16.5,91.38,
+BreaKHis patients,yolo11s-cls,0.2,20.33,31.21,82.94,
+BreaKHis patients,yolo11s-cls,0.5,49.32,75.36,49.63,
+BreaKHis patients,yolo11s-cls,-1.0,,,,0.33
+HAR subjects,mlp256,0.0,1.0,5.88,97.02,
+HAR subjects,mlp256,0.05,18.12,103.88,0.0,
+HAR subjects,mlp256,0.1,35.23,201.89,0.0,
+HAR subjects,mlp256,0.2,69.46,397.9,0.0,
+HAR subjects,mlp256,0.5,172.15,985.95,0.0,
+HAR subjects,mlp256,-1.0,,,,0.025
+HAR subjects,rf,0.0,1.0,5.45,97.24,
+HAR subjects,rf,0.05,18.12,96.11,19.72,
+HAR subjects,rf,0.1,35.23,186.77,0.0,
+HAR subjects,rf,0.2,69.46,368.09,0.0,
+HAR subjects,rf,0.5,172.15,912.04,0.0,
+HAR subjects,rf,-1.0,,,,0.025

@@ -1,0 +1,9 @@
+﻿dataset,component,random_effect,fixed_effect
+durian,unit,82.37,82.79
+durian,model,0.0,0.72
+durian,interaction,7.79,7.67
+durian,seed,9.84,8.83
+durian6,unit,,80.19
+durian6,model,,0.68
+durian6,interaction,,8.74
+durian6,seed,,10.39

@@ -1,0 +1,11 @@
+{
+  "peninsula": {
+    "gap_seconds": 15,
+    "min_images": 3,
+    "pool_images": 829,
+    "bursts_all": 225,
+    "bursts_kept": 64,
+    "images_covered": 333,
+    "coverage_fraction": 0.4017
+  }
+}

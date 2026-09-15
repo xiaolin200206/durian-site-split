@@ -1,0 +1,56 @@
+{
+ "inner_frac": 0.1,
+ "inner_seed": 20260911,
+ "folds": {
+  "domain_fold0": {
+   "outer_val": 1303,
+   "inner_train": 4686,
+   "inner_val": 521
+  },
+  "domain_fold1": {
+   "outer_val": 1304,
+   "inner_train": 4685,
+   "inner_val": 521
+  },
+  "domain_fold2": {
+   "outer_val": 1302,
+   "inner_train": 4687,
+   "inner_val": 521
+  },
+  "domain_fold3": {
+   "outer_val": 1302,
+   "inner_train": 4687,
+   "inner_val": 521
+  },
+  "domain_fold4": {
+   "outer_val": 1299,
+   "inner_train": 4690,
+   "inner_val": 521
+  },
+  "random_fold0": {
+   "outer_val": 1302,
+   "inner_train": 4687,
+   "inner_val": 521
+  },
+  "random_fold1": {
+   "outer_val": 1302,
+   "inner_train": 4687,
+   "inner_val": 521
+  },
+  "random_fold2": {
+   "outer_val": 1302,
+   "inner_train": 4687,
+   "inner_val": 521
+  },
+  "random_fold3": {
+   "outer_val": 1302,
+   "inner_train": 4687,
+   "inner_val": 521
+  },
+  "random_fold4": {
+   "outer_val": 1302,
+   "inner_train": 4687,
+   "inner_val": 521
+  }
+ }
+}

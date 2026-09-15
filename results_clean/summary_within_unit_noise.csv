@@ -1,0 +1,5 @@
+﻿dataset,model,n_units,sd_between,mean_se_within,sd_heterogeneity,noise_share_of_variance
+BreaKHis patients,yolo11n-cls,81,0.2133,0.028,0.2114,1.72
+BreaKHis patients,yolo11s-cls,81,0.2174,0.0289,0.2155,1.76
+HAR subjects,mlp256,30,0.0472,0.0114,0.0458,5.82
+HAR subjects,rf,30,0.0559,0.013,0.0543,5.41

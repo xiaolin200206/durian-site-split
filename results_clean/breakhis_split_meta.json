@@ -1,0 +1,67 @@
+{
+ "inner_frac": 0.1,
+ "inner_seed": 20260911,
+ "inner_split_level": "patient",
+ "folds": {
+  "random_fold0": {
+   "outer": 1582,
+   "inner_train": 5562,
+   "inner_val": 765,
+   "inner_val_patients": 10
+  },
+  "random_fold1": {
+   "outer": 1582,
+   "inner_train": 5563,
+   "inner_val": 764,
+   "inner_val_patients": 10
+  },
+  "random_fold2": {
+   "outer": 1582,
+   "inner_train": 5587,
+   "inner_val": 740,
+   "inner_val_patients": 10
+  },
+  "random_fold3": {
+   "outer": 1582,
+   "inner_train": 5603,
+   "inner_val": 724,
+   "inner_val_patients": 10
+  },
+  "random_fold4": {
+   "outer": 1581,
+   "inner_train": 5581,
+   "inner_val": 747,
+   "inner_val_patients": 10
+  },
+  "patient_fold0": {
+   "outer": 1572,
+   "inner_train": 5636,
+   "inner_val": 701,
+   "inner_val_patients": 8
+  },
+  "patient_fold1": {
+   "outer": 1602,
+   "inner_train": 5503,
+   "inner_val": 804,
+   "inner_val_patients": 7
+  },
+  "patient_fold2": {
+   "outer": 1556,
+   "inner_train": 5562,
+   "inner_val": 791,
+   "inner_val_patients": 7
+  },
+  "patient_fold3": {
+   "outer": 1598,
+   "inner_train": 5618,
+   "inner_val": 693,
+   "inner_val_patients": 9
+  },
+  "patient_fold4": {
+   "outer": 1581,
+   "inner_train": 5688,
+   "inner_val": 640,
+   "inner_val_patients": 6
+  }
+ }
+}

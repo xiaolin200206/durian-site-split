@@ -1,0 +1,23 @@
+# data and weights are not in the repository
+*.pt
+*.onnx
+*.zip
+images/
+labels/
+runs/
+dataset_store/
+splits*/
+*.jpg
+*.jpeg
+*.png
+*.HEIC
+*.heic
+
+# but the result tables are
+!results/*.csv
+!results/*.json
+
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store

@@ -1,0 +1,25 @@
+﻿dataset,model,icc,deff,noise_share,het_share
+BreaKHis patients,yolo11n-cls,0.0,1.0,3.41,98.28
+BreaKHis patients,yolo11n-cls,0.05,5.83,11.68,93.98
+BreaKHis patients,yolo11n-cls,0.1,10.66,19.95,89.47
+BreaKHis patients,yolo11n-cls,0.2,20.33,36.49,79.7
+BreaKHis patients,yolo11n-cls,0.3,29.99,53.02,68.54
+BreaKHis patients,yolo11n-cls,0.5,49.32,86.1,37.28
+BreaKHis patients,yolo11s-cls,0.0,1.0,4.95,97.49
+BreaKHis patients,yolo11s-cls,0.05,5.83,13.56,92.97
+BreaKHis patients,yolo11s-cls,0.1,10.66,22.17,88.22
+BreaKHis patients,yolo11s-cls,0.2,20.33,39.39,77.85
+BreaKHis patients,yolo11s-cls,0.3,29.99,56.61,65.87
+BreaKHis patients,yolo11s-cls,0.5,49.32,91.04,29.93
+HAR subjects,mlp256,0.0,1.0,6.26,96.82
+HAR subjects,mlp256,0.05,18.12,106.83,0.0
+HAR subjects,mlp256,0.1,35.23,207.41,0.0
+HAR subjects,mlp256,0.2,69.46,408.56,0.0
+HAR subjects,mlp256,0.3,103.69,609.71,0.0
+HAR subjects,mlp256,0.5,172.15,1012.01,0.0
+HAR subjects,rf,0.0,1.0,5.57,97.17
+HAR subjects,rf,0.05,18.12,98.88,10.6
+HAR subjects,rf,0.1,35.23,192.18,0.0
+HAR subjects,rf,0.2,69.46,378.78,0.0
+HAR subjects,rf,0.3,103.69,565.39,0.0
+HAR subjects,rf,0.5,172.15,938.6,0.0

@@ -1,0 +1,10 @@
+farm,n_images,hour_median,midday_share,solar_median,focal_median_mm,focal_dominant_mm,focal_dominant_share,focal_n_distinct,focal_missing,focal_mixed,devices,n_devices,dates,gps_share,farm_source
+0,141,9.967,0.2766,39.19,6.76,6.76,0.8227,4,0,True,iPhone 13;iPhone 16 Pro Max,2,1,0.9858,gps:139;time_between:2
+1,102,17.858,0.0,18.37,6.76,6.76,0.7157,2,0,True,iPhone 16 Pro Max,1,1,1.0,gps:102
+2,147,14.35,0.9864,62.0,6.76,6.76,0.5374,4,0,True,iPhone 13 Pro;iPhone 16 Pro Max,2,2,0.6395,gps:94;time_between:53
+3,62,14.433,1.0,57.72,6.76,6.76,0.5161,2,0,True,iPhone 16 Pro Max,1,1,1.0,gps:62
+4,101,13.85,1.0,66.19,5.7,6.76,0.4059,3,0,True,iPhone 13 Pro;iPhone 16 Pro Max,2,1,0.7426,gps:75;time_between:26
+5,135,13.05,1.0,72.06,5.7,5.7,0.4815,4,0,True,iPhone 13 Pro;iPhone 16 Pro Max,2,1,0.4444,time_between:75;gps:60
+6,82,10.067,0.5976,40.42,6.76,6.76,0.5244,2,0,True,iPhone 16 Pro Max,1,2,1.0,gps:82
+7,57,12.867,1.0,68.65,2.22,2.22,0.6491,2,0,True,iPhone 16 Pro Max,1,1,1.0,gps:57
+8,2,13.841,1.0,65.65,4.49,2.22,0.5,2,0,True,iPhone 16 Pro Max,1,2,1.0,gps:2

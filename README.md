@@ -141,7 +141,7 @@ images at 640 × 640 with coordinates stripped, content-based farm attribution,
 tree identifiers, and all split manifests. GWHD 2021, BreaKHis and UCI HAR are
 public; the scripts that reproduce our processing of them are here.
 
-This repository is archived at https://doi.org/10.5281/zenodo.22031684.
+This repository is archived at https://doi.org/10.5281/zenodo.22764830.
 
 ## Citation
 

@@ -72,8 +72,20 @@ def P(root):
 
 def capture_order(stems, meta):
     """按拍摄顺序排 stem。meta: stem -> 可排序的时间字符串。"""
-    if meta and all(s.lower() in meta for s in stems):
-        return sorted(stems, key=lambda s: (meta[s.lower()], s)), "timestamp"
+    if meta:
+        hit = [s for s in stems if norm(s) in meta]
+        if len(hit) >= 0.95 * len(stems):
+            # 少数没有时间戳的图放到按计数器最接近的有时间戳图旁边
+            def num(s):
+                m = re.search(r"(\d{3,5})", s)
+                return int(m.group(1)) if m else 0
+            timed = sorted(hit, key=lambda s: num(s))
+            def key(s):
+                if norm(s) in meta:
+                    return (meta[norm(s)], s)
+                near = min(timed, key=lambda t: abs(num(t) - num(s)))
+                return (meta[norm(near)], s)
+            return sorted(stems, key=key), f"timestamp {len(hit)}/{len(stems)}"
 
     def num(s):
         m = re.search(r"(\d{3,5})", s)
@@ -93,8 +105,17 @@ def load_meta(path):
     scol = next((c for c in ("stem", "file", "filename", "image") if c in rows[0]), None)
     if not tcol or not scol:
         sys.exit(f"--meta 需要 stem 列和时间列；现有 {list(rows[0])}")
-    return {os.path.splitext(os.path.basename(r[scol]))[0].lower(): r[tcol]
-            for r in rows if r.get(tcol)}
+    return {norm(os.path.splitext(os.path.basename(r[scol]))[0]): r[tcol].strip()
+            for r in rows if (r.get(tcol) or "").strip()}
+
+
+def norm(stem):
+    """IMG_2395-HEIC / IMG_2395.HEIC / img_2395 -> img_2395"""
+    s = stem.strip().lower()
+    for suf in ("-heic", "_heic", ".heic"):
+        if s.endswith(suf):
+            s = s[: -len(suf)]
+    return s
 
 
 def step_build(a, p):
@@ -107,7 +128,7 @@ def step_build(a, p):
     farms = sorted(by_farm, key=int)
 
     jobs, splits = [], {}
-    print(f"  {'farm':>4}{'排序依据':>14}{'校准池':>8}{'测试':>6}  (两个方向)")
+    print(f"  {'farm':>4}  {'排序依据':<22}{'校准池':>8}{'测试':>6}  (两个方向)")
     for h in farms:
         order, how = capture_order(list(by_farm[h]), meta)
         half = len(order) // 2
@@ -147,7 +168,7 @@ def step_build(a, p):
                              "m": m, "n_calib": len(c), "n_train": len(tr),
                              "epochs": ep, "batch": b, "test": base})
         s0 = splits[f"nf_h{h}_dir0"]
-        print(f"  {h:>4}{how:>14}{s0['n_calib_pool']:>8}{s0['n_test']:>6}")
+        print(f"  {h:>4}  {how:<22}{s0['n_calib_pool']:>8}{s0['n_test']:>6}")
 
     os.makedirs(p["splits"], exist_ok=True)
     json.dump({"splits": splits, "jobs": jobs, "ft": {"iters": FT_ITERS, "lr0": FT_LR,

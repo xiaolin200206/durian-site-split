@@ -2,6 +2,20 @@
 
 ---
 
+# v5 — 应用版重塑（2026-09-28）。**这一节取代下面的一切。**
+
+PR-D-26-13571（Pattern Recognition）已撤。新版只做榴莲，问的是"新果园要付多少代价"。
+计划、已有数字、新文章结构：`docs/applied_reshape_plan.md`。
+
+新增 `scripts/applied/`：
+- `per_class_transfer.py` —— 不训练，已跑，结果在 `results_applied/per_class_*.csv`
+- `farm_budget.py` —— RQ2，更多果园还是更多照片（336 run）
+- `new_farm_calibration.py` —— RQ3，新果园拍几张校准（192 run，依赖 RQ2 的 k=7 m=all）
+- `analyse_applied.py` —— 两个实验的表和图；用合成数据测过
+
+三个训练脚本在 CPU 上用假图端到端试跑过（build/train/eval 全通，Ultralytics 8.4）。
+训练协议：held-out 果园不进任何训练决策，不留内层验证、不早停、固定步数、评 last.pt。
+
 # v4 — 干净协议（2026-09-15）。**这一节取代下面的一切。**
 
 ## 一句话

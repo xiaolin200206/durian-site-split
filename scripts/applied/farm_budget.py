@@ -63,6 +63,7 @@ ITERS = 2000
 EPOCH_MIN, EPOCH_MAX = 100, 300
 BATCH = 32
 DESIGN_SEED = 20260928
+MIN_FARM_IMAGES = 20
 SKIP_DIRS = {"runs", "splits", "clean_splits", "fb_splits", "fb_runs",
              "nf_splits", "nf_runs", "sc_splits", "sc_runs",
              "results_v2", "results_clean", "results_applied"}
@@ -118,7 +119,17 @@ def load_manifest(root, manifest):
                         (r.get("primary") or "-1").strip(), os.path.abspath(ip)))
         else:
             miss.append(r["stem"])
-    print(f"manifest {mp}: {len(rows)} 行，找到图 {len(out)}，缺 {len(miss)}")
+    # 只留分析池：farm 是非负整数且至少 MIN_FARM_IMAGES 张（论文的 8 个果园）
+    from collections import Counter
+    cnt = Counter(f for _, f, _, _ in out)
+    keep = {f for f, n in cnt.items()
+            if f.lstrip("-").isdigit() and int(f) >= 0 and n >= MIN_FARM_IMAGES}
+    dropped = {f: n for f, n in cnt.items() if f not in keep}
+    out = [r for r in out if r[1] in keep]
+    if dropped:
+        print(f"  不进分析池的 farm（未归属或少于 {MIN_FARM_IMAGES} 张）: {dropped}")
+    print(f"manifest {mp}: {len(rows)} 行，找到图 {len(out) + sum(dropped.values())}，"
+          f"缺 {len(miss)}，分析池 {len(out)} 张 / {len(keep)} 个果园")
     if miss:
         print("  缺的前几个:", miss[:5])
         if len(miss) > 0.02 * len(rows):

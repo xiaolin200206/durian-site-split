@@ -30,7 +30,8 @@ def main():
 
     # Note S1
     out += ["## Note S1. Training details", "",
-            "**Leave-one-farm-out and random-split runs (Sections 2.4–2.5).** Ultralytics 8.x. "
+            "**Leave-one-farm-out and random-split runs (Sections 2.4–2.5).** Ultralytics 8 (version "
+            "8.4.138 for the data-budget and calibration runs). "
             "YOLO11n, YOLO11s, YOLO11m, YOLO11l and RT-DETR-L: COCO-pretrained, 640 px, up to 150 "
             "epochs, patience 50, batch 32, 32, 16, 8 and 24 respectively, five seeds (42, 1, 2, 3, 4), "
             "default augmentation. Faster R-CNN ResNet-50 FPN (torchvision, improved recipe): "

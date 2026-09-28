@@ -33,7 +33,7 @@ import pandas as pd
 
 NAMES = ["Algal", "Leaf_rot", "Phomopsis", "Psyllid", "Psyllid_damage",
          "leaf_hopper_damage"]
-LABEL = {"Algal": "Algal spot", "Leaf_rot": "Leaf rot", "Phomopsis": "Phomopsis",
+LABEL = {"Algal": "Algal spot", "Leaf_rot": "Leaf rot", "Phomopsis": r"$\it{Phomopsis}$",
          "Psyllid": "Psyllid", "Psyllid_damage": "Psyllid damage",
          "leaf_hopper_damage": "Leafhopper damage"}
 PEST = {"Psyllid", "Psyllid_damage", "leaf_hopper_damage"}
@@ -292,7 +292,8 @@ def rq1(root, out, N):
         sens[c] = {"farms": len(far), "retained_pct": rd(np.mean(vals), 0)}
     N["per_class_sensitivity_min10"] = sens
     fig1(t1, out)
-    fig2(w, per_farm, fm, t2, out)
+    rfw = N.get("random_split_farm_weighted")
+    fig2(w, per_farm, fm, t2, out, np.mean(list(rfw.values())) if rfw else None)
     return t1
 
 
@@ -321,14 +322,12 @@ def fig1(t1, out):
     ax.set_yticks(np.arange(-.5, M.shape[0]), minor=True)
     ax.grid(which="minor", color=SURF, lw=2)
     ax.tick_params(which="minor", length=0)
-    ax.set_title("Images containing each class, by farm (total images per farm in brackets)",
-                 loc="left", fontsize=8.5, color=INK)
     fig.tight_layout()
     save(fig, out, "fig1_data")
     plt.close(fig)
 
 
-def fig2(w, per_farm, fm, t2, out):
+def fig2(w, per_farm, fm, t2, out, rfw=None):
     import matplotlib; matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     fig, (a, b) = plt.subplots(1, 2, figsize=(7.2, 3.0), gridspec_kw={"width_ratios": [1.1, 1]})
@@ -338,14 +337,18 @@ def fig2(w, per_farm, fm, t2, out):
     x = np.arange(len(order))
     rs = fm.item.mean()
     a.axhline(rs, color=INK2, lw=1, ls="--")
-    a.annotate(f"random split (mean of six detectors), {rs:.2f}", (-0.3, rs), xytext=(0, 4),
-               textcoords="offset points", ha="left", fontsize=7, color=INK2)
+    a.annotate(f"random split, pooled (mean of six detectors), {rs:.2f}", (-0.3, rs), xytext=(0, 4),
+               textcoords="offset points", ha="left", fontsize=6.8, color=INK2)
+    if rfw is not None:
+        a.axhline(rfw, color=INK2, lw=1, ls=":")
+        a.annotate(f"random split, farm-weighted (mean of five detectors), {rfw:.2f}", (-0.3, rfw),
+                   xytext=(0, -9), textcoords="offset points", ha="left", fontsize=6.8, color=INK2)
     for m in w.columns:
         a.plot(x, w.loc[order, m], "o", ms=3.5, color=MUTED, alpha=.8, mec="none", zorder=2)
     a.plot(x, per_farm[order], "D", ms=6.5, color=ACCENT, mec=SURF, mew=1.5, zorder=3,
            label="mean of six detectors")
     a.set_xticks(x, [f"F{f}" for f in order], fontsize=7.5)
-    a.set_ylim(0, 0.55)
+    a.set_ylim(0, 0.6)
     a.set_ylabel("mAP50", fontsize=8, color=INK2)
     a.set_xlabel("Held-out farm (ordered by difficulty)", fontsize=8, color=INK2)
     a.plot([], [], "o", ms=3.5, color=MUTED, label="each detector")
@@ -637,11 +640,7 @@ def fig3(grid, eqrows, eq, out):
             a.plot([r.train_images] * 2, [r.ci_lo, r.ci_hi], color=c, lw=1, alpha=.45, zorder=1)
             a.plot(r.train_images, r.unseen_farm_mAP50, marker[r.m], ms=6, color=c, mec=SURF,
                    mew=1.5, zorder=3)
-        last = g.iloc[-1]
-        off, ha = {2: ((6, -10), "left"), 4: ((7, 0), "left")}.get(k, ((5, 0), "left"))
-        a.annotate(f"{k} farm" + ("s" if k > 1 else ""), (last.train_images, last.unseen_farm_mAP50),
-                   xytext=off, textcoords="offset points", va="center", ha=ha, fontsize=7.5,
-                   color=INK)
+        a.plot([], [], "-", color=c, lw=2, label=f"{k} farm" + ("s" if k > 1 else ""))
     a.set_xscale("log")
     a.xaxis.set_major_locator(FixedLocator([15, 30, 60, 100, 200, 400, 700]))
     a.xaxis.set_minor_locator(NullLocator())
@@ -650,10 +649,11 @@ def fig3(grid, eqrows, eq, out):
     a.set_ylim(0, 0.32)
     a.set_xlabel("Training images (log scale)", fontsize=8, color=INK2)
     a.set_ylabel("mAP50 on the unseen farm", fontsize=8, color=INK2)
-    for m, lab in (("15", "15 per farm"), ("50", "50 per farm"), ("all", "all photos")):
+    for m, lab in (("15", "15 images per farm"), ("50", "50 images per farm"), ("all", "all images")):
         a.plot([], [], marker[m], color=INK2, ms=5, ls="none", label=lab)
-    a.legend(frameon=False, fontsize=7, loc="upper left", labelcolor=INK2)
-    panel(a, "a", "More farms or more photos per farm?")
+    a.legend(frameon=False, fontsize=6.8, loc="upper left", labelcolor=INK2, ncol=2,
+             columnspacing=1.0, handlelength=1.6)
+    panel(a, "a", "More farms or more images per farm?")
 
     y = np.arange(len(eq))[::-1]
     b.axvline(0, color=INK2, lw=0.9)
@@ -668,9 +668,9 @@ def fig3(grid, eqrows, eq, out):
                  fontsize=6.8)
     b.set_xlabel("Δ mAP50, more farms minus fewer farms", fontsize=8, color=INK2)
     b.grid(axis="x", color=GRID, lw=0.7)
-    b.annotate("more farms better →", (0.98, 0.99), xycoords="axes fraction", ha="right",
-               va="top", fontsize=6.8, color=INK2)
-    panel(b, "b", "Same image budget, per farm")
+    b.set_xlabel("Δ mAP50, more farms minus fewer farms\n(positive: more farms better)",
+                 fontsize=7.5, color=INK2)
+    panel(b, "b", "Matched image budgets")
     fig.tight_layout()
     save(fig, out, "fig3_budget")
     plt.close(fig)
@@ -684,20 +684,20 @@ def fig4(pk, out):
     style(ax)
     ks = list(pk.index)
     order = sorted(NAMES, key=lambda c: -pk.loc[7, c])
+    mk = dict(zip(NAMES, ["o", "s", "^", "D", "v", "P"]))
     for c in order:
         pest = c in {"Psyllid", "Psyllid_damage"}
         col = ACCENT2 if pest else ACCENT
-        ax.plot(ks, pk[c], "-o", color=col, lw=1.8 if pest else 1.4, ms=5, mec=SURF, mew=1.2,
-                alpha=1 if pest else .75)
+        ax.plot(ks, pk[c], "-", marker=mk[c], color=col, lw=1.8 if pest else 1.4, ms=5.5,
+                mec=SURF, mew=1.0, alpha=1 if pest else .8)
         ax.annotate(LABEL[c], (ks[-1], pk.loc[ks[-1], c]), xytext=(5, 0),
                     textcoords="offset points", va="center", fontsize=7, color=INK)
     ax.set_xscale("log", base=2)
     ax.set_xticks(ks, [str(k) for k in ks])
     ax.set_xlim(0.85, 16)
     ax.set_ylim(0, 0.42)
-    ax.set_xlabel("Training farms (all photos)", fontsize=8, color=INK2)
+    ax.set_xlabel("Training farms (all images per farm)", fontsize=8, color=INK2)
     ax.set_ylabel("AP50 on the unseen farm", fontsize=8, color=INK2)
-    ax.set_title("Psyllid classes gain least from more farms", loc="left", fontsize=9, color=INK)
     fig.tight_layout()
     save(fig, out, "fig4_class_by_k")
     plt.close(fig)

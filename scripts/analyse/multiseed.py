@@ -40,7 +40,7 @@ import pandas as pd
 import yaml
 
 # ---------------------------------------------------------------- settings --
-BASE = (r"C:\Users\Lim Ding Shan\Desktop\Durian project and paper"
+BASE = (r"C:\path\to\workdir\Durian project and paper"
         r"\durian_for_nature_food")
 SPLITS = os.path.join(BASE, "dataset_store", "splits_A")
 

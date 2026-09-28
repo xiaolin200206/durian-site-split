@@ -1,0 +1,772 @@
+{
+ "farms": {
+  "n_farms": 8,
+  "images": 827,
+  "min_images": 57,
+  "max_images": 147,
+  "boxes": 13134,
+  "images_with_boxes": 733,
+  "images_without_boxes": 94,
+  "classes_present_per_farm": {
+   "0": 5,
+   "1": 5,
+   "2": 6,
+   "3": 4,
+   "4": 5,
+   "5": 6,
+   "6": 4,
+   "7": 4
+  },
+  "farms_per_class": {
+   "Algal": 7,
+   "Leaf_rot": 8,
+   "Phomopsis": 3,
+   "Psyllid": 7,
+   "Psyllid_damage": 6,
+   "leaf_hopper_damage": 8
+  },
+  "classes_present_min": 4,
+  "classes_present_max": 6
+ },
+ "headline": {
+  "frcnn-r50": {
+   "random_split": 0.3656,
+   "unseen_farm": 0.222,
+   "drop_pct": 39.3
+  },
+  "rtdetr-l": {
+   "random_split": 0.4987,
+   "unseen_farm": 0.2205,
+   "drop_pct": 55.8
+  },
+  "yolo11l": {
+   "random_split": 0.4721,
+   "unseen_farm": 0.2356,
+   "drop_pct": 50.1
+  },
+  "yolo11m": {
+   "random_split": 0.4652,
+   "unseen_farm": 0.2332,
+   "drop_pct": 49.9
+  },
+  "yolo11n": {
+   "random_split": 0.4281,
+   "unseen_farm": 0.2234,
+   "drop_pct": 47.8
+  },
+  "yolo11s": {
+   "random_split": 0.4622,
+   "unseen_farm": 0.2137,
+   "drop_pct": 53.8
+  }
+ },
+ "sabah_clean": {
+  "rtdetr-l": 0.2671,
+  "yolo11l": 0.2814,
+  "yolo11m": 0.2627,
+  "yolo11n": 0.2577,
+  "yolo11s": 0.2553
+ },
+ "headline_range": {
+  "random_min": 0.366,
+  "random_max": 0.499,
+  "unseen_min": 0.214,
+  "unseen_max": 0.236,
+  "drop_min": 39.3,
+  "drop_max": 55.8,
+  "drop_one_stage_min": 47.8,
+  "random_mean": 0.449,
+  "ratio_min": 1.65,
+  "ratio_max": 2.26,
+  "sabah_min": 0.255,
+  "sabah_max": 0.281,
+  "peninsula_five_min": 0.214,
+  "peninsula_five_max": 0.236
+ },
+ "per_farm": {
+  "mean_over_detectors": {
+   "0": 0.195,
+   "1": 0.356,
+   "2": 0.118,
+   "3": 0.3,
+   "4": 0.253,
+   "5": 0.261,
+   "6": 0.094,
+   "7": 0.22
+  },
+  "min": 0.094,
+  "max": 0.356,
+  "ratio_best_worst": 3.8,
+  "mean_pairwise_spearman": 0.85,
+  "min_pairwise_spearman": 0.62,
+  "min_pair": [
+   "yolo11n",
+   "rtdetr-l"
+  ],
+  "same_two_worst_all_detectors": true,
+  "two_worst": [
+   2,
+   6
+  ],
+  "max_range_within_farm": 0.149,
+  "max_farms_won_by_one_detector": 3,
+  "detectors_winning_a_farm": 4
+ },
+ "seed_sd_yolo11n_per_farm": 0.026,
+ "detector_gap": {
+  "best": "yolo11l",
+  "best_unseen": 0.236,
+  "yolo11n_unseen": 0.223,
+  "yolo11n_below_best": 0.012
+ },
+ "capture": {
+  "farms_single_date": 6,
+  "farms_two_dates": 2,
+  "farms_two_devices": 4
+ },
+ "box_side_px": {
+  "Algal": 14.0,
+  "Leaf_rot": 60.0,
+  "Phomopsis": 5.0,
+  "Psyllid": 6.0,
+  "Psyllid_damage": 8.0,
+  "leaf_hopper_damage": 82.0
+ },
+ "variance_shares": {
+  "models": "rtdetr-l,yolo11l,yolo11m,yolo11n,yolo11s",
+  "unit": 82.4,
+  "model": 0.0,
+  "interaction": 7.8,
+  "seed": 9.8,
+  "fold": null,
+  "residual": null
+ },
+ "model_pairs": {
+  "n_pairs": 15,
+  "max_abs_mean_diff": 0.022
+ },
+ "checkpoint_leakage_yolo11n": {
+  "drop_pct_if_heldout_selects": 37.4,
+  "drop_pct_clean": 47.8,
+  "understated_by_points": 10.4
+ },
+ "per_class": {
+  "Algal": {
+   "farms": 7,
+   "random_split": 0.504,
+   "unseen_farm": 0.272,
+   "retained_pct": 53.953,
+   "unseen_min": 0.0,
+   "unseen_max": 0.646,
+   "yolo11n_random": 0.5,
+   "yolo11n_unseen": 0.254
+  },
+  "Leaf_rot": {
+   "farms": 8,
+   "random_split": 0.488,
+   "unseen_farm": 0.236,
+   "retained_pct": 48.459,
+   "unseen_min": 0.0,
+   "unseen_max": 0.461,
+   "yolo11n_random": 0.47,
+   "yolo11n_unseen": 0.274
+  },
+  "Phomopsis": {
+   "farms": 3,
+   "random_split": 0.46,
+   "unseen_farm": 0.266,
+   "retained_pct": 57.736,
+   "unseen_min": 0.205,
+   "unseen_max": 0.366,
+   "yolo11n_random": 0.391,
+   "yolo11n_unseen": 0.217
+  },
+  "Psyllid": {
+   "farms": 7,
+   "random_split": 0.41,
+   "unseen_farm": 0.125,
+   "retained_pct": 30.35,
+   "unseen_min": 0.032,
+   "unseen_max": 0.266,
+   "yolo11n_random": 0.352,
+   "yolo11n_unseen": 0.099
+  },
+  "Psyllid_damage": {
+   "farms": 6,
+   "random_split": 0.337,
+   "unseen_farm": 0.087,
+   "retained_pct": 25.431,
+   "unseen_min": 0.018,
+   "unseen_max": 0.286,
+   "yolo11n_random": 0.275,
+   "yolo11n_unseen": 0.055
+  },
+  "leaf_hopper_damage": {
+   "farms": 8,
+   "random_split": 0.592,
+   "unseen_farm": 0.349,
+   "retained_pct": 59.065,
+   "unseen_min": 0.137,
+   "unseen_max": 0.689,
+   "yolo11n_random": 0.581,
+   "yolo11n_unseen": 0.371
+  }
+ },
+ "per_class_summary": {
+  "psyllid_retained_range": [
+   25.0,
+   30.0
+  ],
+  "other_retained_range": [
+   48.0,
+   59.0
+  ]
+ },
+ "per_class_sensitivity_min10": {
+  "Algal": {
+   "farms": 5,
+   "retained_pct": 75.0
+  },
+  "Leaf_rot": {
+   "farms": 6,
+   "retained_pct": 55.0
+  },
+  "Phomopsis": {
+   "farms": 3,
+   "retained_pct": 58.0
+  },
+  "Psyllid": {
+   "farms": 5,
+   "retained_pct": 37.0
+  },
+  "Psyllid_damage": {
+   "farms": 5,
+   "retained_pct": 29.0
+  },
+  "leaf_hopper_damage": {
+   "farms": 4,
+   "retained_pct": 61.0
+  }
+ },
+ "rq2_design": {
+  "runs": 168,
+  "seeds": [
+   42
+  ],
+  "configs": 168,
+  "heldout_farms": 8,
+  "protocol": "v1-capped-epochs",
+  "coverage_from_drawn_images": true,
+  "iterations_min": 300,
+  "iterations_max": 2500
+ },
+ "grid": {
+  "k1_m15": {
+   "images": 15,
+   "mAP50": 0.035,
+   "ci": [
+    0.022,
+    0.049
+   ],
+   "coverage": 0.54,
+   "sabah": 0.053
+  },
+  "k1_m50": {
+   "images": 50,
+   "mAP50": 0.055,
+   "ci": [
+    0.036,
+    0.075
+   ],
+   "coverage": 0.66,
+   "sabah": 0.084
+  },
+  "k1_mall": {
+   "images": 106,
+   "mAP50": 0.082,
+   "ci": [
+    0.063,
+    0.101
+   ],
+   "coverage": 0.69,
+   "sabah": 0.091
+  },
+  "k2_m15": {
+   "images": 30,
+   "mAP50": 0.07,
+   "ci": [
+    0.046,
+    0.093
+   ],
+   "coverage": 0.83,
+   "sabah": 0.109
+  },
+  "k2_m50": {
+   "images": 100,
+   "mAP50": 0.104,
+   "ci": [
+    0.073,
+    0.134
+   ],
+   "coverage": 0.84,
+   "sabah": 0.141
+  },
+  "k2_mall": {
+   "images": 218,
+   "mAP50": 0.148,
+   "ci": [
+    0.104,
+    0.195
+   ],
+   "coverage": 0.84,
+   "sabah": 0.163
+  },
+  "k4_m15": {
+   "images": 60,
+   "mAP50": 0.086,
+   "ci": [
+    0.066,
+    0.107
+   ],
+   "coverage": 0.98,
+   "sabah": 0.135
+  },
+  "k4_m50": {
+   "images": 200,
+   "mAP50": 0.116,
+   "ci": [
+    0.086,
+    0.145
+   ],
+   "coverage": 1.0,
+   "sabah": 0.175
+  },
+  "k4_mall": {
+   "images": 392,
+   "mAP50": 0.15,
+   "ci": [
+    0.107,
+    0.191
+   ],
+   "coverage": 1.0,
+   "sabah": 0.206
+  },
+  "k7_m15": {
+   "images": 105,
+   "mAP50": 0.132,
+   "ci": [
+    0.091,
+    0.173
+   ],
+   "coverage": 1.0,
+   "sabah": 0.199
+  },
+  "k7_m50": {
+   "images": 350,
+   "mAP50": 0.206,
+   "ci": [
+    0.151,
+    0.259
+   ],
+   "coverage": 1.0,
+   "sabah": 0.23
+  },
+  "k7_mall": {
+   "images": 724,
+   "mAP50": 0.23,
+   "ci": [
+    0.171,
+    0.293
+   ],
+   "coverage": 1.0,
+   "sabah": 0.264
+  }
+ },
+ "equal_budget": {
+  "k7m15_vs_k2m50": {
+   "images": [
+    105,
+    100
+   ],
+   "mAP": [
+    0.132,
+    0.104
+   ],
+   "diff": 0.028,
+   "ci": [
+    0.011,
+    0.047
+   ],
+   "wins": "6/8"
+  },
+  "k4m50_vs_k2mall": {
+   "images": [
+    200,
+    218
+   ],
+   "mAP": [
+    0.116,
+    0.148
+   ],
+   "diff": -0.032,
+   "ci": [
+    -0.072,
+    0.003
+   ],
+   "wins": "5/8"
+  },
+  "k7m50_vs_k4mall": {
+   "images": [
+    350,
+    392
+   ],
+   "mAP": [
+    0.206,
+    0.15
+   ],
+   "diff": 0.057,
+   "ci": [
+    0.026,
+    0.085
+   ],
+   "wins": "6/8"
+  }
+ },
+ "regression": {
+  "all runs": {
+   "n_runs": 168,
+   "farms": 0.039,
+   "farms_ci": [
+    0.024,
+    0.055
+   ],
+   "photos": 0.026,
+   "photos_ci": [
+    0.019,
+    0.037
+   ],
+   "diff": 0.013,
+   "diff_ci": [
+    0.001,
+    0.027
+   ],
+   "p": 0.96,
+   "r2": 0.6
+  },
+  "full class coverage only": {
+   "n_runs": 126,
+   "farms": 0.032,
+   "farms_ci": [
+    0.018,
+    0.048
+   ],
+   "photos": 0.027,
+   "photos_ci": [
+    0.018,
+    0.039
+   ],
+   "diff": 0.006,
+   "diff_ci": [
+    -0.004,
+    0.019
+   ],
+   "p": 0.82,
+   "r2": 0.62
+  },
+  "excluding k = 7": {
+   "n_runs": 144,
+   "farms": 0.03,
+   "farms_ci": [
+    0.015,
+    0.045
+   ],
+   "photos": 0.024,
+   "photos_ci": [
+    0.017,
+    0.034
+   ],
+   "diff": 0.006,
+   "diff_ci": [
+    -0.007,
+    0.019
+   ],
+   "p": 0.77,
+   "r2": 0.52
+  },
+  "excluding k = 1": {
+   "n_runs": 120,
+   "farms": 0.039,
+   "farms_ci": [
+    0.029,
+    0.048
+   ],
+   "photos": 0.028,
+   "photos_ci": [
+    0.019,
+    0.04
+   ],
+   "diff": 0.011,
+   "diff_ci": [
+    0.003,
+    0.019
+   ],
+   "p": 0.99,
+   "r2": 0.7
+  },
+  "adjusted for class coverage": {
+   "n_runs": 168,
+   "farms": 0.038,
+   "farms_ci": [
+    0.02,
+    0.056
+   ],
+   "photos": 0.026,
+   "photos_ci": [
+    0.018,
+    0.036
+   ],
+   "diff": 0.012,
+   "diff_ci": [
+    -0.002,
+    0.027
+   ],
+   "p": 0.92,
+   "r2": 0.6
+  }
+ },
+ "coverage": {
+  "spearman": 0.63,
+  "spearman_within_k1": 0.62,
+  "spearman_within_k2": 0.62,
+  "by_k_m": {
+   "k1_m15": 0.54,
+   "k1_m50": 0.66,
+   "k1_mall": 0.69,
+   "k2_m15": 0.83,
+   "k2_m50": 0.84,
+   "k2_mall": 0.84,
+   "k4_m15": 0.98,
+   "k4_m50": 1.0,
+   "k4_mall": 1.0,
+   "k7_m15": 1.0,
+   "k7_m50": 1.0,
+   "k7_mall": 1.0
+  },
+  "k1_mean": 0.63,
+  "k2_mean": 0.84,
+  "k4_min": 0.64,
+  "full_coverage_configs": 126,
+  "full_coverage_runs_k_ge_4_incomplete": 1
+ },
+ "steps": {
+  "farms 1->2 @ 15 per farm": {
+   "diff": 0.034,
+   "ci": [
+    0.012,
+    0.057
+   ],
+   "wins": "6/8"
+  },
+  "farms 2->4 @ 15 per farm": {
+   "diff": 0.017,
+   "ci": [
+    -0.006,
+    0.04
+   ],
+   "wins": "6/8"
+  },
+  "farms 4->7 @ 15 per farm": {
+   "diff": 0.046,
+   "ci": [
+    0.017,
+    0.081
+   ],
+   "wins": "7/8"
+  },
+  "farms 1->2 @ 50 per farm": {
+   "diff": 0.049,
+   "ci": [
+    0.021,
+    0.08
+   ],
+   "wins": "6/8"
+  },
+  "farms 2->4 @ 50 per farm": {
+   "diff": 0.012,
+   "ci": [
+    -0.003,
+    0.027
+   ],
+   "wins": "6/8"
+  },
+  "farms 4->7 @ 50 per farm": {
+   "diff": 0.091,
+   "ci": [
+    0.054,
+    0.129
+   ],
+   "wins": "7/8"
+  },
+  "farms 1->2 @ all per farm": {
+   "diff": 0.066,
+   "ci": [
+    0.015,
+    0.117
+   ],
+   "wins": "6/8"
+  },
+  "farms 2->4 @ all per farm": {
+   "diff": 0.002,
+   "ci": [
+    -0.017,
+    0.02
+   ],
+   "wins": "4/8"
+  },
+  "farms 4->7 @ all per farm": {
+   "diff": 0.08,
+   "ci": [
+    0.049,
+    0.111
+   ],
+   "wins": "7/8"
+  },
+  "photos 15->50 @ 1 farms": {
+   "diff": 0.02,
+   "ci": [
+    0.009,
+    0.03
+   ],
+   "wins": "7/8"
+  },
+  "photos 50->all @ 1 farms": {
+   "diff": 0.027,
+   "ci": [
+    0.01,
+    0.047
+   ],
+   "wins": "7/8"
+  },
+  "photos 15->50 @ 2 farms": {
+   "diff": 0.034,
+   "ci": [
+    0.02,
+    0.049
+   ],
+   "wins": "7/8"
+  },
+  "photos 50->all @ 2 farms": {
+   "diff": 0.044,
+   "ci": [
+    0.018,
+    0.075
+   ],
+   "wins": "7/8"
+  },
+  "photos 15->50 @ 4 farms": {
+   "diff": 0.029,
+   "ci": [
+    0.01,
+    0.053
+   ],
+   "wins": "7/8"
+  },
+  "photos 50->all @ 4 farms": {
+   "diff": 0.034,
+   "ci": [
+    0.011,
+    0.063
+   ],
+   "wins": "7/8"
+  },
+  "photos 15->50 @ 7 farms": {
+   "diff": 0.074,
+   "ci": [
+    0.045,
+    0.104
+   ],
+   "wins": "8/8"
+  },
+  "photos 50->all @ 7 farms": {
+   "diff": 0.024,
+   "ci": [
+    0.005,
+    0.046
+   ],
+   "wins": "6/8"
+  }
+ },
+ "class_by_k": {
+  "Algal": {
+   "1": 0.079,
+   "2": 0.157,
+   "4": 0.216,
+   "7": 0.245
+  },
+  "Leaf_rot": {
+   "1": 0.086,
+   "2": 0.181,
+   "4": 0.172,
+   "7": 0.277
+  },
+  "Phomopsis": {
+   "1": 0.052,
+   "2": 0.151,
+   "4": 0.198,
+   "7": 0.223
+  },
+  "Psyllid": {
+   "1": 0.045,
+   "2": 0.068,
+   "4": 0.061,
+   "7": 0.111
+  },
+  "Psyllid_damage": {
+   "1": 0.01,
+   "2": 0.034,
+   "4": 0.034,
+   "7": 0.064
+  },
+  "leaf_hopper_damage": {
+   "1": 0.167,
+   "2": 0.258,
+   "4": 0.22,
+   "7": 0.386
+  }
+ },
+ "checks": {
+  "median_draw_spread": 0.033,
+  "k7_all_fixed_steps": 0.23,
+  "k7_all_per_farm": {
+   "0": 0.224,
+   "1": 0.433,
+   "2": 0.101,
+   "3": 0.328,
+   "4": 0.202,
+   "5": 0.21,
+   "6": 0.093,
+   "7": 0.251
+  },
+  "clean_protocol_yolo11n": 0.2234
+ },
+ "equal_budget_middle_large_losses": 2,
+ "equal_budget_middle_small_abs": 0.035,
+ "rq3": null,
+ "sabah_orchard_images": {
+  "sabah_o1": 261,
+  "sabah_o2": 20
+ },
+ "sabah_images": 281,
+ "random_test_images": 165,
+ "sens_other_min": 55.0,
+ "sens_other_max": 75.0,
+ "regression_p_pct": 96.0,
+ "coverage_k1_pct": 63.0,
+ "coverage_k2_pct": 84.0,
+ "class_by_k_other_min7": 0.223,
+ "class_by_k_other_max7": 0.386,
+ "class_by_k_higher_at_7_than_1": true,
+ "class_by_k_monotone": false,
+ "seed_list": "42",
+ "seed_count_word": "one seed"
+}

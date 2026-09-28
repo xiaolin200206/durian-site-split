@@ -1,0 +1,4 @@
+contrast,images_a,images_b,mean_diff,ci90_lo,ci90_hi,farms_a_wins,farms
+7 farms x 15 vs 2 farms x 50  (~100 images),105,100,0.0283,0.0112,0.0471,6,8
+4 farms x 50 vs 2 farms x all (~200 images),200,218,-0.0325,-0.0706,0.0024,5,8
+7 farms x 50 vs 4 farms x all (~350-400 images),350,392,0.0565,0.0254,0.0844,6,8

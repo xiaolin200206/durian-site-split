@@ -2,6 +2,17 @@
 
 ---
 
+# v6 — 应用版稿件（2026-09-28）。**这一节取代下面的一切。**
+
+- 稿件：`paper/manuscript_template.md` → `python paper/render.py` → `paper/manuscript.md/.docx`。
+  文中每个数字都是 `{{json/path:fmt}}` 占位符，表格从 CSV 生成，**不要直接改 manuscript.md**。
+- 数字：`python scripts/applied/paper_analysis.py --root .` → `results_applied/paper_numbers.json`、表、图。
+- 检查：`python verify_applied.py --full`（CI 每次 push 跑）。
+- 数据预算实验目前只有种子 42；种子 1 和新果园校准实验（`new_farm_calibration.py`）结果回来后：
+  把新的 `farm_budget.csv` / `new_farm_calibration.csv` 放进 `results_applied/`，
+  重跑 paper_analysis → render → render_supp → verify；校准实验要在 template 里加一节。
+- 旧的方法论稿件（已撤）在 `archive/withdrawn_methods_paper/`，`verify_claims.py` 仍复现它的 185 条。
+
 # v5 — 应用版重塑（2026-09-28）。**这一节取代下面的一切。**
 
 PR-D-26-13571（Pattern Recognition）已撤。新版只做榴莲，问的是"新果园要付多少代价"。

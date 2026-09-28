@@ -15,18 +15,19 @@ new_farm_calibration.py -- 到一个新果园，先拍几张做校准，能补�
     抵消"先拍的和后拍的不一样"。
   - 同一方向下测试集固定，所有 m、所有 arm 都在同一批图上评。
 
-四个 arm：
+三个 arm（协议 v2，2026-09-28：每个 m 的参数更新次数相同）：
   base  基座模型直接用，不校准（m=0）
-  ft    在基座上用 m 张校准图微调：冻结 backbone（freeze=10），
-        AdamW lr0=5e-4，无 warmup，固定约 FT_ITERS 步，不选 checkpoint
+  ft    在基座上用 m 张校准图微调：冻结 backbone（freeze=10），AdamW lr0=5e-4，
+        无 warmup，batch 16、nbs 16（不做梯度累积，一次迭代 = 一次更新），
+        训练列表重复到每 epoch >= 20 个 batch，正好 FT_ITERS 次更新，不选 checkpoint
   rt    从 COCO 权重重训：其余 7 个果园全部 + m 张校准图，
-        和 farm_budget 同一固定步数协议（相当于"下一版模型把新果园加进去"）
+        和 farm_budget v2 同一固定迭代协议（相当于"下一版模型把新果园加进去"）
   m ∈ {5, 10, 20, all}，all = 整个校准池（28-73 张）
 
 规模（默认）：
-  ft  8 果园 × 2 方向 × 4 m × 2 种子 = 128 run，每个 1-2 分钟
-  rt  8 × 2 × 4 × 1 种子（42）      =  64 run，每个约 5 分钟
-  合计约 8-10 GPU 小时。
+  ft  8 果园 × 2 方向 × 4 m × 2 种子 = 128 run，每个约 1 分钟
+  rt  8 × 2 × 4 × 1 种子（42）      =  64 run，每个约 3 分钟
+  合计约 5 GPU 小时。
 
 用法（AutoDL，farm_budget 的 k=7 m=all 跑完之后）：
     cd /root/autodl-tmp/durian
@@ -56,7 +57,7 @@ FT_SEEDS = [42, 1]
 RT_SEEDS = [42]
 BUFFER = 3
 FT_ITERS = 300
-FT_EPOCH_MIN, FT_EPOCH_MAX = 30, 300
+FT_BATCH = 16
 FT_LR = 5e-4
 FT_FREEZE = 10
 DESIGN_SEED = 20260929
@@ -64,9 +65,9 @@ DESIGN_SEED = 20260929
 
 def P(root):
     return {"root": root,
-            "splits": os.path.join(root, "nf_splits"),
-            "runs": os.path.join(root, "nf_runs"),
-            "fb_runs": os.path.join(root, "fb_runs"),
+            "splits": os.path.join(root, "nf2_splits"),
+            "runs": os.path.join(root, "nf2_runs"),
+            "fb_runs": os.path.join(root, "fb2_runs"),
             "results": os.path.join(root, "results_applied")}
 
 
@@ -152,27 +153,29 @@ def step_build(a, p):
                     continue
                 # ft: 只用校准图
                 ft_name = f"{base}_m{m}_ft"
-                b = min(16, len(c))
-                ep = max(FT_EPOCH_MIN, min(FT_EPOCH_MAX, round(FT_ITERS * b / len(c))))
-                fb.write_yaml(os.path.join(p["splits"], ft_name), c, c, names)
+                r, ep, per, cm = fb.schedule(len(c), FT_BATCH, FT_ITERS)
+                fb.write_yaml(os.path.join(p["splits"], ft_name), c * r, c, names)
                 jobs.append({"name": ft_name, "arm": "ft", "farm": h, "dir": direc,
-                             "m": m, "n_calib": len(c), "n_train": len(c),
-                             "epochs": ep, "batch": b, "test": base})
+                             "m": m, "n_calib": len(c), "n_train": len(c), "repeat": r,
+                             "epochs": ep, "iterations": ep * per, "close_mosaic": cm,
+                             "batch": FT_BATCH, "test": base})
                 # rt: 其余 7 个果园 + 校准图，从 COCO 重训
                 rt_name = f"{base}_m{m}_rt"
                 tr = others + c
                 assert not set(tr) & set(test_p)
-                ep, b = fb.epochs_for(len(tr), fb.BATCH)
-                fb.write_yaml(os.path.join(p["splits"], rt_name), tr, tr[:50], names)
+                r, ep, per, cm = fb.schedule(len(tr), fb.BATCH)
+                fb.write_yaml(os.path.join(p["splits"], rt_name), tr * r, tr[:50], names)
                 jobs.append({"name": rt_name, "arm": "rt", "farm": h, "dir": direc,
-                             "m": m, "n_calib": len(c), "n_train": len(tr),
-                             "epochs": ep, "batch": b, "test": base})
+                             "m": m, "n_calib": len(c), "n_train": len(tr), "repeat": r,
+                             "epochs": ep, "iterations": ep * per, "close_mosaic": cm,
+                             "batch": fb.BATCH, "test": base})
         s0 = splits[f"nf_h{h}_dir0"]
         print(f"  {h:>4}  {how:<22}{s0['n_calib_pool']:>8}{s0['n_test']:>6}")
 
     os.makedirs(p["splits"], exist_ok=True)
-    json.dump({"splits": splits, "jobs": jobs, "ft": {"iters": FT_ITERS, "lr0": FT_LR,
-               "freeze": FT_FREEZE}, "buffer": BUFFER},
+    json.dump({"protocol": "v2-fixed-iterations", "splits": splits, "jobs": jobs,
+               "ft": {"iters": FT_ITERS, "batch": FT_BATCH, "nbs": FT_BATCH, "lr0": FT_LR,
+                      "freeze": FT_FREEZE}, "buffer": BUFFER},
               open(os.path.join(p["splits"], "design.json"), "w"), indent=1)
     nft = sum(j["arm"] == "ft" for j in jobs) * len(a.ft_seeds)
     nrt = sum(j["arm"] == "rt" for j in jobs) * len(a.rt_seeds)
@@ -232,6 +235,7 @@ def step_train(a, p):
                     print("  跳过：没有基座权重")
                     continue
                 YOLO(w).train(data=data, imgsz=a.imgsz, epochs=ep, batch=j["batch"],
+                              nbs=j["batch"], close_mosaic=j["close_mosaic"],
                               seed=s, patience=0, val=False, workers=a.workers,
                               optimizer="AdamW", lr0=FT_LR, warmup_epochs=0,
                               freeze=FT_FREEZE, project=p["runs"], name=name,
@@ -240,6 +244,7 @@ def step_train(a, p):
             else:
                 YOLO(f"{fb.MODEL}.pt").train(
                     data=data, imgsz=a.imgsz, epochs=ep, batch=j["batch"], seed=s,
+                    close_mosaic=j["close_mosaic"],
                     patience=0, val=False, workers=a.workers, project=p["runs"],
                     name=name, exist_ok=True, deterministic=True, plots=False,
                     verbose=False, save_period=-1)

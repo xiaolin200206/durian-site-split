@@ -38,7 +38,7 @@ import shutil
 from collections import defaultdict
 
 # ---------------------------------------------------------------- settings --
-ROOT = r"C:\Users\Lim Ding Shan\Desktop\New folder (2)"
+ROOT = r"C:\path\to\workdir\New folder (2)"
 DRY_RUN = True                 # <-- set to False to actually rename
 MAP_CSV = os.path.join(ROOT, "rename_map.csv")
 IMG_EXT = (".jpg", ".jpeg", ".png", ".heic")

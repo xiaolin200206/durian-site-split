@@ -1,7 +1,8 @@
 name: verify claims
 
-# Every number in the paper is recomputed from results/ on each push.
-# A figure edited in the manuscript without re-deriving it fails here.
+# Every number in the applied manuscript is recomputed from the released result
+# tables on each push, and the manuscript is re-rendered from its template.
+# A number edited by hand, or a table that no longer supports the text, fails here.
 
 on: [push, pull_request]
 
@@ -13,5 +14,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install pandas numpy
-      - run: python verify_claims.py --verbose
+      - run: sudo apt-get update && sudo apt-get install -y pandoc
+      - run: pip install -r requirements.txt
+      - run: python verify_applied.py --full --verbose
+      - run: python verify_claims.py   # the withdrawn methods paper, kept as a record

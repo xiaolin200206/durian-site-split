@@ -39,7 +39,7 @@ import yaml
 from PIL import Image, ImageDraw, ImageFont
 
 # ---------------------------------------------------------------- settings --
-DEFAULT_BASE = (r"C:\Users\Lim Ding Shan\Desktop\Durian project and paper"
+DEFAULT_BASE = (r"C:\path\to\workdir\Durian project and paper"
                 r"\durian_for_nature_food")
 
 TARGET = "Leaf_rot"

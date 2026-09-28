@@ -44,7 +44,7 @@ import yaml
 from sklearn.model_selection import GroupKFold, train_test_split
 
 # ---------------------------------------------------------------- settings --
-BASE = (r"C:\Users\Lim Ding Shan\Desktop\Durian project and paper"
+BASE = (r"C:\path\to\workdir\Durian project and paper"
         r"\durian_for_nature_food")
 
 MERGED = os.path.join(BASE, "dataset_store", "merged_peninsula")

@@ -1,0 +1,2 @@
+spearman_coverage_vs_mAP50,configs,configs_full_coverage,mean_mAP50_full_coverage,mean_mAP50_partial
+0.606,168,132,0.1301,0.0252

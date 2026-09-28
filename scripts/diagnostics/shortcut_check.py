@@ -44,7 +44,7 @@ from PIL import Image
 import onnxruntime as ort
 
 # ---------------------------------------------------------------- settings --
-ROOT = r"C:\Users\Lim Ding Shan\Desktop\sabah"
+ROOT = r"C:\path\to\workdir\sabah"
 MODEL = os.path.join(ROOT, "best.onnx")
 TRUNK_GLOB = os.path.join(ROOT, "trunk*")
 OUT_CSV = os.path.join(ROOT, "shortcut_check_detections.csv")

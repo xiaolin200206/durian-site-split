@@ -21,8 +21,8 @@ import pillow_heif
 pillow_heif.register_heif_opener()
 
 # ---------------------------------------------------------------- settings --
-SRC = r"C:\Users\Lim Ding Shan\Desktop\sabah"
-DST = r"C:\Users\Lim Ding Shan\Desktop\sabah_jpg"
+SRC = r"C:\path\to\workdir\sabah"
+DST = r"C:\path\to\workdir\sabah_jpg"
 QUALITY = 95          # keep high; low quality destroys fine disease texture
 SUBSAMPLING = 0       # 4:4:4, no chroma subsampling
 # ---------------------------------------------------------------------------

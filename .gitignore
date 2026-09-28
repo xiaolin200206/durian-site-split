@@ -21,3 +21,7 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 .DS_Store
+
+# figures of the applied paper are part of the release
+!results_applied/*.png
+!archive/withdrawn_methods_paper/figures/*.png

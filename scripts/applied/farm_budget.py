@@ -17,19 +17,20 @@ farm_budget.py -- 数据预算实验：多跑几个果园，还是每个果园�
   同一 (h, k, draw) 下三个 m 用同一组果园、嵌套的图片（15 ⊂ 50 ⊂ all），
   所以 m 之间是配对比较。
 
-训练协议（和论文的 clean 协议同一原则，但更彻底）：
+训练协议 v2（2026-09-28 修订；v1 的 300 epoch 上限让小预算只训到 300 次迭代）：
   - held-out 果园一次都不出现在训练里，包括验证、早停、选 checkpoint。
-  - 不留内层验证集：小预算下（15 张）留 10% 等于再砍掉一截，
-    而且 2 张图做早停没有意义。改为固定优化步数、不做任何选择，
-    评估 last.pt。
-  - 固定步数：每个 run 约 ITERS 个 gradient step，
-    epochs = clamp(ITERS * batch / n_train, 100, 300)。
-    这样 15 张和 700 张的模型都被训到差不多的步数，比较的是数据而不是
-    谁训得更久。
-  - 每个 run 评两次：held-out 果园（全部图）+ Sabah（若存在）。
+  - 不留内层验证集、不早停、不选 checkpoint，评估 last.pt。
+  - **每个 run 同样的迭代数**：batch 固定 32（Ultralytics 的 nbs=64 -> 每 2 次
+    迭代一次参数更新，对所有 run 相同）；训练列表重复 r 次使每个 epoch 至少
+    MIN_ITERS_PER_EPOCH 个 batch，epochs = round(ITERS / 每 epoch 迭代数)。
+    于是 15 张和 700 张的模型都正好训约 ITERS 次迭代、ITERS/2 次更新。
+    close_mosaic 取最后 10% 的 epoch，warmup 为 Ultralytics 默认（>=100 次迭代）。
+  - 每个 run 评估：held-out 果园（全部图）、Sabah 合并、Sabah 两个果园各一次。
+  - 每个配置实际用到的训练图写进 results_applied/farm_budget_train_lists.csv，
+    类别覆盖率按实际抽到的图算。
 
-规模：8 果园 × 21 配置 × 2 种子 = 336 run。yolo11n 每个 run 约 3-6 分钟
-（4090），合计约 20-30 GPU 小时。--seeds 42 先跑一半（168 run）就能出图。
+规模：8 果园 × 21 配置 × 种子数。每个 run 约 2,000 次迭代，4090 上约 3 分钟；
+一个种子 168 run 约 8-9 小时。
 
 用法（AutoDL）：
     cd /root/autodl-tmp/durian
@@ -60,19 +61,21 @@ MS = ["15", "50", "all"]
 DRAWS = 2
 SEEDS = [42, 1]
 ITERS = 2000
-EPOCH_MIN, EPOCH_MAX = 100, 300
+MIN_ITERS_PER_EPOCH = 20
 BATCH = 32
+PROTOCOL = "v2-fixed-iterations"
 DESIGN_SEED = 20260928
 MIN_FARM_IMAGES = 20
 SKIP_DIRS = {"runs", "splits", "clean_splits", "fb_splits", "fb_runs",
-             "nf_splits", "nf_runs", "sc_splits", "sc_runs",
+             "fb2_splits", "fb2_runs", "nf_splits", "nf_runs", "nf2_splits", "nf2_runs",
+             "sc_splits", "sc_runs",
              "results_v2", "results_clean", "results_applied"}
 
 
 def P(root):
     return {"root": root,
-            "splits": os.path.join(root, "fb_splits"),
-            "runs": os.path.join(root, "fb_runs"),
+            "splits": os.path.join(root, "fb2_splits"),
+            "runs": os.path.join(root, "fb2_runs"),
             "results": os.path.join(root, "results_applied")}
 
 
@@ -166,9 +169,13 @@ def write_eval_yaml(d, imgs, names, tag):
     return y
 
 
-def epochs_for(n, batch):
-    b = min(batch, n)
-    return max(EPOCH_MIN, min(EPOCH_MAX, round(ITERS * b / n))), b
+def schedule(n, batch=BATCH, iters=ITERS, min_per_epoch=MIN_ITERS_PER_EPOCH):
+    """-> (repeat, epochs, iterations_per_epoch, close_mosaic) giving ~iters iterations."""
+    import math
+    r = max(1, math.ceil(min_per_epoch * batch / n))
+    per = math.ceil(n * r / batch)
+    ep = max(1, round(iters / per))
+    return r, ep, per, max(1, round(0.1 * ep))
 
 
 # ---------------------------------------------------------------- build --
@@ -183,7 +190,7 @@ def step_build(a, p):
           ", ".join(f"{f}:{len(by_farm[f])}" for f in farms))
     print(f"类别 {names}")
 
-    jobs = []
+    jobs, lists = [], []
     for h in farms:
         others = [f for f in farms if f != h]
         heldout = sorted(by_farm[h])
@@ -206,23 +213,33 @@ def step_build(a, p):
                     for f in combo:
                         train += order[f] if m == "all" else order[f][:int(m)]
                     assert not set(train) & set(heldout), "held-out 果园进了训练"
-                    ep, b = epochs_for(len(train), a.batch)
+                    r, ep, per, cm = schedule(len(train), a.batch)
                     name = f"fb_h{h}_k{k}_m{m}_d{d}"
-                    # 训练用的 yaml：val 指向训练图本身（只为让 Ultralytics
-                    # 最后一轮的日志不报错），held-out 果园不出现在里面
-                    write_yaml(os.path.join(p["splits"], name), train,
+                    # 训练列表重复 r 次（固定迭代数）；val 指向训练图本身，只为让
+                    # Ultralytics 最后一轮的日志不报错，held-out 果园不出现在里面
+                    write_yaml(os.path.join(p["splits"], name), train * r,
                                train[:50], names)
+                    for ip in train:
+                        lists.append({"config": name, "stem":
+                                      os.path.splitext(os.path.basename(ip))[0]})
                     write_eval_yaml(os.path.join(p["splits"], name), heldout,
                                     names, "heldout")
                     jobs.append({"name": name, "heldout": h, "k": k, "m": m,
                                  "draw": d, "train_farms": ";".join(combo),
                                  "n_train": len(train), "n_heldout": len(heldout),
-                                 "epochs": ep, "batch": b})
+                                 "repeat": r, "iters_per_epoch": per, "epochs": ep,
+                                 "iterations": ep * per, "close_mosaic": cm,
+                                 "batch": a.batch})
     os.makedirs(p["results"], exist_ok=True)
     meta = os.path.join(p["splits"], "design.json")
-    json.dump({"model": MODEL, "iters": ITERS, "epoch_range": [EPOCH_MIN, EPOCH_MAX],
+    json.dump({"protocol": PROTOCOL, "model": MODEL, "iters": ITERS,
+               "min_iters_per_epoch": MIN_ITERS_PER_EPOCH, "batch": a.batch,
                "design_seed": DESIGN_SEED, "ks": a.ks, "ms": a.ms,
                "draws": a.draws, "jobs": jobs}, open(meta, "w"), indent=1)
+    with open(os.path.join(p["results"], "farm_budget_train_lists.csv"), "w",
+              newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=["config", "stem"])
+        w.writeheader(); w.writerows(lists)
     with open(os.path.join(p["results"], "farm_budget_design.csv"), "w",
               newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(jobs[0]))
@@ -230,14 +247,15 @@ def step_build(a, p):
 
     print(f"\n{len(jobs)} 个配置 × {len(a.seeds)} 种子 = "
           f"{len(jobs) * len(a.seeds)} run")
-    print(f"  {'k':>3}{'m':>5}{'配置':>6}{'训练张数':>12}{'epochs':>10}")
+    print(f"  {'k':>3}{'m':>5}{'配置':>6}{'训练张数':>12}{'epochs':>10}{'迭代数':>12}")
     for k in a.ks:
         for m in a.ms:
             js = [j for j in jobs if j["k"] == k and j["m"] == m]
             if js:
                 ns = [j["n_train"] for j in js]; es = [j["epochs"] for j in js]
+                it = [j["iterations"] for j in js]
                 print(f"  {k:>3}{m:>5}{len(js):>6}{min(ns):>7}-{max(ns):<5}"
-                      f"{min(es):>5}-{max(es)}")
+                      f"{min(es):>5}-{max(es):<5}{min(it):>7}-{max(it)}")
     print(f"\n设计写到 {meta}")
 
 
@@ -258,6 +276,7 @@ def step_train(a, p):
         todo = todo[:a.limit]
     print(f"{len(runs)} run，待跑 {len(todo)}（模型 {MODEL}，种子 {a.seeds}）")
     print("★ 不留内层验证、不早停、不选 checkpoint；held-out 果园不参与训练。")
+    print(f"★ 协议 {PROTOCOL}：每个 run 约 {ITERS} 次迭代，batch {BATCH}。")
     if not a.yes:
         print("\n加 --yes 开始。")
         return
@@ -276,7 +295,7 @@ def step_train(a, p):
             YOLO(f"{MODEL}.pt").train(
                 data=os.path.join(p["splits"], j["name"], "data.yaml"),
                 imgsz=a.imgsz, epochs=min(j["epochs"], a.epochs_cap or 10**9),
-                batch=j["batch"], seed=s,
+                batch=j["batch"], seed=s, close_mosaic=j["close_mosaic"],
                 patience=0, val=False, workers=a.workers,
                 project=p["runs"], name=name, exist_ok=True,
                 deterministic=True, plots=False, verbose=False, save_period=-1)
@@ -299,20 +318,31 @@ def val_one(model, yml, a, project, name, names):
     return row
 
 
-def sabah_yaml(a, p, names):
+def sabah_yamls(a, p, names):
+    """{'sabah': yaml, 'sabah_o1': yaml, ...}；果园由文件名前缀 o1t10_... 的 o1 决定。"""
     s = find_dir(a.root, "merged_sabah")
     if not s:
-        return None
+        return {}
     imgs = sorted(os.path.join(s, "images", f) for f in os.listdir(os.path.join(s, "images"))
                   if f.lower().endswith((".jpg", ".jpeg", ".png")))
-    return write_eval_yaml(os.path.join(p["splits"], "_sabah"), imgs, names, "sabah")
+    out = {"sabah": write_eval_yaml(os.path.join(p["splits"], "_sabah"), imgs, names, "sabah")}
+    by = {}
+    for ip in imgs:
+        tag = os.path.basename(ip).split("t")[0] if os.path.basename(ip).startswith("o") else None
+        if tag:
+            by.setdefault(tag, []).append(ip)
+    for tag, v in sorted(by.items()):
+        out[f"sabah_{tag}"] = write_eval_yaml(os.path.join(p["splits"], "_sabah"), v, names,
+                                              f"sabah_{tag}")
+    print("Sabah:", {k: len(open(y.replace('.yaml', '.txt')).read().split()) for k, y in out.items()})
+    return out
 
 
 def step_eval(a, p):
     from ultralytics import YOLO
     names = class_names(a.root)
     jobs = load_jobs(p)
-    sab = sabah_yaml(a, p, names) if a.sabah else None
+    sab = sabah_yamls(a, p, names) if a.sabah else {}
     out = os.path.join(p["results"], "farm_budget.csv")
     done = set()
     rows = []
@@ -335,8 +365,8 @@ def step_eval(a, p):
             if not os.path.isfile(w):
                 continue
             m = None
-            for tag, yml in (("heldout", os.path.join(p["splits"], j["name"], "heldout.yaml")),
-                             ("sabah", sab)):
+            for tag, yml in [("heldout", os.path.join(p["splits"], j["name"], "heldout.yaml"))] + \
+                    list(sab.items()):
                 if yml is None or (run, tag) in done:
                     continue
                 m = m or YOLO(w)

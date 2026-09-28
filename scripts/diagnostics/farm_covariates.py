@@ -48,7 +48,7 @@ import pandas as pd
 import yaml
 
 # ---------------------------------------------------------------- settings --
-DEFAULT_BASE = (r"C:\Users\Lim Ding Shan\Desktop\Durian project and paper"
+DEFAULT_BASE = (r"C:\path\to\workdir\Durian project and paper"
                 r"\durian_for_nature_food")
 
 MIN_IMAGES = 5        # per class per farm, below this the cell is not shown

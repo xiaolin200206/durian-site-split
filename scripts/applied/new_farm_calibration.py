@@ -61,6 +61,7 @@ FT_BATCH = 16
 FT_LR = 5e-4
 FT_FREEZE = 10
 DESIGN_SEED = 20260929
+PROTOCOL = "v2-calibration-fixed-steps"
 
 
 def P(root):
@@ -258,9 +259,9 @@ def step_eval(a, p):
     names = fb.class_names(a.root)
     D = load_design(p)
     out = os.path.join(p["results"], "new_farm_calibration.csv")
-    rows = list(csv.DictReader(open(out, encoding="utf-8"))) if os.path.isfile(out) else []
+    rows = fb.load_results(out, PROTOCOL)
     done = {r["run"] for r in rows}
-    keys = ["run", "arm", "farm", "dir", "m", "n_calib", "seed", "n_test",
+    keys = ["protocol", "run", "arm", "farm", "dir", "m", "n_calib", "seed", "n_test",
             "mAP50", "mAP50_95", "precision", "recall"] + [f"AP50::{c}" for c in names]
     os.makedirs(p["results"], exist_ok=True)
 
@@ -285,7 +286,8 @@ def step_eval(a, p):
         yml = os.path.join(p["splits"], test, "test.yaml")
         r = fb.val_one(YOLO(w), yml, a, os.path.join(p["runs"], "_eval"), run, names)
         r.update({"run": run, "arm": arm, "farm": farm, "dir": direc, "m": m,
-                  "n_calib": nc, "seed": s, "n_test": D["splits"][test]["n_test"]})
+                  "n_calib": nc, "seed": s, "n_test": D["splits"][test]["n_test"],
+                  "protocol": PROTOCOL})
         rows.append(r)
         print(f"  {run}  mAP50 {r['mAP50']:.4f}", flush=True)
         flush()

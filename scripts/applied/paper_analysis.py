@@ -436,8 +436,13 @@ def rq2(root, out, N):
     cov, from_lists = coverage(man, df, os.path.join(out, "farm_budget_train_lists.csv"))
     df["coverage"] = df.config.map(cov)
     h = df[df.eval_on == "heldout"].copy()
-    v2 = bool(df.eval_on.str.startswith("sabah_o").any())
-    if v2:   # Sabah = mean of the two orchards' scores, as for the leave-one-farm-out models
+    # the protocol is read from the rows themselves, never inferred from which evaluations exist
+    protos = set(df["protocol"].dropna().unique()) if "protocol" in df else {"v1-capped-epochs"}
+    if len(protos) != 1:
+        raise SystemExit(f"farm_budget.csv mixes protocols {protos}; re-run the evaluation")
+    v2 = protos == {"v2-fixed-iterations"}
+    by_orchard = bool(df.eval_on.str.startswith("sabah_o").any())
+    if by_orchard:   # Sabah = mean of the two orchards' scores, as for the leave-one-farm-out models
         s = (df[df.eval_on.str.startswith("sabah_o")].groupby(["run", "k", "m", "heldout"])
              .mAP50.mean().reset_index())
     else:

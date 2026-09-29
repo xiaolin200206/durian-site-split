@@ -338,6 +338,24 @@ def sabah_yamls(a, p, names):
     return out
 
 
+def load_results(out, protocol):
+    """Rows of `out` written under `protocol`. Rows from any other protocol (for example
+    the earlier epoch-capped runs, which share run names) are moved to a backup file
+    rather than reused, so they can never be mistaken for finished runs."""
+    if not os.path.isfile(out):
+        return []
+    rows = list(csv.DictReader(open(out, encoding="utf-8")))
+    keep = [r for r in rows if r.get("protocol") == protocol]
+    if len(keep) < len(rows):
+        bak = out.replace(".csv", "_old_protocol.csv")
+        n = 1
+        while os.path.exists(bak):
+            bak = out.replace(".csv", f"_old_protocol{n}.csv"); n += 1
+        os.rename(out, bak)
+        print(f"  ★ {out} 里有 {len(rows) - len(keep)} 行不是 {protocol} 协议 -> 移到 {bak}，不会被复用")
+    return keep
+
+
 def step_eval(a, p):
     from ultralytics import YOLO
     names = class_names(a.root)
@@ -346,10 +364,9 @@ def step_eval(a, p):
     out = os.path.join(p["results"], "farm_budget.csv")
     done = set()
     rows = []
-    if os.path.isfile(out):
-        rows = list(csv.DictReader(open(out, encoding="utf-8")))
-        done = {(r["run"], r["eval_on"]) for r in rows}
-    keys = ["run", "config", "heldout", "k", "m", "draw", "seed", "train_farms",
+    rows = load_results(out, PROTOCOL)
+    done = {(r["run"], r["eval_on"]) for r in rows}
+    keys = ["protocol", "run", "config", "heldout", "k", "m", "draw", "seed", "train_farms",
             "n_train", "eval_on", "mAP50", "mAP50_95", "precision", "recall"] + \
            [f"AP50::{c}" for c in names]
 
@@ -375,7 +392,7 @@ def step_eval(a, p):
                 r.update({"run": run, "config": j["name"], "heldout": j["heldout"],
                           "k": j["k"], "m": j["m"], "draw": j["draw"], "seed": s,
                           "train_farms": j["train_farms"], "n_train": j["n_train"],
-                          "eval_on": tag})
+                          "eval_on": tag, "protocol": PROTOCOL})
                 rows.append(r)
                 print(f"  {run} [{tag}] mAP50 {r['mAP50']:.4f}", flush=True)
             if m is not None:

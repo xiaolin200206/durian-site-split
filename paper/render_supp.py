@@ -107,7 +107,7 @@ def main():
 
     # Table S5 draws
     d = h[h.k < 7].groupby(["k", "m", "heldout", "draw"]).mAP50.mean().unstack()
-    spread = (d.max(1) - d.min(1)).groupby(level=[0, 1]).agg(["median", "max"])
+    spread = (d.max(axis=1) - d.min(axis=1)).groupby(level=[0, 1]).agg(["median", "max"])
     rows = [[k, m, f3(r["median"]), f3(r["max"])] for (k, m), r in
             sorted(spread.iterrows(), key=lambda t: (t[0][0], {"15": 0, "50": 1, "all": 2}[t[0][1]]))]
     out += ["## Table S5. Difference between the two farm draws", "",
@@ -117,7 +117,7 @@ def main():
 
     # Table S6 steps
     st = pd.read_csv(os.path.join(RES, "tableS_steps.csv"))
-    rows = [[r.step.replace("->", " → ").replace("photos", "images per farm"), r.at.replace("per farm", "images per farm"),
+    rows = [[r.step.replace("->", " → ").replace("photos", "images per farm"), r["at"].replace("per farm", "images per farm"),
              f"{f3(r['diff'])} [{f3(r.ci_lo)}, {f3(r.ci_hi)}]", f"{r.wins} of {r.farms}"]
             for _, r in st.iterrows()]
     out += ["## Table S6. Step-wise paired contrasts in the data-budget experiment", "",

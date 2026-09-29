@@ -42,9 +42,11 @@ every push.
 | Spread across held-out farms (mean of six detectors) | 0.094 – 0.356 |
 | Largest mean difference between two detectors | 0.022 mAP50 |
 | Share of random-split AP kept on a new farm | psyllid classes 25–30%, other classes 48–59% |
-| Doubling training farms vs doubling photos per farm | +0.039 vs +0.026 mAP50 |
-| …restricted to training sets covering every class | +0.031 vs +0.027 |
-| 7 farms × 50 photos vs 4 farms × all photos (~350–390 images) | 0.206 vs 0.150 |
+| Doubling training farms vs doubling photos per farm (fixed iterations) | +0.039 vs +0.030 mAP50 (difference within uncertainty) |
+| …restricted to training sets covering every class | +0.036 vs +0.032 |
+| 7 farms × 50 photos vs 4 farms × all photos (~350–390 images) | 0.181 vs 0.149 |
+| Fine-tuning on a new farm's images alone (5 / ~50 images) | −0.121 / −0.044 mAP50 |
+| Retraining with those images added (5 / ~50 images) | +0.004 / +0.053 mAP50 |
 
 The numbers above are the seed-42 data-budget run; `paper/manuscript.md` is
 always the current rendering.
@@ -57,7 +59,7 @@ paper/
   render.py                 template + JSON + CSVs -> manuscript.md/.docx, highlights, cover letter
   render_supp.py            supplementary.md/.docx
   manuscript.md / .docx     rendered manuscript
-  supplementary.md / .docx  Tables S1–S5, Notes S1–S2
+  supplementary.md / .docx  Tables S1–S7, Notes S1–S2
   highlights.*, cover_letter.*, declaration_of_interest.*
 results_applied/
   farm_budget.csv           data-budget experiment, one row per run × evaluation set

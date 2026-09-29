@@ -596,8 +596,14 @@ def rq2(root, out, N):
         t7 = t7.reset_index()
         t7 = t7.iloc[sorted(range(len(t7)), key=lambda i: (t7.k[i], mo[t7.m[i]]))]
         t7.to_csv(os.path.join(out, "tableS_schedule_comparison.csv"), index=False, float_format="%.6f")
-        b1, p1, _ = fit(v1.assign(per_farm=v1.n_train / v1.k))
-        N["v1_schedule"] = {"farms": rd(b1, 3), "photos": rd(p1, 3)}
+        v1a = v1.assign(per_farm=v1.n_train / v1.k)
+        b1, p1, _ = fit(v1a)
+        bb1 = fit_boot(v1a)
+        N["v1_schedule"] = {"farms": rd(b1, 3), "photos": rd(p1, 3), "diff": rd(b1 - p1, 3),
+                            "diff_ci": [rd(np.percentile(bb1[:, 0] - bb1[:, 1], 5), 3),
+                                        rd(np.percentile(bb1[:, 0] - bb1[:, 1], 95), 3)],
+                            "cells_higher": int((t7.v1_capped > t7.v2_fixed_iterations).sum()),
+                            "cells": int(len(t7))}
 
     # Sabah by orchard in the budget experiment (v2 runs only)
     so = df[df.eval_on.str.startswith("sabah_o")]
@@ -742,6 +748,26 @@ def rq3(root, out, N):
                          "farms_improved": int((g.gain > 0).sum()), "farms": len(g)})
     tab = pd.DataFrame(rows)
     tab.to_csv(os.path.join(out, "table6_calibration.csv"), index=False, float_format="%.6f")
+    # how calibration changed the detector: precision / recall and per-class AP, paired with base
+    bdf = df[df.arm == "base"].set_index(["farm", "dir", "seed"])
+    cls = [c for c in df.columns if c.startswith("AP50::")]
+    R["change"] = {}
+    for arm in ("ft", "rt"):
+        R["change"][arm] = {}
+        for m in ("5", "all"):
+            g = d[(d.arm == arm) & (d.m == m)]
+            if g.empty:
+                continue
+            idx = list(zip(g.farm, g.dir, g.seed))
+            dd = g.set_index(["farm", "dir", "seed"])
+            bb = bdf.loc[idx]
+            dp = (dd.precision - bb.precision.values).groupby(level=0).mean().mean()
+            dr = (dd.recall - bb.recall.values).groupby(level=0).mean().mean()
+            dc = {c.split("::")[1]: rd(np.nanmean((dd[c].astype(float) - bb[c].astype(float).values)), 3)
+                  for c in cls}
+            worst = sorted(dc, key=lambda k: dc[k])[:2]
+            R["change"][arm][m] = {"precision": rd(dp, 3), "recall": rd(dr, 3), "per_class": dc,
+                                   "worst": worst, "worst_values": [dc[w] for w in worst]}
     N["rq3"] = R
     fig5(tab, R, out)
     return tab
@@ -754,9 +780,9 @@ def fig5(tab, R, out):
     fig.patch.set_facecolor(SURF)
     style(ax)
     ax.axhline(0, color=INK2, lw=0.9, ls="--")
-    ax.annotate(f"no calibration (mAP50 {R['base_mAP50']:.3f})", (0.02, 0),
-                xycoords=("axes fraction", "data"), xytext=(0, 4), textcoords="offset points",
-                fontsize=7, color=INK2)
+    ax.annotate(f"no calibration (mAP50 {R['base_mAP50']:.3f})", (0.98, 0),
+                xycoords=("axes fraction", "data"), xytext=(0, -10), textcoords="offset points",
+                fontsize=7, color=INK2, ha="right")
     lab = {"ft": ("Fine-tune on new-farm images", ACCENT), "rt": ("Retrain with them added", ACCENT2)}
     for arm, (name, c) in lab.items():
         g = tab[tab.arm == arm].sort_values("images")
@@ -766,7 +792,7 @@ def fig5(tab, R, out):
         ax.plot(g.images, g.gain, "-o", color=c, lw=2, ms=6, mec=SURF, mew=1.3, label=name)
     ax.set_xlabel("Images from the new farm used for calibration", fontsize=8, color=INK2)
     ax.set_ylabel("Change in mAP50 on that farm", fontsize=8, color=INK2)
-    ax.legend(frameon=False, fontsize=7, labelcolor=INK2, loc="upper left")
+    ax.legend(frameon=False, fontsize=7, labelcolor=INK2, loc="lower right")
     fig.tight_layout()
     save(fig, out, "fig5_calibration")
     plt.close(fig)

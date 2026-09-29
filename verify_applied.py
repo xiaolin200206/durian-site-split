@@ -203,8 +203,14 @@ check(f"regression, all runs: farms {b1:.4f} photos {b2:.4f}",
       close(b2, N["regression"]["all runs"]["photos"], 6e-4))
 
 
+# coverage is computed from the images actually drawn for each training set
+_drawn = defaultdict(set)
+for _r in csv.DictReader(open(os.path.join(RES, "farm_budget_train_lists.csv"), encoding="utf-8")):
+    _drawn[_r["config"]] |= cls.get(_r["stem"], set())
+
+
 def coverage(r):
-    seen = set().union(*[farm_cls[f] for f in r["train_farms"].split(";")])
+    seen = _drawn[r["config"]]
     imgs = [s for s in cls if farm_of[s] == r["heldout"] and cls[s]]
     return mean([1.0 if cls[s] <= seen else 0.0 for s in imgs])
 
@@ -299,6 +305,33 @@ for t in range(1, 8):
 sup = open(os.path.join(PAPER, "supplementary.md"), encoding="utf-8").read()
 for t in range(1, 8):
     check(f"Table S{t} exists in the supplementary", f"## Table S{t}." in sup)
+
+# qualitative claims written in prose_blocks.md; each must still hold for the current numbers
+rq3 = N["rq3"]; rg_ = N["regression"]; st = N["steps"]; eb = N["equal_budget"]
+check("claim: fine-tuning lowered mAP50 at every size",
+      all(rq3["ft"][m]["gain"] < 0 for m in rq3["ft"]))
+check("claim: retraining never lost accuracy", all(rq3["rt"][m]["gain"] >= 0 for m in rq3["rt"]))
+check("claim: fine-tuning loss mostly on leafhopper damage and leaf rot",
+      rq3["change"]["ft"]["5"]["worst"] == ["leaf_hopper_damage", "Leaf_rot"])
+check("claim: fine-tuning raised precision and cut recall (5 images)",
+      rq3["change"]["ft"]["5"]["precision"] > 0 > rq3["change"]["ft"]["5"]["recall"])
+check("claim: retraining raised precision and recall (whole half)",
+      rq3["change"]["rt"]["all"]["precision"] > 0 and rq3["change"]["rt"]["all"]["recall"] > 0)
+check("claim: slope difference within uncertainty (all, excl. k=7, excl. k=1)",
+      all(rg_[m]["diff_ci"][0] <= 0 <= rg_[m]["diff_ci"][1]
+          for m in ("all runs", "excluding k = 7", "excluding k = 1")))
+check("claim: every images-per-farm step positive",
+      all(v["diff"] > 0 for k, v in st.items() if k.startswith("photos")))
+check("claim: matched budgets, more farms won twice and lost once",
+      eb["k7m15_vs_k2m50"]["diff"] > 0 and eb["k7m50_vs_k4mall"]["diff"] > 0 and
+      eb["k4m50_vs_k2mall"]["diff"] < 0)
+check("claim: still rising from four to seven farms", st["farms 4->7 @ all per farm"]["diff"] > 0)
+check("claim: farm slope robust to schedule, photo slope not",
+      abs(N["v1_schedule"]["farms"] - rg_["all runs"]["farms"]) <= 0.003 and
+      abs(N["v1_schedule"]["photos"] - rg_["all runs"]["photos"]) > 0.003 and
+      N["v1_schedule"]["diff_ci"][0] > 0)
+check("claim: every class higher at seven farms than one",
+      all(v["7"] > v["1"] for v in N["class_by_k"].values()))
 
 # README quotes a few headline numbers; they must match the JSON
 rd_ = open(os.path.join(ROOT, "README.md"), encoding="utf-8").read()

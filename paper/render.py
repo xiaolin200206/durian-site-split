@@ -36,6 +36,8 @@ WORDS = {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "sev
 
 
 def fmt(v, spec):
+    if spec and spec.startswith("|"):     # magnitude, for "fell by" / "below" phrasing
+        v, spec = abs(float(v)), spec[1:]
     if spec == "w":
         return WORDS.get(int(v), str(v))
     if spec == "W":

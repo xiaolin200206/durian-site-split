@@ -1,4 +1,4 @@
 contrast,more_farms,fewer_farms,images_more,images_fewer,mAP_more,mAP_fewer,diff,ci_lo,ci_hi,farms_more_wins,farms
-k7m15_vs_k2m50,7 farms x 15,2 farms x 50,105,100,0.132356,0.104037,0.028319,0.010889,0.046816,6,8
-k4m50_vs_k2mall,4 farms x 50,2 farms x all,200,218,0.115597,0.148060,-0.032463,-0.072382,0.002633,5,8
-k7m50_vs_k4mall,7 farms x 50,4 farms x all,350,392,0.206380,0.149856,0.056525,0.026137,0.084844,6,8
+k7m15_vs_k2m50,7 farms x 15,2 farms x 50,105,100,0.119083,0.086889,0.032194,0.005598,0.056584,6,8
+k4m50_vs_k2mall,4 farms x 50,2 farms x all,200,218,0.107966,0.141396,-0.033430,-0.069257,-0.005053,1,8
+k7m50_vs_k4mall,7 farms x 50,4 farms x all,350,392,0.180544,0.149299,0.031245,0.000394,0.058635,6,8

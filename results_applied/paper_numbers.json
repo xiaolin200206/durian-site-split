@@ -132,6 +132,63 @@
   "Psyllid_damage": 8.0,
   "leaf_hopper_damage": 82.0
  },
+ "sabah_by_orchard": {
+  "rtdetr-l": {
+   "sabah_o1": 0.271,
+   "sabah_o2": 0.34
+  },
+  "yolo11l": {
+   "sabah_o1": 0.287,
+   "sabah_o2": 0.342
+  },
+  "yolo11m": {
+   "sabah_o1": 0.267,
+   "sabah_o2": 0.35
+  },
+  "yolo11n": {
+   "sabah_o1": 0.264,
+   "sabah_o2": 0.315
+  },
+  "yolo11s": {
+   "sabah_o1": 0.262,
+   "sabah_o2": 0.314
+  }
+ },
+ "sabah_orchard_images": {
+  "sabah_o1": 261,
+  "sabah_o2": 20
+ },
+ "sabah_orchard_range": {
+  "sabah_o1": [
+   0.262,
+   0.287
+  ],
+  "sabah_o2": [
+   0.314,
+   0.35
+  ]
+ },
+ "random_split_farm_weighted": {
+  "rtdetr-l": 0.527,
+  "yolo11l": 0.503,
+  "yolo11m": 0.499,
+  "yolo11n": 0.492,
+  "yolo11s": 0.502
+ },
+ "random_split_farm_weighted_range": [
+  0.492,
+  0.527
+ ],
+ "random_split_test_images_per_farm": {
+  "0": 30,
+  "1": 19,
+  "2": 31,
+  "3": 10,
+  "4": 24,
+  "5": 25,
+  "6": 15,
+  "7": 11
+ },
  "variance_shares": {
   "models": "rtdetr-l,yolo11l,yolo11m,yolo11n,yolo11s",
   "unit": 82.4,
@@ -255,131 +312,131 @@
   ],
   "configs": 168,
   "heldout_farms": 8,
-  "protocol": "v1-capped-epochs",
+  "protocol": "v2-fixed-iterations",
   "coverage_from_drawn_images": true,
-  "iterations_min": 300,
-  "iterations_max": 2500
+  "iterations_min": 1988,
+  "iterations_max": 2015
  },
  "grid": {
   "k1_m15": {
    "images": 15,
-   "mAP50": 0.035,
+   "mAP50": 0.029,
    "ci": [
-    0.022,
-    0.049
+    0.016,
+    0.043
    ],
    "coverage": 0.54,
-   "sabah": 0.053
+   "sabah": 0.041
   },
   "k1_m50": {
    "images": 50,
-   "mAP50": 0.055,
+   "mAP50": 0.045,
    "ci": [
-    0.036,
-    0.075
+    0.03,
+    0.059
    ],
    "coverage": 0.66,
-   "sabah": 0.084
+   "sabah": 0.066
   },
   "k1_mall": {
    "images": 106,
-   "mAP50": 0.082,
+   "mAP50": 0.074,
    "ci": [
-    0.063,
-    0.101
+    0.055,
+    0.094
    ],
    "coverage": 0.69,
-   "sabah": 0.091
+   "sabah": 0.079
   },
   "k2_m15": {
    "images": 30,
-   "mAP50": 0.07,
+   "mAP50": 0.05,
    "ci": [
-    0.046,
-    0.093
+    0.033,
+    0.068
    ],
    "coverage": 0.83,
-   "sabah": 0.109
+   "sabah": 0.072
   },
   "k2_m50": {
    "images": 100,
-   "mAP50": 0.104,
+   "mAP50": 0.087,
    "ci": [
-    0.073,
-    0.134
+    0.062,
+    0.111
    ],
    "coverage": 0.84,
-   "sabah": 0.141
+   "sabah": 0.114
   },
   "k2_mall": {
    "images": 218,
-   "mAP50": 0.148,
+   "mAP50": 0.141,
    "ci": [
-    0.104,
-    0.195
+    0.101,
+    0.187
    ],
    "coverage": 0.84,
-   "sabah": 0.163
+   "sabah": 0.16
   },
   "k4_m15": {
    "images": 60,
-   "mAP50": 0.086,
+   "mAP50": 0.068,
    "ci": [
-    0.066,
-    0.107
+    0.05,
+    0.087
    ],
    "coverage": 0.98,
-   "sabah": 0.135
+   "sabah": 0.113
   },
   "k4_m50": {
    "images": 200,
-   "mAP50": 0.116,
+   "mAP50": 0.108,
    "ci": [
-    0.086,
-    0.145
+    0.079,
+    0.135
    ],
    "coverage": 1.0,
-   "sabah": 0.175
+   "sabah": 0.165
   },
   "k4_mall": {
    "images": 392,
-   "mAP50": 0.15,
+   "mAP50": 0.149,
    "ci": [
-    0.107,
-    0.191
+    0.109,
+    0.187
    ],
    "coverage": 1.0,
-   "sabah": 0.206
+   "sabah": 0.235
   },
   "k7_m15": {
    "images": 105,
-   "mAP50": 0.132,
+   "mAP50": 0.119,
    "ci": [
-    0.091,
-    0.173
+    0.079,
+    0.158
    ],
    "coverage": 1.0,
-   "sabah": 0.199
+   "sabah": 0.166
   },
   "k7_m50": {
    "images": 350,
-   "mAP50": 0.206,
+   "mAP50": 0.181,
    "ci": [
-    0.151,
-    0.259
+    0.136,
+    0.221
    ],
    "coverage": 1.0,
-   "sabah": 0.23
+   "sabah": 0.235
   },
   "k7_mall": {
    "images": 724,
-   "mAP50": 0.23,
+   "mAP50": 0.235,
    "ci": [
-    0.171,
-    0.293
+    0.181,
+    0.295
    ],
    "coverage": 1.0,
-   "sabah": 0.264
+   "sabah": 0.302
   }
  },
  "equal_budget": {
@@ -389,13 +446,13 @@
     100
    ],
    "mAP": [
-    0.132,
-    0.104
+    0.119,
+    0.087
    ],
-   "diff": 0.028,
+   "diff": 0.032,
    "ci": [
-    0.011,
-    0.047
+    0.006,
+    0.057
    ],
    "wins": "6/8"
   },
@@ -405,15 +462,15 @@
     218
    ],
    "mAP": [
-    0.116,
-    0.148
+    0.108,
+    0.141
    ],
-   "diff": -0.032,
+   "diff": -0.033,
    "ci": [
-    -0.072,
-    0.003
+    -0.069,
+    -0.005
    ],
-   "wins": "5/8"
+   "wins": "1/8"
   },
   "k7m50_vs_k4mall": {
    "images": [
@@ -421,13 +478,13 @@
     392
    ],
    "mAP": [
-    0.206,
-    0.15
+    0.181,
+    0.149
    ],
-   "diff": 0.057,
+   "diff": 0.031,
    "ci": [
-    0.026,
-    0.085
+    0.0,
+    0.059
    ],
    "wins": "6/8"
   }
@@ -437,107 +494,107 @@
    "n_runs": 168,
    "farms": 0.039,
    "farms_ci": [
-    0.024,
-    0.055
+    0.025,
+    0.053
    ],
-   "photos": 0.026,
+   "photos": 0.03,
    "photos_ci": [
-    0.019,
-    0.037
+    0.023,
+    0.039
    ],
-   "diff": 0.013,
+   "diff": 0.009,
    "diff_ci": [
-    0.001,
-    0.027
+    -0.003,
+    0.023
    ],
-   "p": 0.96,
-   "r2": 0.6
+   "p": 0.88,
+   "r2": 0.62
   },
   "full class coverage only": {
    "n_runs": 126,
-   "farms": 0.032,
+   "farms": 0.036,
    "farms_ci": [
-    0.018,
-    0.048
+    0.022,
+    0.051
    ],
-   "photos": 0.027,
+   "photos": 0.032,
    "photos_ci": [
-    0.018,
-    0.039
+    0.024,
+    0.043
    ],
-   "diff": 0.006,
+   "diff": 0.003,
    "diff_ci": [
-    -0.004,
-    0.019
+    -0.009,
+    0.018
    ],
-   "p": 0.82,
-   "r2": 0.62
+   "p": 0.66,
+   "r2": 0.64
   },
   "excluding k = 7": {
    "n_runs": 144,
    "farms": 0.03,
    "farms_ci": [
-    0.015,
-    0.045
-   ],
-   "photos": 0.024,
-   "photos_ci": [
-    0.017,
-    0.034
-   ],
-   "diff": 0.006,
-   "diff_ci": [
-    -0.007,
-    0.019
-   ],
-   "p": 0.77,
-   "r2": 0.52
-  },
-  "excluding k = 1": {
-   "n_runs": 120,
-   "farms": 0.039,
-   "farms_ci": [
-    0.029,
-    0.048
+    0.016,
+    0.044
    ],
    "photos": 0.028,
    "photos_ci": [
-    0.019,
-    0.04
+    0.021,
+    0.037
    ],
-   "diff": 0.011,
+   "diff": 0.002,
    "diff_ci": [
-    0.003,
-    0.019
+    -0.011,
+    0.016
    ],
-   "p": 0.99,
-   "r2": 0.7
+   "p": 0.59,
+   "r2": 0.56
+  },
+  "excluding k = 1": {
+   "n_runs": 120,
+   "farms": 0.041,
+   "farms_ci": [
+    0.03,
+    0.053
+   ],
+   "photos": 0.033,
+   "photos_ci": [
+    0.024,
+    0.044
+   ],
+   "diff": 0.008,
+   "diff_ci": [
+    -0.003,
+    0.02
+   ],
+   "p": 0.88,
+   "r2": 0.71
   },
   "adjusted for class coverage": {
    "n_runs": 168,
-   "farms": 0.038,
+   "farms": 0.039,
    "farms_ci": [
-    0.02,
-    0.056
+    0.022,
+    0.055
    ],
-   "photos": 0.026,
+   "photos": 0.03,
    "photos_ci": [
-    0.018,
-    0.036
+    0.022,
+    0.039
    ],
-   "diff": 0.012,
+   "diff": 0.009,
    "diff_ci": [
-    -0.002,
-    0.027
+    -0.005,
+    0.025
    ],
-   "p": 0.92,
-   "r2": 0.6
+   "p": 0.85,
+   "r2": 0.62
   }
  },
  "coverage": {
-  "spearman": 0.63,
-  "spearman_within_k1": 0.62,
-  "spearman_within_k2": 0.62,
+  "spearman": 0.6,
+  "spearman_within_k1": 0.59,
+  "spearman_within_k2": 0.61,
   "by_k_m": {
    "k1_m15": 0.54,
    "k1_m50": 0.66,
@@ -560,211 +617,460 @@
  },
  "steps": {
   "farms 1->2 @ 15 per farm": {
-   "diff": 0.034,
+   "diff": 0.021,
    "ci": [
-    0.012,
-    0.057
-   ],
-   "wins": "6/8"
-  },
-  "farms 2->4 @ 15 per farm": {
-   "diff": 0.017,
-   "ci": [
-    -0.006,
+    0.001,
     0.04
    ],
    "wins": "6/8"
   },
-  "farms 4->7 @ 15 per farm": {
-   "diff": 0.046,
+  "farms 2->4 @ 15 per farm": {
+   "diff": 0.018,
    "ci": [
-    0.017,
-    0.081
+    -0.001,
+    0.039
+   ],
+   "wins": "6/8"
+  },
+  "farms 4->7 @ 15 per farm": {
+   "diff": 0.051,
+   "ci": [
+    0.018,
+    0.087
+   ],
+   "wins": "6/8"
+  },
+  "farms 1->2 @ 50 per farm": {
+   "diff": 0.042,
+   "ci": [
+    0.019,
+    0.067
    ],
    "wins": "7/8"
   },
-  "farms 1->2 @ 50 per farm": {
-   "diff": 0.049,
-   "ci": [
-    0.021,
-    0.08
-   ],
-   "wins": "6/8"
-  },
   "farms 2->4 @ 50 per farm": {
-   "diff": 0.012,
+   "diff": 0.021,
    "ci": [
-    -0.003,
-    0.027
+    0.01,
+    0.035
    ],
-   "wins": "6/8"
+   "wins": "7/8"
   },
   "farms 4->7 @ 50 per farm": {
-   "diff": 0.091,
+   "diff": 0.073,
    "ci": [
-    0.054,
-    0.129
+    0.05,
+    0.094
    ],
    "wins": "7/8"
   },
   "farms 1->2 @ all per farm": {
-   "diff": 0.066,
+   "diff": 0.067,
    "ci": [
-    0.015,
-    0.117
-   ],
-   "wins": "6/8"
-  },
-  "farms 2->4 @ all per farm": {
-   "diff": 0.002,
-   "ci": [
-    -0.017,
-    0.02
-   ],
-   "wins": "4/8"
-  },
-  "farms 4->7 @ all per farm": {
-   "diff": 0.08,
-   "ci": [
-    0.049,
-    0.111
+    0.018,
+    0.115
    ],
    "wins": "7/8"
   },
-  "photos 15->50 @ 1 farms": {
-   "diff": 0.02,
+  "farms 2->4 @ all per farm": {
+   "diff": 0.008,
    "ci": [
-    0.009,
-    0.03
+    -0.013,
+    0.029
+   ],
+   "wins": "5/8"
+  },
+  "farms 4->7 @ all per farm": {
+   "diff": 0.085,
+   "ci": [
+    0.054,
+    0.12
+   ],
+   "wins": "8/8"
+  },
+  "photos 15->50 @ 1 farms": {
+   "diff": 0.016,
+   "ci": [
+    0.008,
+    0.026
    ],
    "wins": "7/8"
   },
   "photos 50->all @ 1 farms": {
-   "diff": 0.027,
+   "diff": 0.029,
    "ci": [
-    0.01,
-    0.047
+    0.015,
+    0.046
    ],
    "wins": "7/8"
   },
   "photos 15->50 @ 2 farms": {
-   "diff": 0.034,
+   "diff": 0.037,
    "ci": [
-    0.02,
-    0.049
+    0.023,
+    0.05
    ],
-   "wins": "7/8"
+   "wins": "8/8"
   },
   "photos 50->all @ 2 farms": {
-   "diff": 0.044,
+   "diff": 0.055,
    "ci": [
-    0.018,
-    0.075
+    0.032,
+    0.092
    ],
-   "wins": "7/8"
+   "wins": "8/8"
   },
   "photos 15->50 @ 4 farms": {
-   "diff": 0.029,
+   "diff": 0.04,
    "ci": [
-    0.01,
-    0.053
+    0.022,
+    0.058
    ],
    "wins": "7/8"
   },
   "photos 50->all @ 4 farms": {
-   "diff": 0.034,
+   "diff": 0.041,
    "ci": [
-    0.011,
-    0.063
+    0.026,
+    0.061
    ],
-   "wins": "7/8"
+   "wins": "8/8"
   },
   "photos 15->50 @ 7 farms": {
-   "diff": 0.074,
+   "diff": 0.061,
    "ci": [
-    0.045,
-    0.104
+    0.035,
+    0.091
    ],
    "wins": "8/8"
   },
   "photos 50->all @ 7 farms": {
-   "diff": 0.024,
+   "diff": 0.054,
    "ci": [
-    0.005,
-    0.046
+    0.011,
+    0.111
    ],
-   "wins": "6/8"
+   "wins": "5/8"
+  }
+ },
+ "v1_schedule": {
+  "farms": 0.039,
+  "photos": 0.026,
+  "diff": 0.013,
+  "diff_ci": [
+   0.001,
+   0.027
+  ],
+  "cells_higher": 11,
+  "cells": 12
+ },
+ "grid_sabah_orchard": {
+  "k4_m50": {
+   "sabah_o1": 0.171,
+   "sabah_o2": 0.159
+  },
+  "k4_mall": {
+   "sabah_o1": 0.211,
+   "sabah_o2": 0.259
+  },
+  "k2_m15": {
+   "sabah_o1": 0.085,
+   "sabah_o2": 0.058
+  },
+  "k7_m15": {
+   "sabah_o1": 0.186,
+   "sabah_o2": 0.147
+  },
+  "k1_m15": {
+   "sabah_o1": 0.046,
+   "sabah_o2": 0.036
+  },
+  "k2_m50": {
+   "sabah_o1": 0.124,
+   "sabah_o2": 0.104
+  },
+  "k7_m50": {
+   "sabah_o1": 0.233,
+   "sabah_o2": 0.236
+  },
+  "k2_mall": {
+   "sabah_o1": 0.157,
+   "sabah_o2": 0.163
+  },
+  "k7_mall": {
+   "sabah_o1": 0.275,
+   "sabah_o2": 0.328
+  },
+  "k1_m50": {
+   "sabah_o1": 0.07,
+   "sabah_o2": 0.063
+  },
+  "k1_mall": {
+   "sabah_o1": 0.082,
+   "sabah_o2": 0.076
+  },
+  "k4_m15": {
+   "sabah_o1": 0.122,
+   "sabah_o2": 0.104
   }
  },
  "class_by_k": {
   "Algal": {
-   "1": 0.079,
-   "2": 0.157,
-   "4": 0.216,
-   "7": 0.245
+   "1": 0.052,
+   "2": 0.15,
+   "4": 0.21,
+   "7": 0.248
   },
   "Leaf_rot": {
-   "1": 0.086,
-   "2": 0.181,
-   "4": 0.172,
-   "7": 0.277
+   "1": 0.089,
+   "2": 0.162,
+   "4": 0.165,
+   "7": 0.298
   },
   "Phomopsis": {
-   "1": 0.052,
-   "2": 0.151,
-   "4": 0.198,
-   "7": 0.223
+   "1": 0.046,
+   "2": 0.136,
+   "4": 0.2,
+   "7": 0.222
   },
   "Psyllid": {
-   "1": 0.045,
-   "2": 0.068,
-   "4": 0.061,
-   "7": 0.111
+   "1": 0.052,
+   "2": 0.062,
+   "4": 0.063,
+   "7": 0.103
   },
   "Psyllid_damage": {
-   "1": 0.01,
-   "2": 0.034,
-   "4": 0.034,
-   "7": 0.064
+   "1": 0.006,
+   "2": 0.039,
+   "4": 0.042,
+   "7": 0.055
   },
   "leaf_hopper_damage": {
-   "1": 0.167,
+   "1": 0.153,
    "2": 0.258,
-   "4": 0.22,
-   "7": 0.386
+   "4": 0.219,
+   "7": 0.408
   }
  },
  "checks": {
-  "median_draw_spread": 0.033,
-  "k7_all_fixed_steps": 0.23,
+  "median_draw_spread": 0.036,
+  "k7_all_fixed_steps": 0.235,
   "k7_all_per_farm": {
-   "0": 0.224,
-   "1": 0.433,
-   "2": 0.101,
-   "3": 0.328,
-   "4": 0.202,
-   "5": 0.21,
-   "6": 0.093,
-   "7": 0.251
+   "0": 0.207,
+   "1": 0.444,
+   "2": 0.154,
+   "3": 0.319,
+   "4": 0.197,
+   "5": 0.221,
+   "6": 0.099,
+   "7": 0.236
   },
   "clean_protocol_yolo11n": 0.2234
  },
- "equal_budget_middle_large_losses": 2,
- "equal_budget_middle_small_abs": 0.035,
- "rq3": null,
- "sabah_orchard_images": {
-  "sabah_o1": 261,
-  "sabah_o2": 20
+ "equal_budget_middle_large_losses": 1,
+ "equal_budget_middle_small_abs": 0.04,
+ "rq3": {
+  "base_mAP50": 0.247,
+  "farms": 8,
+  "n_test_median": 49,
+  "seeds_ft": [
+   42
+  ],
+  "seeds_rt": [
+   42
+  ],
+  "ft": {
+   "5": {
+    "images": 5.0,
+    "mAP50": 0.127,
+    "gain": -0.121,
+    "ci": [
+     -0.165,
+     -0.074
+    ],
+    "wins": "1/8"
+   },
+   "10": {
+    "images": 10.0,
+    "mAP50": 0.167,
+    "gain": -0.08,
+    "ci": [
+     -0.123,
+     -0.039
+    ],
+    "wins": "1/8"
+   },
+   "20": {
+    "images": 20.0,
+    "mAP50": 0.19,
+    "gain": -0.057,
+    "ci": [
+     -0.086,
+     -0.025
+    ],
+    "wins": "1/8"
+   },
+   "all": {
+    "images": 50.0,
+    "mAP50": 0.203,
+    "gain": -0.044,
+    "ci": [
+     -0.075,
+     -0.012
+    ],
+    "wins": "1/8"
+   }
+  },
+  "rt": {
+   "5": {
+    "images": 5.0,
+    "mAP50": 0.251,
+    "gain": 0.004,
+    "ci": [
+     -0.017,
+     0.022
+    ],
+    "wins": "6/8"
+   },
+   "10": {
+    "images": 10.0,
+    "mAP50": 0.251,
+    "gain": 0.004,
+    "ci": [
+     -0.025,
+     0.037
+    ],
+    "wins": "3/8"
+   },
+   "20": {
+    "images": 20.0,
+    "mAP50": 0.277,
+    "gain": 0.03,
+    "ci": [
+     -0.001,
+     0.062
+    ],
+    "wins": "5/8"
+   },
+   "all": {
+    "images": 50.0,
+    "mAP50": 0.3,
+    "gain": 0.053,
+    "ci": [
+     0.014,
+     0.1
+    ],
+    "wins": "6/8"
+   }
+  },
+  "change": {
+   "ft": {
+    "5": {
+     "precision": 0.068,
+     "recall": -0.143,
+     "per_class": {
+      "Algal": -0.055,
+      "Leaf_rot": -0.207,
+      "Phomopsis": 0.002,
+      "Psyllid": -0.09,
+      "Psyllid_damage": -0.023,
+      "leaf_hopper_damage": -0.348
+     },
+     "worst": [
+      "leaf_hopper_damage",
+      "Leaf_rot"
+     ],
+     "worst_values": [
+      -0.348,
+      -0.207
+     ]
+    },
+    "all": {
+     "precision": 0.126,
+     "recall": -0.073,
+     "per_class": {
+      "Algal": 0.012,
+      "Leaf_rot": -0.084,
+      "Phomopsis": 0.12,
+      "Psyllid": -0.045,
+      "Psyllid_damage": -0.013,
+      "leaf_hopper_damage": -0.209
+     },
+     "worst": [
+      "leaf_hopper_damage",
+      "Leaf_rot"
+     ],
+     "worst_values": [
+      -0.209,
+      -0.084
+     ]
+    }
+   },
+   "rt": {
+    "5": {
+     "precision": 0.031,
+     "recall": 0.021,
+     "per_class": {
+      "Algal": 0.022,
+      "Leaf_rot": -0.011,
+      "Phomopsis": 0.07,
+      "Psyllid": -0.009,
+      "Psyllid_damage": -0.002,
+      "leaf_hopper_damage": -0.036
+     },
+     "worst": [
+      "leaf_hopper_damage",
+      "Leaf_rot"
+     ],
+     "worst_values": [
+      -0.036,
+      -0.011
+     ]
+    },
+    "all": {
+     "precision": 0.104,
+     "recall": 0.023,
+     "per_class": {
+      "Algal": 0.058,
+      "Leaf_rot": -0.009,
+      "Phomopsis": 0.147,
+      "Psyllid": 0.038,
+      "Psyllid_damage": 0.011,
+      "leaf_hopper_damage": 0.103
+     },
+     "worst": [
+      "Leaf_rot",
+      "Psyllid_damage"
+     ],
+     "worst_values": [
+      -0.009,
+      0.011
+     ]
+    }
+   }
+  }
  },
  "sabah_images": 281,
  "random_test_images": 165,
+ "sabah_o1_range": [
+  0.262,
+  0.287
+ ],
+ "sabah_o2_range": [
+  0.314,
+  0.35
+ ],
+ "rq3_max_images": 50.0,
+ "rq3_ft_steps": 300,
+ "rq3_ft_seed_word": "one seed (42)",
+ "rq3_rt_seed_word": "one seed (42)",
  "sens_other_min": 55.0,
  "sens_other_max": 75.0,
- "regression_p_pct": 96.0,
+ "regression_p_pct": 88.0,
  "coverage_k1_pct": 63.0,
  "coverage_k2_pct": 84.0,
- "class_by_k_other_min7": 0.223,
- "class_by_k_other_max7": 0.386,
+ "class_by_k_other_min7": 0.222,
+ "class_by_k_other_max7": 0.408,
  "class_by_k_higher_at_7_than_1": true,
  "class_by_k_monotone": false,
  "seed_list": "42",

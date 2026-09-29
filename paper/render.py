@@ -150,14 +150,14 @@ def table5():
         a.append(f"| {x.more_farms.replace(' x ', ' × ')} | {x.fewer_farms.replace(' x ', ' × ')} | "
                  f"{x.images_more} / {x.images_fewer} | {f3(x.mAP_more)} / {f3(x.mAP_fewer)} | "
                  f"{f3(x.diff)} [{f3(x.ci_lo)}, {f3(x.ci_hi)}] | {x.farms_more_wins} of {x.farms} |")
-    b = ["| Runs included | n | Doubling farms [90% CI] | Doubling photos per farm [90% CI] | Difference [90% CI] |",
+    b = ["| Runs included | n | Doubling farms [90% CI] | Doubling images per farm [90% CI] | Difference [90% CI] |",
          "|---|---|---|---|---|"]
     for x in r.itertuples():
         b.append(f"| {x.model} | {x.n_runs} | {f3(x.doubling_farms)} [{f3(x.farms_lo)}, {f3(x.farms_hi)}] | "
                  f"{f3(x.doubling_photos)} [{f3(x.photos_lo)}, {f3(x.photos_hi)}] | "
                  f"{f3(x.diff)} [{f3(x.diff_lo)}, {f3(x.diff_hi)}] |")
     return ("**Table 5.** (A) Matched-budget comparisons, paired by held-out farm. (B) Change in "
-            "unseen-farm mAP50 per doubling of training farms and of photographs per farm, from a "
+            "unseen-farm mAP50 per doubling of training farms and of images per farm, from a "
             "regression with held-out-farm fixed effects; intervals resample held-out farms.\n\n"
             "*(A) Matched budgets*\n\n" + "\n".join(a) + "\n\n*(B) Regression slopes*\n\n" + "\n".join(b))
 
@@ -173,7 +173,9 @@ def table6(N):
     name = {"ft": "Fine-tune", "rt": "Retrain with images added"}
     rows = [f"| None | 0 | {f3(N['rq3']['base_mAP50'])} | – | – |"]
     for r in t.itertuples():
-        rows.append(f"| {name[r.arm]} | {r.images:.0f} | {f3(r.mAP50)} | {f3(r.gain)} "
+        lo, hi = N["rq3"].get("all_images_range") or (0, 0)
+        img = f"all ({lo}–{hi}; mean {r.images:.0f})" if str(r.m) == "all" else f"{r.images:.0f}"
+        rows.append(f"| {name[r.arm]} | {img} | {f3(r.mAP50)} | {f3(r.gain)} "
                     f"[{f3(r.ci_lo)}, {f3(r.ci_hi)}] | {r.farms_improved} of {r.farms} |")
     return ("**Table 6.** New-farm calibration (YOLO11n). Each farm's images are split by capture "
             "time into a calibration half and a test half, in both directions; changes are paired "

@@ -765,52 +765,52 @@
   "cells": 12
  },
  "grid_sabah_orchard": {
-  "k4_m50": {
-   "sabah_o1": 0.171,
-   "sabah_o2": 0.159
+  "k1_m50": {
+   "sabah_o1": 0.07,
+   "sabah_o2": 0.063
+  },
+  "k4_m15": {
+   "sabah_o1": 0.122,
+   "sabah_o2": 0.104
   },
   "k4_mall": {
    "sabah_o1": 0.211,
    "sabah_o2": 0.259
   },
-  "k2_m15": {
-   "sabah_o1": 0.085,
-   "sabah_o2": 0.058
-  },
-  "k7_m15": {
-   "sabah_o1": 0.186,
-   "sabah_o2": 0.147
-  },
-  "k1_m15": {
-   "sabah_o1": 0.046,
-   "sabah_o2": 0.036
-  },
-  "k2_m50": {
-   "sabah_o1": 0.124,
-   "sabah_o2": 0.104
-  },
-  "k7_m50": {
-   "sabah_o1": 0.233,
-   "sabah_o2": 0.236
+  "k7_mall": {
+   "sabah_o1": 0.275,
+   "sabah_o2": 0.328
   },
   "k2_mall": {
    "sabah_o1": 0.157,
    "sabah_o2": 0.163
   },
-  "k7_mall": {
-   "sabah_o1": 0.275,
-   "sabah_o2": 0.328
+  "k7_m15": {
+   "sabah_o1": 0.186,
+   "sabah_o2": 0.147
   },
-  "k1_m50": {
-   "sabah_o1": 0.07,
-   "sabah_o2": 0.063
+  "k2_m15": {
+   "sabah_o1": 0.085,
+   "sabah_o2": 0.058
+  },
+  "k1_m15": {
+   "sabah_o1": 0.046,
+   "sabah_o2": 0.036
+  },
+  "k4_m50": {
+   "sabah_o1": 0.171,
+   "sabah_o2": 0.159
   },
   "k1_mall": {
    "sabah_o1": 0.082,
    "sabah_o2": 0.076
   },
-  "k4_m15": {
-   "sabah_o1": 0.122,
+  "k7_m50": {
+   "sabah_o1": 0.233,
+   "sabah_o2": 0.236
+  },
+  "k2_m50": {
+   "sabah_o1": 0.124,
    "sabah_o2": 0.104
   }
  },
@@ -969,40 +969,40 @@
      "precision": 0.068,
      "recall": -0.143,
      "per_class": {
-      "Algal": -0.055,
-      "Leaf_rot": -0.207,
+      "Algal": -0.048,
+      "Leaf_rot": -0.205,
       "Phomopsis": 0.002,
-      "Psyllid": -0.09,
-      "Psyllid_damage": -0.023,
-      "leaf_hopper_damage": -0.348
+      "Psyllid": -0.081,
+      "Psyllid_damage": -0.022,
+      "leaf_hopper_damage": -0.379
      },
      "worst": [
       "leaf_hopper_damage",
       "Leaf_rot"
      ],
      "worst_values": [
-      -0.348,
-      -0.207
+      -0.379,
+      -0.205
      ]
     },
     "all": {
      "precision": 0.126,
      "recall": -0.073,
      "per_class": {
-      "Algal": 0.012,
-      "Leaf_rot": -0.084,
+      "Algal": 0.009,
+      "Leaf_rot": -0.096,
       "Phomopsis": 0.12,
-      "Psyllid": -0.045,
-      "Psyllid_damage": -0.013,
-      "leaf_hopper_damage": -0.209
+      "Psyllid": -0.042,
+      "Psyllid_damage": -0.012,
+      "leaf_hopper_damage": -0.265
      },
      "worst": [
       "leaf_hopper_damage",
       "Leaf_rot"
      ],
      "worst_values": [
-      -0.209,
-      -0.084
+      -0.265,
+      -0.096
      ]
     }
    },
@@ -1011,44 +1011,48 @@
      "precision": 0.031,
      "recall": 0.021,
      "per_class": {
-      "Algal": 0.022,
-      "Leaf_rot": -0.011,
+      "Algal": 0.019,
+      "Leaf_rot": 0.01,
       "Phomopsis": 0.07,
-      "Psyllid": -0.009,
+      "Psyllid": -0.006,
       "Psyllid_damage": -0.002,
-      "leaf_hopper_damage": -0.036
+      "leaf_hopper_damage": -0.056
      },
      "worst": [
       "leaf_hopper_damage",
-      "Leaf_rot"
+      "Psyllid"
      ],
      "worst_values": [
-      -0.036,
-      -0.011
+      -0.056,
+      -0.006
      ]
     },
     "all": {
      "precision": 0.104,
      "recall": 0.023,
      "per_class": {
-      "Algal": 0.058,
-      "Leaf_rot": -0.009,
+      "Algal": 0.05,
+      "Leaf_rot": -0.011,
       "Phomopsis": 0.147,
-      "Psyllid": 0.038,
-      "Psyllid_damage": 0.011,
-      "leaf_hopper_damage": 0.103
+      "Psyllid": 0.069,
+      "Psyllid_damage": 0.01,
+      "leaf_hopper_damage": 0.081
      },
      "worst": [
       "Leaf_rot",
       "Psyllid_damage"
      ],
      "worst_values": [
-      -0.009,
-      0.011
+      -0.011,
+      0.01
      ]
     }
    }
-  }
+  },
+  "all_images_range": [
+   27,
+   72
+  ]
  },
  "sabah_images": 281,
  "random_test_images": 165,

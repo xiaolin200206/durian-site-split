@@ -1,6 +1,6 @@
 # Supplementary material
 
-**What a new orchard costs: farm-level generalisation and data budgets for on-device durian disease and pest detection**
+**What a new orchard costs: farm-level generalisation and data budgets for durian disease and pest detection**
 
 Lin Ding Shan
 
@@ -42,7 +42,7 @@ Mean of the five detectors that report per-class AP (clean protocol). A dash mar
 
 ## Table S3. Per-class unseen-farm AP50 by number of training farms
 
-Data-budget experiment, all photographs per farm, YOLO11n; held-out farms weighted equally.
+Data-budget experiment, all images per farm, YOLO11n; held-out farms weighted equally.
 
 | Class | 1 farm | 2 farms | 4 farms | 7 farms |
 |---|---|---|---|---|
@@ -114,7 +114,7 @@ Change in unseen-farm mAP50 for one step in the number of training farms (at fix
 
 ## Table S7. Earlier, epoch-capped schedule versus fixed iterations
 
-The same farm draws and image subsets trained with epochs = clamp(round(2000 × b / n), 100, 300), b = min(32, n), which gives small budgets far fewer iterations, and with the fixed-iteration schedule used in the paper (seed 42 in both). Mean unseen-farm mAP50 over held-out farms.
+The same farm draws and image subsets trained under two schedules (seed 42 in both). Capped: epochs = clamp(round(2000 × b / n), 100, 300) with batch b = min(32, n), the Ultralytics nominal batch of 64 (so gradients were accumulated over more batches, and fewer optimiser steps taken, for small n), the training list not repeated, and mosaic switched off for the last 10 epochs. Fixed iterations (the paper): batch 32, the list repeated so that an epoch has at least 20 batches, about 2,000 iterations, and mosaic switched off for the last 10% of epochs. Mean unseen-farm mAP50 over held-out farms.
 
 | Farms | Images per farm | Iterations (capped) | mAP50 (capped) | mAP50 (fixed iterations) |
 |---|---|---|---|---|

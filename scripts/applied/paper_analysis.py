@@ -763,11 +763,14 @@ def rq3(root, out, N):
             bb = bdf.loc[idx]
             dp = (dd.precision - bb.precision.values).groupby(level=0).mean().mean()
             dr = (dd.recall - bb.recall.values).groupby(level=0).mean().mean()
-            dc = {c.split("::")[1]: rd(np.nanmean((dd[c].astype(float) - bb[c].astype(float).values)), 3)
-                  for c in cls}
+            # farm first, then equal weight across farms (Section 2.8)
+            dc = {c.split("::")[1]: rd((dd[c].astype(float) - bb[c].astype(float).values)
+                                       .groupby(level=0).mean().mean(), 3) for c in cls}
             worst = sorted(dc, key=lambda k: dc[k])[:2]
             R["change"][arm][m] = {"precision": rd(dp, 3), "recall": rd(dr, 3), "per_class": dc,
                                    "worst": worst, "worst_values": [dc[w] for w in worst]}
+    al = d[d.m == "all"].n_calib
+    R["all_images_range"] = [int(al.min()), int(al.max())] if len(al) else None
     N["rq3"] = R
     fig5(tab, R, out)
     return tab

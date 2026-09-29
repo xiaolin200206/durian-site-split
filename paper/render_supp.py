@@ -22,7 +22,7 @@ def main():
     N = json.load(open(os.path.join(RES, "paper_numbers.json")))
     out = ["# Supplementary material",
            "",
-           "**What a new orchard costs: farm-level generalisation and data budgets for on-device "
+           "**What a new orchard costs: farm-level generalisation and data budgets for "
            "durian disease and pest detection**",
            "",
            "Lin Ding Shan",
@@ -90,7 +90,7 @@ def main():
     ck = pd.read_csv(os.path.join(RES, "tableS_class_by_k.csv"), index_col=0)
     rows = [[R.LABEL[c]] + [f3(ck.loc[k, c]) for k in ck.index] for c in R.NAMES]
     out += ["## Table S3. Per-class unseen-farm AP50 by number of training farms", "",
-            "Data-budget experiment, all photographs per farm, YOLO11n; held-out farms weighted "
+            "Data-budget experiment, all images per farm, YOLO11n; held-out farms weighted "
             "equally.", "",
             md_table(["Class"] + [f"{k} farm" + ("s" if k > 1 else "") for k in ck.index], rows), ""]
 
@@ -133,10 +133,13 @@ def main():
         rows = [[int(r.k), r.m, r.v1_iterations, f3(r.v1_capped), f3(r.v2_fixed_iterations)]
                 for r in t7.itertuples()]
         out += ["## Table S7. Earlier, epoch-capped schedule versus fixed iterations", "",
-                "The same farm draws and image subsets trained with epochs = clamp(round(2000 × b / n), "
-                "100, 300), b = min(32, n), which gives small budgets far fewer iterations, and with the "
-                "fixed-iteration schedule used in the paper (seed 42 in both). Mean unseen-farm mAP50 "
-                "over held-out farms.", "",
+                "The same farm draws and image subsets trained under two schedules (seed 42 in both). "
+                "Capped: epochs = clamp(round(2000 × b / n), 100, 300) with batch b = min(32, n), the "
+                "Ultralytics nominal batch of 64 (so gradients were accumulated over more batches, and "
+                "fewer optimiser steps taken, for small n), the training list not repeated, and mosaic "
+                "switched off for the last 10 epochs. Fixed iterations (the paper): batch 32, the list "
+                "repeated so that an epoch has at least 20 batches, about 2,000 iterations, and mosaic "
+                "switched off for the last 10% of epochs. Mean unseen-farm mAP50 over held-out farms.", "",
                 md_table(["Farms", "Images per farm", "Iterations (capped)", "mAP50 (capped)",
                           "mAP50 (fixed iterations)"], rows), ""]
 

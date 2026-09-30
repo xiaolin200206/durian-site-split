@@ -103,7 +103,7 @@ def main():
     rows = [[k, m] + [f3(g.loc[(k, m), f]) for f in fs] for k, m in order]
     out += ["## Table S4. Data-budget experiment, per held-out farm", "",
             "YOLO11n unseen-farm mAP50; mean over the two farm draws (one for seven farms) and the seeds.",
-            "", md_table(["Farms", "Photos per farm"] + [f"Farm {f}" for f in fs], rows), ""]
+            "", md_table(["Farms", "Images per farm"] + [f"Farm {f}" for f in fs], rows), ""]
 
     # Table S5 draws
     d = h[h.k < 7].groupby(["k", "m", "heldout", "draw"]).mAP50.mean().unstack()
@@ -113,7 +113,7 @@ def main():
     out += ["## Table S5. Difference between the two farm draws", "",
             "Absolute difference in unseen-farm mAP50 between the two farm combinations drawn for "
             "the same held-out farm and budget (k < 7).", "",
-            md_table(["Farms", "Photos per farm", "Median over held-out farms", "Maximum"], rows), ""]
+            md_table(["Farms", "Images per farm", "Median over held-out farms", "Maximum"], rows), ""]
 
     # Table S6 steps
     st = pd.read_csv(os.path.join(RES, "tableS_steps.csv"))

@@ -42,13 +42,13 @@ every push.
 | Spread across held-out farms (mean of six detectors) | 0.094 – 0.356 |
 | Largest mean difference between two detectors | 0.022 mAP50 |
 | Share of random-split AP kept on a new farm | psyllid classes 25–30%, other classes 48–59% |
-| Doubling training farms vs doubling photos per farm (fixed iterations) | +0.039 vs +0.030 mAP50 (difference within uncertainty) |
-| …restricted to training sets covering every class | +0.036 vs +0.032 |
-| 7 farms × 50 photos vs 4 farms × all photos (~350–390 images) | 0.181 vs 0.149 |
-| Fine-tuning on a new farm's images alone (5 / ~50 images) | −0.121 / −0.044 mAP50 |
+| Doubling training farms vs doubling photos per farm (fixed iterations) | +0.038 vs +0.028 mAP50 (difference within uncertainty) |
+| …restricted to training sets covering every class | +0.035 vs +0.030 |
+| 7 farms × 50 photos vs 4 farms × all photos (~350–390 images) | 0.182 vs 0.146 |
+| Fine-tuning on a new farm's images alone (5 / ~50 images) | −0.111 / −0.029 mAP50 |
 | Retraining with those images added (5 / ~50 images) | +0.004 / +0.053 mAP50 |
 
-The numbers above are the seed-42 data-budget run; `paper/manuscript.md` is
+The numbers above are the seed-1/42 data-budget run; `paper/manuscript.md` is
 always the current rendering.
 
 ## Layout

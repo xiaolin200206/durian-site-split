@@ -583,7 +583,9 @@ def rq2(root, out, N):
         v1 = pd.read_csv(v1f, dtype={"m": str, "heldout": str})
         v1 = v1[v1.eval_on == "heldout"]
         c1 = v1.groupby(["k", "m", "heldout"]).mAP50.mean().groupby(["k", "m"]).mean()
-        c2 = cell.groupby(["k", "m"]).mAP50.mean()
+        # like-for-like: the capped run exists for seed 42 only
+        h42 = h[h.seed.astype(int) == 42]
+        c2 = (h42.groupby(["k", "m", "heldout"]).mAP50.mean().groupby(["k", "m"]).mean())
         its1 = {}
         for (k, m), g in v1.groupby(["k", "m"]):
             v = []
@@ -599,7 +601,12 @@ def rq2(root, out, N):
         v1a = v1.assign(per_farm=v1.n_train / v1.k)
         b1, p1, _ = fit(v1a)
         bb1 = fit_boot(v1a)
+        b42, p42, _ = fit(h42)
+        bb42 = fit_boot(h42)
         N["v1_schedule"] = {"farms": rd(b1, 3), "photos": rd(p1, 3), "diff": rd(b1 - p1, 3),
+                            "v2_seed42": {"farms": rd(b42, 3), "photos": rd(p42, 3), "diff": rd(b42 - p42, 3),
+                                          "diff_ci": [rd(np.percentile(bb42[:, 0] - bb42[:, 1], 5), 3),
+                                                      rd(np.percentile(bb42[:, 0] - bb42[:, 1], 95), 3)]},
                             "diff_ci": [rd(np.percentile(bb1[:, 0] - bb1[:, 1], 5), 3),
                                         rd(np.percentile(bb1[:, 0] - bb1[:, 1], 95), 3)],
                             "cells_higher": int((t7.v1_capped > t7.v2_fixed_iterations).sum()),

@@ -6,7 +6,7 @@ Detectors for crop diseases and pests are commonly evaluated on a random split o
 
 - With each held-out farm excluded from training, early stopping and checkpoint selection, six detectors from three architecture families scored 1.6–2.3 times lower mAP50 on unseen farms than on a random split. The held-out farm, not the detector, determined most of the score: averaged over the same farms, no two detectors differed by more than 0.022 mAP50.
 - Psyllid and psyllid damage transferred worst, retaining 25–30% of their random-split AP on unseen farms, and size alone does not explain it.
-- In 168 training runs with training length held constant, more farms and more images per farm both raised unseen-farm accuracy, by amounts that could not be distinguished (0.039 and 0.030 mAP50 per doubling); part of the value of a farm lay in the classes it carried.
+- In 336 training runs with training length held constant, more farms and more images per farm both raised unseen-farm accuracy, by amounts that could not be distinguished (0.038 and 0.028 mAP50 per doubling); part of the value of a farm lay in the classes it carried.
 - With the fine-tuning recipe tested, fine-tuning a trained detector on a few images from a new farm made it worse on that farm, whereas adding about 50 such images to the training set and retraining improved it; a new farm's images are better used as additional training data.
 
 The work extends to orchard disease and pest detection a question this journal has published for weed detection in arable fields (Ruigrok et al., 2023, *Comput. Electron. Agric.* 204, 107554), and it gives practitioners direct recommendations for evaluation and for planning collection campaigns.

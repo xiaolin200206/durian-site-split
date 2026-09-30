@@ -317,19 +317,22 @@ check("claim: fine-tuning raised precision and cut recall (5 images)",
       rq3["change"]["ft"]["5"]["precision"] > 0 > rq3["change"]["ft"]["5"]["recall"])
 check("claim: retraining raised precision and recall (whole half)",
       rq3["change"]["rt"]["all"]["precision"] > 0 and rq3["change"]["rt"]["all"]["recall"] > 0)
-check("claim: slope difference within uncertainty (all, excl. k=7, excl. k=1)",
-      all(rg_[m]["diff_ci"][0] <= 0 <= rg_[m]["diff_ci"][1]
-          for m in ("all runs", "excluding k = 7", "excluding k = 1")))
+check("claim: slope difference within uncertainty (all runs, excl. k=7) but not excl. k=1",
+      all(rg_[m]["diff_ci"][0] <= 0 <= rg_[m]["diff_ci"][1] for m in ("all runs", "excluding k = 7"))
+      and rg_["excluding k = 1"]["diff_ci"][0] > 0)
 check("claim: every images-per-farm step positive",
       all(v["diff"] > 0 for k, v in st.items() if k.startswith("photos")))
 check("claim: matched budgets, more farms won twice and lost once",
       eb["k7m15_vs_k2m50"]["diff"] > 0 and eb["k7m50_vs_k4mall"]["diff"] > 0 and
       eb["k4m50_vs_k2mall"]["diff"] < 0)
 check("claim: still rising from four to seven farms", st["farms 4->7 @ all per farm"]["diff"] > 0)
-check("claim: farm slope robust to schedule, photo slope not",
-      abs(N["v1_schedule"]["farms"] - rg_["all runs"]["farms"]) <= 0.003 and
-      abs(N["v1_schedule"]["photos"] - rg_["all runs"]["photos"]) > 0.003 and
-      N["v1_schedule"]["diff_ci"][0] > 0)
+v1s = N["v1_schedule"]
+check("claim: same-seed schedules share the farm slope; capped photo slope lower; capped diff excludes 0",
+      abs(v1s["farms"] - v1s["v2_seed42"]["farms"]) <= 0.003 and
+      v1s["photos"] < v1s["v2_seed42"]["photos"] and v1s["diff_ci"][0] > 0 and
+      v1s["v2_seed42"]["diff_ci"][0] <= 0)
+check("claim: whole-half fine-tuning loss within uncertainty, smaller sizes not",
+      rq3["ft"]["all"]["ci"][1] >= 0 and all(rq3["ft"][m]["ci"][1] < 0 for m in ("5", "10", "20")))
 check("claim: every class higher at seven farms than one",
       all(v["7"] > v["1"] for v in N["class_by_k"].values()))
 

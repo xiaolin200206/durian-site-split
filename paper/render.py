@@ -128,7 +128,7 @@ def table3(N):
 
 def table4():
     t = pd.read_csv(os.path.join(RES, "table3_budget_grid.csv"), dtype={"m": str})
-    head = ("| Training farms | Photos per farm | Training images | Unseen-farm mAP50 [90% CI] | "
+    head = ("| Training farms | Images per farm | Training images | Unseen-farm mAP50 [90% CI] | "
             "Worst–best farm | Class coverage | Sabah mAP50 |")
     sep = "|---|---|---|---|---|---|---|"
     rows = [f"| {int(r.k)} | {r.m} | {int(r.train_images)} | {f3(r.unseen_farm_mAP50)} "

@@ -46,47 +46,47 @@ Data-budget experiment, all images per farm, YOLO11n; held-out farms weighted eq
 
 | Class | 1 farm | 2 farms | 4 farms | 7 farms |
 |---|---|---|---|---|
-| Algal spot | 0.052 | 0.150 | 0.210 | 0.248 |
-| Leaf rot | 0.089 | 0.162 | 0.165 | 0.298 |
-| *Phomopsis* | 0.046 | 0.136 | 0.200 | 0.222 |
-| Psyllid | 0.052 | 0.062 | 0.063 | 0.103 |
-| Psyllid damage | 0.006 | 0.039 | 0.042 | 0.055 |
-| Leafhopper damage | 0.153 | 0.258 | 0.219 | 0.408 |
+| Algal spot | 0.056 | 0.150 | 0.211 | 0.256 |
+| Leaf rot | 0.095 | 0.156 | 0.161 | 0.279 |
+| *Phomopsis* | 0.048 | 0.136 | 0.194 | 0.217 |
+| Psyllid | 0.048 | 0.061 | 0.065 | 0.108 |
+| Psyllid damage | 0.006 | 0.040 | 0.039 | 0.058 |
+| Leafhopper damage | 0.158 | 0.232 | 0.209 | 0.388 |
 
 ## Table S4. Data-budget experiment, per held-out farm
 
 YOLO11n unseen-farm mAP50; mean over the two farm draws (one for seven farms) and the seeds.
 
-| Farms | Photos per farm | Farm 0 | Farm 1 | Farm 2 | Farm 3 | Farm 4 | Farm 5 | Farm 6 | Farm 7 |
+| Farms | Images per farm | Farm 0 | Farm 1 | Farm 2 | Farm 3 | Farm 4 | Farm 5 | Farm 6 | Farm 7 |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | 15 | 0.022 | 0.011 | 0.002 | 0.016 | 0.076 | 0.018 | 0.027 | 0.057 |
-| 1 | 50 | 0.050 | 0.064 | 0.009 | 0.012 | 0.082 | 0.032 | 0.034 | 0.076 |
-| 1 | all | 0.080 | 0.099 | 0.039 | 0.023 | 0.104 | 0.052 | 0.128 | 0.069 |
-| 2 | 15 | 0.045 | 0.066 | 0.015 | 0.079 | 0.034 | 0.039 | 0.013 | 0.107 |
-| 2 | 50 | 0.075 | 0.109 | 0.021 | 0.139 | 0.099 | 0.104 | 0.022 | 0.125 |
-| 2 | all | 0.123 | 0.300 | 0.064 | 0.178 | 0.131 | 0.137 | 0.037 | 0.160 |
-| 4 | 15 | 0.064 | 0.066 | 0.017 | 0.055 | 0.080 | 0.130 | 0.042 | 0.090 |
-| 4 | 50 | 0.110 | 0.132 | 0.032 | 0.154 | 0.107 | 0.176 | 0.033 | 0.120 |
-| 4 | all | 0.164 | 0.247 | 0.040 | 0.186 | 0.140 | 0.212 | 0.059 | 0.148 |
-| 7 | 15 | 0.094 | 0.174 | 0.057 | 0.221 | 0.140 | 0.185 | 0.008 | 0.073 |
-| 7 | 50 | 0.220 | 0.180 | 0.099 | 0.246 | 0.220 | 0.230 | 0.029 | 0.221 |
-| 7 | all | 0.207 | 0.444 | 0.154 | 0.319 | 0.197 | 0.221 | 0.099 | 0.236 |
+| 1 | 15 | 0.025 | 0.012 | 0.001 | 0.016 | 0.074 | 0.020 | 0.027 | 0.052 |
+| 1 | 50 | 0.063 | 0.058 | 0.008 | 0.016 | 0.078 | 0.027 | 0.033 | 0.088 |
+| 1 | all | 0.071 | 0.115 | 0.029 | 0.030 | 0.100 | 0.054 | 0.145 | 0.076 |
+| 2 | 15 | 0.047 | 0.072 | 0.015 | 0.081 | 0.034 | 0.039 | 0.014 | 0.113 |
+| 2 | 50 | 0.079 | 0.105 | 0.019 | 0.140 | 0.093 | 0.095 | 0.023 | 0.107 |
+| 2 | all | 0.117 | 0.272 | 0.052 | 0.173 | 0.135 | 0.135 | 0.037 | 0.162 |
+| 4 | 15 | 0.068 | 0.060 | 0.016 | 0.064 | 0.087 | 0.124 | 0.040 | 0.099 |
+| 4 | 50 | 0.116 | 0.114 | 0.030 | 0.140 | 0.107 | 0.168 | 0.033 | 0.114 |
+| 4 | all | 0.151 | 0.252 | 0.038 | 0.194 | 0.137 | 0.209 | 0.055 | 0.132 |
+| 7 | 15 | 0.090 | 0.187 | 0.046 | 0.285 | 0.140 | 0.174 | 0.010 | 0.081 |
+| 7 | 50 | 0.210 | 0.216 | 0.106 | 0.245 | 0.216 | 0.228 | 0.022 | 0.216 |
+| 7 | all | 0.207 | 0.435 | 0.136 | 0.315 | 0.190 | 0.240 | 0.076 | 0.226 |
 
 ## Table S5. Difference between the two farm draws
 
 Absolute difference in unseen-farm mAP50 between the two farm combinations drawn for the same held-out farm and budget (k < 7).
 
-| Farms | Photos per farm | Median over held-out farms | Maximum |
+| Farms | Images per farm | Median over held-out farms | Maximum |
 |---|---|---|---|
-| 1 | 15 | 0.021 | 0.114 |
-| 1 | 50 | 0.029 | 0.152 |
-| 1 | all | 0.073 | 0.180 |
-| 2 | 15 | 0.027 | 0.075 |
-| 2 | 50 | 0.039 | 0.088 |
-| 2 | all | 0.065 | 0.088 |
-| 4 | 15 | 0.031 | 0.061 |
-| 4 | 50 | 0.052 | 0.074 |
-| 4 | all | 0.036 | 0.049 |
+| 1 | 15 | 0.025 | 0.104 |
+| 1 | 50 | 0.029 | 0.172 |
+| 1 | all | 0.057 | 0.213 |
+| 2 | 15 | 0.023 | 0.066 |
+| 2 | 50 | 0.036 | 0.082 |
+| 2 | all | 0.054 | 0.100 |
+| 4 | 15 | 0.021 | 0.068 |
+| 4 | 50 | 0.043 | 0.080 |
+| 4 | all | 0.018 | 0.048 |
 
 ## Table S6. Step-wise paired contrasts in the data-budget experiment
 
@@ -94,23 +94,23 @@ Change in unseen-farm mAP50 for one step in the number of training farms (at fix
 
 | Step | At | Change [90% CI] | Farms improved |
 |---|---|---|---|
-| farms 1 → 2 | 15 images per farm | 0.021 [0.001, 0.040] | 6 of 8 |
-| farms 2 → 4 | 15 images per farm | 0.018 [−0.001, 0.039] | 6 of 8 |
-| farms 4 → 7 | 15 images per farm | 0.051 [0.018, 0.087] | 6 of 8 |
-| farms 1 → 2 | 50 images per farm | 0.042 [0.019, 0.067] | 7 of 8 |
-| farms 2 → 4 | 50 images per farm | 0.021 [0.010, 0.035] | 7 of 8 |
-| farms 4 → 7 | 50 images per farm | 0.073 [0.050, 0.094] | 7 of 8 |
-| farms 1 → 2 | all images per farm | 0.067 [0.018, 0.115] | 7 of 8 |
-| farms 2 → 4 | all images per farm | 0.008 [−0.013, 0.029] | 5 of 8 |
-| farms 4 → 7 | all images per farm | 0.085 [0.054, 0.120] | 8 of 8 |
-| images per farm 15 → 50 | 1 farms | 0.016 [0.008, 0.026] | 7 of 8 |
-| images per farm 50 → all | 1 farms | 0.029 [0.015, 0.046] | 7 of 8 |
-| images per farm 15 → 50 | 2 farms | 0.037 [0.023, 0.050] | 8 of 8 |
-| images per farm 50 → all | 2 farms | 0.055 [0.032, 0.092] | 8 of 8 |
-| images per farm 15 → 50 | 4 farms | 0.040 [0.022, 0.058] | 7 of 8 |
-| images per farm 50 → all | 4 farms | 0.041 [0.026, 0.061] | 8 of 8 |
-| images per farm 15 → 50 | 7 farms | 0.061 [0.035, 0.091] | 8 of 8 |
-| images per farm 50 → all | 7 farms | 0.054 [0.011, 0.111] | 5 of 8 |
+| farms 1 → 2 | 15 images per farm | 0.023 [0.003, 0.044] | 6 of 8 |
+| farms 2 → 4 | 15 images per farm | 0.018 [−0.001, 0.038] | 5 of 8 |
+| farms 4 → 7 | 15 images per farm | 0.057 [0.016, 0.104] | 6 of 8 |
+| farms 1 → 2 | 50 images per farm | 0.036 [0.015, 0.061] | 7 of 8 |
+| farms 2 → 4 | 50 images per farm | 0.020 [0.008, 0.034] | 7 of 8 |
+| farms 4 → 7 | 50 images per farm | 0.080 [0.056, 0.099] | 7 of 8 |
+| farms 1 → 2 | all images per farm | 0.058 [0.010, 0.100] | 7 of 8 |
+| farms 2 → 4 | all images per farm | 0.011 [−0.007, 0.030] | 5 of 8 |
+| farms 4 → 7 | all images per farm | 0.082 [0.055, 0.113] | 8 of 8 |
+| images per farm 15 → 50 | 1 farms | 0.018 [0.009, 0.028] | 7 of 8 |
+| images per farm 50 → all | 1 farms | 0.031 [0.012, 0.053] | 7 of 8 |
+| images per farm 15 → 50 | 2 farms | 0.031 [0.017, 0.045] | 7 of 8 |
+| images per farm 50 → all | 2 farms | 0.053 [0.032, 0.083] | 8 of 8 |
+| images per farm 15 → 50 | 4 farms | 0.033 [0.018, 0.048] | 7 of 8 |
+| images per farm 50 → all | 4 farms | 0.043 [0.025, 0.069] | 8 of 8 |
+| images per farm 15 → 50 | 7 farms | 0.056 [0.026, 0.086] | 7 of 8 |
+| images per farm 50 → all | 7 farms | 0.046 [0.011, 0.092] | 6 of 8 |
 
 ## Table S7. Earlier, epoch-capped schedule versus fixed iterations
 

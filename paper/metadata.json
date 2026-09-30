@@ -1,4 +1,3 @@
 {
- "zenodo_data_doi": "TODO: new Zenodo version DOI of the durian dataset (with content-based farm attribution)",
- "zenodo_code_doi": "TODO: Zenodo DOI of the GitHub release"
+ "zenodo_data_doi": "https://doi.org/10.5281/zenodo.22030623"
 }

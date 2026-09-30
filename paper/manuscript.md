@@ -264,11 +264,11 @@ The study is principally computational analysis of plant images. Two adult growe
 
 ## Data availability
 
-The durian images and annotations are deposited on Zenodo (TODO: new Zenodo version DOI of the durian dataset (with content-based farm attribution); CC BY-NC 4.0) at 640 × 640 pixels with location coordinates removed, together with the content-based farm attribution and all split manifests; the 827-image analysis pool and the 281-image Sabah set are identified in the manifests.
+The durian images and annotations are deposited on Zenodo (https://doi.org/10.5281/zenodo.22030623; CC BY-NC 4.0) at 640 × 640 pixels with location coordinates removed, together with the content-based farm attribution and all split manifests; the 827-image analysis pool and the 281-image Sabah set are identified in the manifests.
 
 ## Code availability
 
-Training, evaluation and analysis code, the result tables behind every figure and table, and a script that recomputes every number in this paper from those tables are available at https://github.com/xiaolin200206/durian-site-split (TODO: Zenodo DOI of the GitHub release).
+Training, evaluation and analysis code, the result tables behind every figure and table, and a script that recomputes every number in this paper from those tables are available at https://github.com/xiaolin200206/durian-site-split.
 
 ## Relation to prior work by the same author
 

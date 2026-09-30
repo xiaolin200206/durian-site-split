@@ -191,7 +191,7 @@ The durian images and annotations are deposited on Zenodo ({{zenodo_data_doi}}; 
 
 ## Code availability
 
-Training, evaluation and analysis code, the result tables behind every figure and table, and a script that recomputes every number in this paper from those tables are available at https://github.com/xiaolin200206/durian-site-split ({{zenodo_code_doi}}).
+Training, evaluation and analysis code, the result tables behind every figure and table, and a script that recomputes every number in this paper from those tables are available at https://github.com/xiaolin200206/durian-site-split.
 
 ## Relation to prior work by the same author
 

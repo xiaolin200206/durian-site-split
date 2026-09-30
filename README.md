@@ -104,9 +104,7 @@ The leave-one-farm-out runs were first analysed, together with GWHD 2021,
 BreaKHis and UCI HAR, in a methodological manuscript ("Held-out unit
 variability overshadows architectural differences in clustered machine-learning
 benchmarks") that was withdrawn before review. Its manuscript, supplementary
-information, figures and README are in `archive/withdrawn_methods_paper/`, and
-`python verify_claims.py` still reproduces its 185 claims from the tables in
-`results_*/`. The applied paper replaces it for the durian results.
+information, figures and README are in `archive/withdrawn_methods_paper/`, together with its verification script and result tables (archived, not maintained). The applied paper replaces it for the durian results.
 
 ## Licence
 

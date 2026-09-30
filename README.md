@@ -2,7 +2,7 @@
 
 Code, result tables and manuscript for **"What a new orchard costs: farm-level
 generalisation and data budgets for on-device durian disease and pest
-detection"** (Lin Ding Shan; submitted to *Computers and Electronics in Agriculture*).
+detection"** (Lin Ding Shan).
 
 A handheld durian disease-and-pest detector is used on farms it was never
 trained on. This repository measures what that costs, and how a limited

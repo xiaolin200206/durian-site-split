@@ -35,7 +35,9 @@ def main():
             "YOLO11n, YOLO11s, YOLO11m, YOLO11l and RT-DETR-L: COCO-pretrained, 640 px, up to 150 "
             "epochs, patience 50, batch 32, 32, 16, 8 and 24 respectively, five seeds (42, 1, 2, 3, 4), "
             "default augmentation. Faster R-CNN ResNet-50 FPN (torchvision, improved recipe): "
-            "COCO-pretrained, SGD with cosine annealing, 40 epochs, patience 12, batch 4, three seeds. "
+            "COCO-pretrained, stochastic gradient descent (learning rate 0.005, momentum 0.9, weight decay "
+            "5 × 10⁻⁴) with cosine annealing, horizontal flips only, torchvision's default input resizing, "
+            "40 epochs, patience 12, batch 4, three seeds. "
             "The inner validation set is 10% of each fold's training images, stratified by each image's "
             "dominant class (at least one image per class with two or more images), drawn with seed "
             "20260911 independently of the training seed; the held-out farm is evaluated once with the "
@@ -56,7 +58,7 @@ def main():
             "**New-farm calibration (Section 2.7).** Fine-tuning: from the seven-farm data-budget "
             "model, backbone frozen (first 10 modules), AdamW, learning rate 5 × 10⁻⁴, no warm-up, "
             "batch 16 with nominal batch 16 (no gradient accumulation), calibration images repeated so "
-            "that an epoch has at least 20 batches, 300 optimiser steps, final weights. Retraining: "
+            "that an epoch has at least 20 batches, about 300 optimiser steps (294–308 with the whole half), final weights. Retraining: "
             "the data-budget protocol applied to the other seven farms plus the calibration images. "
             "Capture order uses EXIF DateTimeOriginal where available and the camera counter "
             "otherwise.",
@@ -110,6 +112,8 @@ def main():
     spread = (d.max(axis=1) - d.min(axis=1)).groupby(level=[0, 1]).agg(["median", "max"])
     rows = [[k, m, f3(r["median"]), f3(r["max"])] for (k, m), r in
             sorted(spread.iterrows(), key=lambda t: (t[0][0], {"15": 0, "50": 1, "all": 2}[t[0][1]]))]
+    allsp = (d.max(axis=1) - d.min(axis=1))
+    rows.append(["All budgets", "", f3(allsp.median()), f3(allsp.max())])
     out += ["## Table S5. Difference between the two farm draws", "",
             "Absolute difference in unseen-farm mAP50 between the two farm combinations drawn for "
             "the same held-out farm and budget (k < 7).", "",
@@ -117,7 +121,7 @@ def main():
 
     # Table S6 steps
     st = pd.read_csv(os.path.join(RES, "tableS_steps.csv"))
-    rows = [[r.step.replace("->", " → ").replace("photos", "images per farm"), r["at"].replace("per farm", "images per farm"),
+    rows = [[r.step.replace("->", " → ").replace("photos", "images per farm"), r["at"].replace("per farm", "images per farm").replace("1 farms", "1 farm"),
              f"{f3(r['diff'])} [{f3(r.ci_lo)}, {f3(r.ci_hi)}]", f"{r.wins} of {r.farms}"]
             for _, r in st.iterrows()]
     out += ["## Table S6. Step-wise paired contrasts in the data-budget experiment", "",
@@ -130,7 +134,8 @@ def main():
     p7 = os.path.join(RES, "tableS_schedule_comparison.csv")
     if os.path.isfile(p7):
         t7 = pd.read_csv(p7, dtype={"m": str})
-        rows = [[int(r.k), r.m, r.v1_iterations, f3(r.v1_capped), f3(r.v2_fixed_iterations)]
+        rows = [[int(r.k), r.m, (r.v1_iterations.split("–")[0] if len(set(r.v1_iterations.split("–"))) == 1 else r.v1_iterations),
+                 f3(r.v1_capped), f3(r.v2_fixed_iterations)]
                 for r in t7.itertuples()]
         out += ["## Table S7. Earlier, epoch-capped schedule versus fixed iterations", "",
                 "The same farm draws and image subsets trained under two schedules (seed 42 in both). "
@@ -139,7 +144,14 @@ def main():
                 "fewer optimiser steps taken, for small n), the training list not repeated, and mosaic "
                 "switched off for the last 10 epochs. Fixed iterations (the paper): batch 32, the list "
                 "repeated so that an epoch has at least 20 batches, about 2,000 iterations, and mosaic "
-                "switched off for the last 10% of epochs. Mean unseen-farm mAP50 over held-out farms.", "",
+                "switched off for the last 10% of epochs. Mean unseen-farm mAP50 over held-out farms. "
+                f"Regression slopes per doubling of farms and of images per farm: capped "
+                f"{f3(N['v1_schedule']['farms'])} and {f3(N['v1_schedule']['photos'])}; fixed iterations "
+                f"{f3(N['v1_schedule']['v2_seed42']['farms'])} and {f3(N['v1_schedule']['v2_seed42']['photos'])} "
+                f"(seed 42; Table 5B gives the two-seed values). Difference between the two slopes: capped "
+                f"{f3(N['v1_schedule']['diff'])} [{f3(N['v1_schedule']['diff_ci'][0])}, {f3(N['v1_schedule']['diff_ci'][1])}]; "
+                f"fixed iterations {f3(N['v1_schedule']['v2_seed42']['diff'])} "
+                f"[{f3(N['v1_schedule']['v2_seed42']['diff_ci'][0])}, {f3(N['v1_schedule']['v2_seed42']['diff_ci'][1])}] (90% intervals).", "",
                 md_table(["Farms", "Images per farm", "Iterations (capped)", "mAP50 (capped)",
                           "mAP50 (fixed iterations)"], rows), ""]
 
@@ -155,9 +167,8 @@ def main():
             "original, the hash recovered that same original (median Hamming distance 0); it also "
             "recovered originals for 303 images whose filenames the annotation platform had replaced. "
             "Because some originals themselves carry neither a location nor a located image within 30 "
-            "minutes, 829 of the 1,033 annotated peninsular images could be assigned a farm. The 204 "
-            "that could not be over-represent one class (56% of boxes against 41%) and under-represent "
-            "another (4% against 17%), and are excluded from every analysis.", ""]
+            "minutes, 829 of the 1,033 annotated peninsular images could be assigned a farm. The other "
+            "204 differ in class mix from the analysis pool and are excluded from every analysis.", ""]
 
     md = os.path.join(PAPER, "supplementary.md")
     open(md, "w", encoding="utf-8").write("\n".join(out))

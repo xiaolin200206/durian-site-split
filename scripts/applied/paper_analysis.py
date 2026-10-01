@@ -628,9 +628,9 @@ def rq2(root, out, N):
     N["class_by_k"] = {c: {int(k): rd(v, 3) for k, v in pk[c].items()} for c in NAMES}
 
     # draws and consistency with the clean protocol
-    dr = h[h.k < 7].groupby(["heldout", "k", "m"]).mAP50.agg(["min", "max"])
+    dd = h[h.k < 7].groupby(["heldout", "k", "m", "draw"]).mAP50.mean().unstack()
     k7 = cell[(cell.k == 7) & (cell.m == "all")].set_index("heldout").mAP50
-    N["checks"] = {"median_draw_spread": rd((dr["max"] - dr["min"]).median(), 3),
+    N["checks"] = {"median_draw_spread": rd((dd.max(axis=1) - dd.min(axis=1)).median(), 3),
                    "k7_all_fixed_steps": rd(k7.mean(), 3),
                    "k7_all_per_farm": {str(i): rd(v, 3) for i, v in k7.sort_index().items()},
                    "clean_protocol_yolo11n": N["headline"]["yolo11n"]["unseen_farm"]}
@@ -735,7 +735,9 @@ def rq3(root, out, N):
     cell = d.groupby(["arm", "m", "farm"]).agg(mAP50=("mAP50", "mean"), gain=("gain", "mean"),
                                                n=("n_calib", "mean")).reset_index()
     bf = base.groupby("farm").mean()
-    R = {"base_mAP50": rd(bf.mean(), 3), "farms": int(len(bf)),
+    rt_seeds = sorted(int(x) for x in d[d.arm == "rt"].seed.unique())
+    bft = base[base.index.get_level_values("seed").isin(rt_seeds)].groupby("farm").mean()
+    R = {"base_mAP50": rd(bf.mean(), 3), "base_mAP50_rt": rd(bft.mean(), 3), "farms": int(len(bf)),
          "n_test_median": int(df[df.arm == "base"].n_test.median()),
          "seeds_ft": sorted(int(x) for x in d[d.arm == "ft"].seed.unique()),
          "seeds_rt": sorted(int(x) for x in d[d.arm == "rt"].seed.unique())}
@@ -790,7 +792,9 @@ def fig5(tab, R, out):
     fig.patch.set_facecolor(SURF)
     style(ax)
     ax.axhline(0, color=INK2, lw=0.9, ls="--")
-    ax.annotate(f"no calibration (mAP50 {R['base_mAP50']:.3f})", (0.98, 0),
+    ref = (f"no calibration (mAP50 {R['base_mAP50']:.3f}; {R['base_mAP50_rt']:.3f} for the retraining seed)"
+           if R["base_mAP50_rt"] != R["base_mAP50"] else f"no calibration (mAP50 {R['base_mAP50']:.3f})")
+    ax.annotate(ref, (0.98, 0),
                 xycoords=("axes fraction", "data"), xytext=(0, -10), textcoords="offset points",
                 fontsize=7, color=INK2, ha="right")
     lab = {"ft": ("Fine-tune on new-farm images", ACCENT), "rt": ("Retrain with them added", ACCENT2)}

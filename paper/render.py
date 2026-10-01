@@ -172,6 +172,8 @@ def table6(N):
     sep = "|---|---|---|---|---|"
     name = {"ft": "Fine-tune", "rt": "Retrain with images added"}
     rows = [f"| None | 0 | {f3(N['rq3']['base_mAP50'])} | – | – |"]
+    if N["rq3"].get("base_mAP50_rt") not in (None, N["rq3"]["base_mAP50"]):
+        rows.append(f"| None, retraining seed only | 0 | {f3(N['rq3']['base_mAP50_rt'])} | – | – |")
     for r in t.itertuples():
         lo, hi = N["rq3"].get("all_images_range") or (0, 0)
         img = f"all ({lo}–{hi}; mean {r.images:.0f})" if str(r.m) == "all" else f"{r.images:.0f}"
@@ -180,7 +182,9 @@ def table6(N):
     return ("**Table 6.** New-farm calibration (YOLO11n). Each farm's images are split by capture "
             "time into a calibration half and a test half, in both directions; changes are paired "
             "with the uncalibrated model on the same test half and averaged over directions and "
-            "seeds within a farm, then over farms.\n\n" + "\n".join([head, sep] + rows))
+            "seeds within a farm, then over farms. Fine-tuning changes are paired with the uncalibrated "
+            "model of the same seed (both seeds); retraining, run with one seed, is paired with that "
+            "seed's uncalibrated model, shown in the second row.\n\n" + "\n".join([head, sep] + rows))
 
 
 def prose_blocks():

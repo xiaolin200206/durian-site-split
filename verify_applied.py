@@ -336,6 +336,19 @@ check("claim: whole-half fine-tuning loss within uncertainty, smaller sizes not"
 check("claim: every class higher at seven farms than one",
       all(v["7"] > v["1"] for v in N["class_by_k"].values()))
 
+cbk = N["class_by_k"]
+ks_ = sorted(next(iter(cbk.values())).keys(), key=int)
+check("claim: psyllid damage lowest class at every k",
+      all(min(cbk, key=lambda c: cbk[c][k]) == "Psyllid_damage" for k in ks_))
+check("claim: psyllid second lowest from two farms on",
+      all(sorted(cbk, key=lambda c: cbk[c][k])[1] == "Psyllid" for k in ks_ if int(k) >= 2))
+check("claim: Phomopsis boxes smaller than psyllid boxes",
+      N["box_side_px"]["Phomopsis"] <= N["box_side_px"]["Psyllid"])
+check("claim: fine-tuning loses with 5-20 images (interval below zero)",
+      all(rq3["ft"][m]["ci"][1] < 0 for m in ("5", "10", "20")))
+check("claim: retraining gain clear only with the whole half",
+      rq3["rt"]["all"]["ci"][0] > 0 and all(rq3["rt"][m]["ci"][0] <= 0 for m in ("5", "10", "20")))
+
 # README quotes a few headline numbers; they must match the JSON
 rd_ = open(os.path.join(ROOT, "README.md"), encoding="utf-8").read()
 h = N["headline"]["yolo11n"]; hr = N["headline_range"]; rg = N["regression"]

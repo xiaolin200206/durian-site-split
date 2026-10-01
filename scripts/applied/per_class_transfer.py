@@ -87,7 +87,7 @@ def main():
                        "train_farms_with_class": trained_on,
                        "train_images_with_class":
                            sum(pres[g].get(c, 0) for g in farms if g != f),
-                       "new_farm_AP50": round(st.mean(v), 4),
+                       "new_farm_AP50": round(st.mean(v), 6),
                        "n_seeds": len(v)}
                 by_farm.append(row)
                 per_farm.append(st.mean(v))
@@ -96,10 +96,10 @@ def main():
             nf = st.mean(per_farm)
             summary.append({
                 "model": m, "class": c, "farms_with_class": len(carriers),
-                "random_split_AP50": round(st.mean(rnd), 4),
-                "new_farm_AP50": round(nf, 4),
-                "new_farm_min": round(min(per_farm), 4),
-                "new_farm_max": round(max(per_farm), 4),
+                "random_split_AP50": round(st.mean(rnd), 6),
+                "new_farm_AP50": round(nf, 6),
+                "new_farm_min": round(min(per_farm), 6),
+                "new_farm_max": round(max(per_farm), 6),
                 "retained_pct": round(100 * nf / st.mean(rnd), 1)})
 
     out = os.path.join(R, "results_applied")

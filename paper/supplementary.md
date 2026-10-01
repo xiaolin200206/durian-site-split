@@ -6,11 +6,11 @@ Lin Ding Shan
 
 ## Note S1. Training details
 
-**Leave-one-farm-out and random-split runs (Sections 2.4–2.5).** Ultralytics 8 (version 8.4.138 for the data-budget and calibration runs). YOLO11n, YOLO11s, YOLO11m, YOLO11l and RT-DETR-L: COCO-pretrained, 640 px, up to 150 epochs, patience 50, batch 32, 32, 16, 8 and 24 respectively, five seeds (42, 1, 2, 3, 4), default augmentation. Faster R-CNN ResNet-50 FPN (torchvision, improved recipe): COCO-pretrained, SGD with cosine annealing, 40 epochs, patience 12, batch 4, three seeds. The inner validation set is 10% of each fold's training images, stratified by each image's dominant class (at least one image per class with two or more images), drawn with seed 20260911 independently of the training seed; the held-out farm is evaluated once with the weights selected on the inner set.
+**Leave-one-farm-out and random-split runs (Sections 2.4–2.5).** Ultralytics 8 (version 8.4.138 for the data-budget and calibration runs). YOLO11n, YOLO11s, YOLO11m, YOLO11l and RT-DETR-L: COCO-pretrained, 640 px, up to 150 epochs, patience 50, batch 32, 32, 16, 8 and 24 respectively, five seeds (42, 1, 2, 3, 4), default augmentation. Faster R-CNN ResNet-50 FPN (torchvision, improved recipe): COCO-pretrained, stochastic gradient descent (learning rate 0.005, momentum 0.9, weight decay 5 × 10⁻⁴) with cosine annealing, horizontal flips only, torchvision's default input resizing, 40 epochs, patience 12, batch 4, three seeds. The inner validation set is 10% of each fold's training images, stratified by each image's dominant class (at least one image per class with two or more images), drawn with seed 20260911 independently of the training seed; the held-out farm is evaluated once with the weights selected on the inner set.
 
 **Data-budget runs (Section 2.6).** YOLO11n, COCO-pretrained, 640 px, batch 32 with the Ultralytics default nominal batch of 64 (gradients accumulated over two batches), no validation during training, no early stopping, final weights evaluated. The training list of n images is repeated r = ceil(640 / n) times so that an epoch has at least 20 batches, and epochs = round(2000 / ceil(n r / 32)), giving 1,988–2,015 iterations in every run. Mosaic augmentation is switched off for the last 10% of epochs; warm-up is the Ultralytics default (at least 100 iterations); the optimiser was selected automatically (AdamW, learning rate 0.001). Farm combinations and image subsets were drawn with a fixed design seed (20260928); within a combination the 15-, 50- and all-image subsets are nested prefixes of one shuffled order per farm. The exact images of every training set are listed in results_applied/farm_budget_train_lists.csv.
 
-**New-farm calibration (Section 2.7).** Fine-tuning: from the seven-farm data-budget model, backbone frozen (first 10 modules), AdamW, learning rate 5 × 10⁻⁴, no warm-up, batch 16 with nominal batch 16 (no gradient accumulation), calibration images repeated so that an epoch has at least 20 batches, 300 optimiser steps, final weights. Retraining: the data-budget protocol applied to the other seven farms plus the calibration images. Capture order uses EXIF DateTimeOriginal where available and the camera counter otherwise.
+**New-farm calibration (Section 2.7).** Fine-tuning: from the seven-farm data-budget model, backbone frozen (first 10 modules), AdamW, learning rate 5 × 10⁻⁴, no warm-up, batch 16 with nominal batch 16 (no gradient accumulation), calibration images repeated so that an epoch has at least 20 batches, about 300 optimiser steps (294–308 with the whole half), final weights. Retraining: the data-budget protocol applied to the other seven farms plus the calibration images. Capture order uses EXIF DateTimeOriginal where available and the camera counter otherwise.
 
 ## Table S1. Unseen-farm mAP50 of each farm under each detector
 
@@ -34,7 +34,7 @@ Mean of the five detectors that report per-class AP (clean protocol). A dash mar
 | Class | Farm 0 | Farm 1 | Farm 2 | Farm 3 | Farm 4 | Farm 5 | Farm 6 | Farm 7 |
 |---|---|---|---|---|---|---|---|---|
 | Algal spot | 0.356 | 0.233 | 0.147 | 0.646 | 0.015 | 0.505 | 0.000 | – |
-| Leaf rot | 0.360 | 0.459 | 0.001 | 0.203 | 0.312 | 0.090 | 0.000 | 0.461 |
+| Leaf rot | 0.360 | 0.459 | 0.001 | 0.203 | 0.313 | 0.090 | 0.000 | 0.461 |
 | *Phomopsis* | – | – | 0.228 | – | – | 0.366 | 0.205 | – |
 | Psyllid | 0.071 | 0.176 | 0.097 | 0.032 | 0.266 | 0.175 | – | 0.055 |
 | Psyllid damage | 0.018 | 0.286 | 0.021 | – | 0.083 | 0.054 | – | 0.058 |
@@ -87,6 +87,7 @@ Absolute difference in unseen-farm mAP50 between the two farm combinations drawn
 | 4 | 15 | 0.021 | 0.068 |
 | 4 | 50 | 0.043 | 0.080 |
 | 4 | all | 0.018 | 0.048 |
+| All budgets |  | 0.032 | 0.213 |
 
 ## Table S6. Step-wise paired contrasts in the data-budget experiment
 
@@ -103,8 +104,8 @@ Change in unseen-farm mAP50 for one step in the number of training farms (at fix
 | farms 1 → 2 | all images per farm | 0.058 [0.010, 0.100] | 7 of 8 |
 | farms 2 → 4 | all images per farm | 0.011 [−0.007, 0.030] | 5 of 8 |
 | farms 4 → 7 | all images per farm | 0.082 [0.055, 0.113] | 8 of 8 |
-| images per farm 15 → 50 | 1 farms | 0.018 [0.009, 0.028] | 7 of 8 |
-| images per farm 50 → all | 1 farms | 0.031 [0.012, 0.053] | 7 of 8 |
+| images per farm 15 → 50 | 1 farm | 0.018 [0.009, 0.028] | 7 of 8 |
+| images per farm 50 → all | 1 farm | 0.031 [0.012, 0.053] | 7 of 8 |
 | images per farm 15 → 50 | 2 farms | 0.031 [0.017, 0.045] | 7 of 8 |
 | images per farm 50 → all | 2 farms | 0.053 [0.032, 0.083] | 8 of 8 |
 | images per farm 15 → 50 | 4 farms | 0.033 [0.018, 0.048] | 7 of 8 |
@@ -114,23 +115,23 @@ Change in unseen-farm mAP50 for one step in the number of training farms (at fix
 
 ## Table S7. Earlier, epoch-capped schedule versus fixed iterations
 
-The same farm draws and image subsets trained under two schedules (seed 42 in both). Capped: epochs = clamp(round(2000 × b / n), 100, 300) with batch b = min(32, n), the Ultralytics nominal batch of 64 (so gradients were accumulated over more batches, and fewer optimiser steps taken, for small n), the training list not repeated, and mosaic switched off for the last 10 epochs. Fixed iterations (the paper): batch 32, the list repeated so that an epoch has at least 20 batches, about 2,000 iterations, and mosaic switched off for the last 10% of epochs. Mean unseen-farm mAP50 over held-out farms.
+The same farm draws and image subsets trained under two schedules (seed 42 in both). Capped: epochs = clamp(round(2000 × b / n), 100, 300) with batch b = min(32, n), the Ultralytics nominal batch of 64 (so gradients were accumulated over more batches, and fewer optimiser steps taken, for small n), the training list not repeated, and mosaic switched off for the last 10 epochs. Fixed iterations (the paper): batch 32, the list repeated so that an epoch has at least 20 batches, about 2,000 iterations, and mosaic switched off for the last 10% of epochs. Mean unseen-farm mAP50 over held-out farms. Regression slopes per doubling of farms and of images per farm: capped 0.039 and 0.026; fixed iterations 0.039 and 0.030 (seed 42; Table 5B gives the two-seed values). Difference between the two slopes: capped 0.013 [0.001, 0.027]; fixed iterations 0.009 [−0.003, 0.023] (90% intervals).
 
 | Farms | Images per farm | Iterations (capped) | mAP50 (capped) | mAP50 (fixed iterations) |
 |---|---|---|---|---|
-| 1 | 15 | 300–300 | 0.035 | 0.029 |
-| 1 | 50 | 600–600 | 0.055 | 0.045 |
+| 1 | 15 | 300 | 0.035 | 0.029 |
+| 1 | 50 | 600 | 0.055 | 0.045 |
 | 1 | all | 600–1500 | 0.082 | 0.074 |
-| 2 | 15 | 300–300 | 0.070 | 0.050 |
-| 2 | 50 | 1200–1200 | 0.104 | 0.087 |
+| 2 | 15 | 300 | 0.070 | 0.050 |
+| 2 | 50 | 1200 | 0.104 | 0.087 |
 | 2 | all | 1200–2168 | 0.148 | 0.141 |
-| 4 | 15 | 600–600 | 0.086 | 0.068 |
-| 4 | 50 | 2100–2100 | 0.116 | 0.108 |
+| 4 | 15 | 600 | 0.086 | 0.068 |
+| 4 | 50 | 2100 | 0.116 | 0.108 |
 | 4 | all | 2002–2145 | 0.150 | 0.149 |
-| 7 | 15 | 1200–1200 | 0.132 | 0.119 |
-| 7 | 50 | 2013–2013 | 0.206 | 0.181 |
+| 7 | 15 | 1200 | 0.132 | 0.119 |
+| 7 | 50 | 2013 | 0.206 | 0.181 |
 | 7 | all | 2200–2500 | 0.230 | 0.235 |
 
 ## Note S2. Farm attribution and the filename error
 
-Farm identity was first joined to annotated images by filename. Two field visits produced overlapping camera counters, and a resize step dropped the suffixes that had distinguished them, so 50 images of the 560-image pool then in use (8.9%) carried another photograph's metadata; 49 of them were labelled farm 0 and had been taken at farm 6. Every annotated image was therefore re-matched to its original photograph by a 64-bit difference hash and assigned that original's farm, accepted only when no original from a different farm lay within three bits. On the 570 images whose filenames still matched an original, the hash recovered that same original (median Hamming distance 0); it also recovered originals for 303 images whose filenames the annotation platform had replaced. Because some originals themselves carry neither a location nor a located image within 30 minutes, 829 of the 1,033 annotated peninsular images could be assigned a farm. The 204 that could not be over-represent one class (56% of boxes against 41%) and under-represent another (4% against 17%), and are excluded from every analysis.
+Farm identity was first joined to annotated images by filename. Two field visits produced overlapping camera counters, and a resize step dropped the suffixes that had distinguished them, so 50 images of the 560-image pool then in use (8.9%) carried another photograph's metadata; 49 of them were labelled farm 0 and had been taken at farm 6. Every annotated image was therefore re-matched to its original photograph by a 64-bit difference hash and assigned that original's farm, accepted only when no original from a different farm lay within three bits. On the 570 images whose filenames still matched an original, the hash recovered that same original (median Hamming distance 0); it also recovered originals for 303 images whose filenames the annotation platform had replaced. Because some originals themselves carry neither a location nor a located image within 30 minutes, 829 of the 1,033 annotated peninsular images could be assigned a farm. The other 204 differ in class mix from the analysis pool and are excluded from every analysis.

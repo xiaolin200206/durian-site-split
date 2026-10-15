@@ -25,3 +25,9 @@ __pycache__/
 # figures of the applied paper are part of the release
 !results_applied/*.png
 !archive/withdrawn_methods_paper/figures/*.png
+
+# the prospective-test images and labels are part of the repository
+!prospective/seremban_640/images/
+!prospective/seremban_640/images/**
+!prospective/seremban_640/labels/
+!prospective/seremban_640/labels/**

@@ -1,0 +1,10 @@
+path: prospective/seremban_640
+train: images/test
+val: images/test
+names:
+  0: Algal
+  1: Leaf_rot
+  2: Phomopsis
+  3: Psyllid
+  4: Psyllid_damage
+  5: leaf_hopper_damage

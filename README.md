@@ -109,3 +109,13 @@ information, figures and README are in `archive/withdrawn_methods_paper/`, toget
 ## Licence
 
 Code: see `LICENSE`. Data: CC BY-NC 4.0 (Zenodo deposit).
+## Prospective test (added 15 October 2026)
+
+A ninth farm (Seremban, 82 images) was photographed after all analyses were
+complete and scored with the 200 frozen leave-one-farm-out models against four
+predictions locked before scoring — thresholds, weight hashes and test-set
+fingerprint in `prospective/prospective_lock.json`. All four held: YOLO11n
+0.298 mAP50 (unseen-farm mean 0.223, random split 0.428, held-out-farm range
+0.094–0.356); five detectors within 0.041; psyllid damage the lowest class.
+Data, lock file, scores and script are in `prospective/`; see
+`prospective/README.md`.

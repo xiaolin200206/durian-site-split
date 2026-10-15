@@ -1,0 +1,21 @@
+Seremban 前瞻测试结果  2026-10-15 08:02
+锁定于 2026-10-15T07:56:05；锁定文件 SHA-256 41060961225e046373774dbece48f1e74e97c4592394718df45bf670fad66869
+测试集 82 张；模型 200 个（best.pt）
+
+rtdetr-l  Seremban mAP50 = 0.3290   (论文 LOFO 0.221, random 0.499)   fold 范围 0.301–0.357
+yolo11l   Seremban mAP50 = 0.3386   (论文 LOFO 0.236, random 0.472)   fold 范围 0.292–0.381
+yolo11m   Seremban mAP50 = 0.3120   (论文 LOFO 0.233, random 0.465)   fold 范围 0.262–0.355
+yolo11n   Seremban mAP50 = 0.2978   (论文 LOFO 0.223, random 0.428)   fold 范围 0.250–0.341
+      Psyllid_damage       AP50 0.0661
+      Phomopsis            AP50 0.1819
+      Psyllid              AP50 0.2446
+      Leaf_rot             AP50 0.3396
+      leaf_hopper_damage   AP50 0.3869
+      Algal                AP50 0.5676
+yolo11s   Seremban mAP50 = 0.3002   (论文 LOFO 0.214, random 0.462)   fold 范围 0.255–0.342
+
+预测判定（按锁定时写下的标准）：
+  P1 yolo11n < 0.3255：成立（0.2978）
+  P2 在 0.094–0.356 之内：成立（0.2978）
+  P3 检测器之间差距 ≤ 0.05：成立（0.0408）
+  P4 木虱类在最低两类之中：成立（最低两类 ['Psyllid_damage', 'Phomopsis']）

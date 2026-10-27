@@ -1,0 +1,1672 @@
+{
+  "stage": "prelock",
+  "site": "penang",
+  "created": "2026-10-27T14:01:53+08:00",
+  "purpose": "Prospective test of the farm-level protocol on a farm collected after submission (penang); predictions and model hashes fixed BEFORE the farm was photographed.",
+  "checkpoint": "best",
+  "models": [
+    {
+      "family": "rtdetr-l",
+      "fold": 0,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold0_s1/weights/best.pt",
+      "sha256": "365328687c823e5c25c511d0ec4b397db37abf4a020a922a62a8879567c2e945",
+      "mtime": "2026-09-12T18:09:19"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 0,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold0_s2/weights/best.pt",
+      "sha256": "9df9dae5def7af585b0785c01b87c67305da2ed6978f09c9a0df69840b7c5f7d",
+      "mtime": "2026-09-12T22:43:23"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 0,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold0_s3/weights/best.pt",
+      "sha256": "7af586e3cea39b4e594947c31b4af9ee5e2bca42325a2190c4a4c888e1b0a5f2",
+      "mtime": "2026-09-13T02:57:03"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 0,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold0_s4/weights/best.pt",
+      "sha256": "87964fa68470a81604f053a53e21a4a81d9186eadfc9331da48af839fc373c9d",
+      "mtime": "2026-09-13T07:32:13"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 0,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold0_s42/weights/best.pt",
+      "sha256": "5e32ae46f589bd14cfda2b16e6b858b44a61c1c7f39468e7970b8d87aa8d986c",
+      "mtime": "2026-09-12T13:38:30"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 1,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold1_s1/weights/best.pt",
+      "sha256": "6faae2327aa84ef037fa5ddd01bde1b1d6279e38b50cfcae2621fefc93bdd216",
+      "mtime": "2026-09-12T18:44:06"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 1,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold1_s2/weights/best.pt",
+      "sha256": "8a64d7651ec5ef5544c17e986f6a96f3edd072ed1a7f74214a8a4a3377163996",
+      "mtime": "2026-09-12T23:17:58"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 1,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold1_s3/weights/best.pt",
+      "sha256": "f4e8357ab69fe32ebe2b35decd92bf9dde2524ea5e1fcc3f72a1ca3798e8ede1",
+      "mtime": "2026-09-13T03:31:22"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 1,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold1_s4/weights/best.pt",
+      "sha256": "12b8f4dbc7fe5380e12302a62791709f4d625bfb020c9f3a21dd5ecf2f6992fd",
+      "mtime": "2026-09-13T08:06:30"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 1,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold1_s42/weights/best.pt",
+      "sha256": "e0c017a5c9a557f66efff1e20adf025ed329483091f83e305fbbdfd1d1a0746a",
+      "mtime": "2026-09-12T14:11:32"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 2,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold2_s1/weights/best.pt",
+      "sha256": "ba7546e921a7148b799ef53d2c87758a4701449e32e6fd14fc7d3a2f1616cfac",
+      "mtime": "2026-09-12T19:13:08"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 2,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold2_s2/weights/best.pt",
+      "sha256": "4a16d39eceaa6e0c9be0122c551ffbc25620dfc10c5fcd102fcace4947f7b06e",
+      "mtime": "2026-09-12T23:52:48"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 2,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold2_s3/weights/best.pt",
+      "sha256": "e2656daa864df5c41a366a9a9bd066f1458e77e29e6d8d14c8e9c80f5e6b5ff7",
+      "mtime": "2026-09-13T03:55:40"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 2,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold2_s4/weights/best.pt",
+      "sha256": "ae501f5fe23cf8e881b18f85fea552a7ccba01853f194ddbbb3f92a559167736",
+      "mtime": "2026-09-13T08:38:23"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 2,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold2_s42/weights/best.pt",
+      "sha256": "cfe21b1d39cbe7fce10ef061eb311531129042cd440aa8d5d6c174aae8c6517b",
+      "mtime": "2026-09-12T14:39:03"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 3,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold3_s1/weights/best.pt",
+      "sha256": "c0e679e2a296b3bcdea14490fd651ecb70b1569cf51bf97403e401a968c8ffe4",
+      "mtime": "2026-09-12T19:48:20"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 3,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold3_s2/weights/best.pt",
+      "sha256": "7c92f6bb645d6e4b5f721ac8e7207085e2aa321dc1678118d1c9a0ed634e05f1",
+      "mtime": "2026-09-13T00:30:00"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 3,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold3_s3/weights/best.pt",
+      "sha256": "9f0cd421fc265c77ad40202030eef3f062ee7407bf470b6d7e371bc60d39b66f",
+      "mtime": "2026-09-13T04:31:16"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 3,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold3_s4/weights/best.pt",
+      "sha256": "39ca8a21f1ee8e42c676df6b169d071b124302453c41a615ea90a67ac4744271",
+      "mtime": "2026-09-13T09:08:23"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 3,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold3_s42/weights/best.pt",
+      "sha256": "31540caa7fafbc23a9715e77789cee5ce4f9ff5e9af425e9db5dc95cf73ad00b",
+      "mtime": "2026-09-12T15:06:58"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 4,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold4_s1/weights/best.pt",
+      "sha256": "7e035bf8f1329fff011e122b10fa94dca8ef8e0d0a872df80a779f12bae859f5",
+      "mtime": "2026-09-12T20:18:02"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 4,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold4_s2/weights/best.pt",
+      "sha256": "57561536d87c7dce96efd9e8af09070a55d2aaf34b46ccf0fa68d2c7454b49e7",
+      "mtime": "2026-09-13T00:54:27"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 4,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold4_s3/weights/best.pt",
+      "sha256": "4ad97e53b8859adf6f450584784fc81f9933b68b6e2acb693697b0ec0729312b",
+      "mtime": "2026-09-13T04:58:24"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 4,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold4_s4/weights/best.pt",
+      "sha256": "7dc97bec5016c38e5a947f08a08303c3189ba8fc2864f7cee7b39e3d83253422",
+      "mtime": "2026-09-13T09:35:57"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 4,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold4_s42/weights/best.pt",
+      "sha256": "5984efcb9bbe431a36988f7b95ee4f38cf315d9f21894d300bca02c97ebf61af",
+      "mtime": "2026-09-12T15:40:36"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 5,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold5_s1/weights/best.pt",
+      "sha256": "3c4b0612616b13b4d591d7ea4fc7c56187edea38f4c64362306f586b0ff93846",
+      "mtime": "2026-09-12T20:50:16"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 5,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold5_s2/weights/best.pt",
+      "sha256": "e420893e623a9d716fb8a4676021268d1aa930f9f08d44099b53f2f9773f3aad",
+      "mtime": "2026-09-13T01:17:06"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 5,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold5_s3/weights/best.pt",
+      "sha256": "60cdc5759f020a50bb56c2a06dd9e1d20df8f0f72949652e7d8afe6a96784d7a",
+      "mtime": "2026-09-13T05:31:56"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 5,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold5_s4/weights/best.pt",
+      "sha256": "0ff42dfbf4adc585d93190827f6a2f1ef69587b86e480f1e6f14e0109159b355",
+      "mtime": "2026-09-13T10:04:30"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 5,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold5_s42/weights/best.pt",
+      "sha256": "f60e7f98589e20924cd1cdcd35ea71b1654c4a1762d8fc18b98aac062f91d175",
+      "mtime": "2026-09-12T16:14:40"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 6,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold6_s1/weights/best.pt",
+      "sha256": "88ad80973c851115f6d791b923b160e233da847f0e08a3866148e91d0eb4e8a1",
+      "mtime": "2026-09-12T21:19:08"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 6,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold6_s2/weights/best.pt",
+      "sha256": "bb67399ae915d05902d4aac7445d90e8109bfa0f8eb254037a7f6a431e49f6eb",
+      "mtime": "2026-09-13T01:37:04"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 6,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold6_s3/weights/best.pt",
+      "sha256": "8097eb33fdb0437811b42bca30affeb14c1cab10bb46f44889bbe54bf75274bf",
+      "mtime": "2026-09-13T06:01:02"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 6,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold6_s4/weights/best.pt",
+      "sha256": "07e80692b024772b52209eca4c0fbf01339e6372d656ce94b821828a6be1318c",
+      "mtime": "2026-09-13T10:34:35"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 6,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold6_s42/weights/best.pt",
+      "sha256": "6390d926a1f139eccda466eda06375149611e09addc3ac01db028be6ffbe5223",
+      "mtime": "2026-09-12T16:49:46"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 7,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold7_s1/weights/best.pt",
+      "sha256": "754f27e581da1a6f84ebf8a59a2f9479d0ffbf3f08a69b837d3329ad3f499469",
+      "mtime": "2026-09-12T21:56:42"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 7,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold7_s2/weights/best.pt",
+      "sha256": "a9e38557bf6d403b705ee2d8b24829603239fb55d1cbe80baf389a6793c4074e",
+      "mtime": "2026-09-13T02:10:34"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 7,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold7_s3/weights/best.pt",
+      "sha256": "d9ffffe2534ab2fde0abeea0a4d77d06951d9f5207b70ef6f305c1a535e42408",
+      "mtime": "2026-09-13T06:31:17"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 7,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold7_s4/weights/best.pt",
+      "sha256": "4a9f112e74a96466b71568ca8ae67527868a5dc5155b5d2207bdbf9abc48e75c",
+      "mtime": "2026-09-13T11:08:24"
+    },
+    {
+      "family": "rtdetr-l",
+      "fold": 7,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_rtdetr-l_byfarm_fold7_s42/weights/best.pt",
+      "sha256": "b4c3a1bcee98180bbf9bd16a988fe65251111595e6170d1522b3038395fc62e6",
+      "mtime": "2026-09-12T17:13:49"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 0,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold0_s1/weights/best.pt",
+      "sha256": "f076158e0ff4ea601a2707f47adc793c70bb10a3e2ac2d72d818de57ba77b7c9",
+      "mtime": "2026-09-14T00:04:12"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 0,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold0_s2/weights/best.pt",
+      "sha256": "fa6fb1c04f534503cef2780d828b2317c37b42656b359d7b2e861e0cfe921633",
+      "mtime": "2026-09-14T04:07:04"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 0,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold0_s3/weights/best.pt",
+      "sha256": "7063ab4bef243e7e623c69d5a2416162fd801aa9e0ba57601f5743ebc1780042",
+      "mtime": "2026-09-14T08:08:57"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 0,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold0_s4/weights/best.pt",
+      "sha256": "575c3b58ec7498248320b8009aeb93595a0d1284dbb4d5f0fc91b458da0ae6db",
+      "mtime": "2026-09-14T12:13:13"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 0,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold0_s42/weights/best.pt",
+      "sha256": "66b6fa3ad3046ec15bf27ea300d52bf1879e6bea28c5a15235d06a6bb50e8ff1",
+      "mtime": "2026-09-13T20:17:01"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 1,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold1_s1/weights/best.pt",
+      "sha256": "8977915360ca6f69973f5c98a421a05dd28b65584086d2f99cff27de053a28d7",
+      "mtime": "2026-09-14T00:32:24"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 1,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold1_s2/weights/best.pt",
+      "sha256": "d0333d0bc47baacb0ada7179cbe7f832134b10a3396b2f3a0c964877bff9522f",
+      "mtime": "2026-09-14T04:33:53"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 1,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold1_s3/weights/best.pt",
+      "sha256": "71d29fc01286524efb2b161646c2394a8290a84b3f004427fdd04c3b1cbe198e",
+      "mtime": "2026-09-14T08:34:53"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 1,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold1_s4/weights/best.pt",
+      "sha256": "fa721b0125cddf6198c89bede5a96f26875c77ec11e149a9bacf417a0648928a",
+      "mtime": "2026-09-14T12:41:19"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 1,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold1_s42/weights/best.pt",
+      "sha256": "54260d1444e3068b40db03b8b66b1429b0c48a6290c338b997e1dcf6d65e8b8e",
+      "mtime": "2026-09-13T20:42:27"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 2,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold2_s1/weights/best.pt",
+      "sha256": "095196ce30611db5e284e49aabfa30ed9b3f8b7ed9ec218b5c5172e93b4e1947",
+      "mtime": "2026-09-14T00:58:35"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 2,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold2_s2/weights/best.pt",
+      "sha256": "a0ae7639b0191cbe3401f21526820bce68aa93a2abec72eab40041f197346ae3",
+      "mtime": "2026-09-14T04:59:24"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 2,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold2_s3/weights/best.pt",
+      "sha256": "77afd803d5a459d175a55d847a69ed6dfe19ceebe30d21ec012f04f845cf6ec8",
+      "mtime": "2026-09-14T09:00:50"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 2,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold2_s4/weights/best.pt",
+      "sha256": "16848d494867e642244b7664ceb4b410f1a5188e5810a9adbbdb656c3b37079b",
+      "mtime": "2026-09-14T13:08:30"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 2,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold2_s42/weights/best.pt",
+      "sha256": "d62729416b947190d4868f896dc77cc9e44e9569795dbc5f2f32b87eb23dff08",
+      "mtime": "2026-09-13T21:06:11"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 3,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold3_s1/weights/best.pt",
+      "sha256": "064ce732c6a2308e89d2049c1e6fcb620d2fa67a5e455364a039ec3b9fdb18ba",
+      "mtime": "2026-09-14T01:27:35"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 3,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold3_s2/weights/best.pt",
+      "sha256": "1fec423375c83dcf1e49d0dcee8d3dd64dccb7f223a0400afe97b88f9b87a4dc",
+      "mtime": "2026-09-14T05:28:03"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 3,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold3_s3/weights/best.pt",
+      "sha256": "29e92ccc9762c747aa295eb4e339c4adb764c280a6e4fc53f3ec219cc7be116a",
+      "mtime": "2026-09-14T09:29:55"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 3,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold3_s4/weights/best.pt",
+      "sha256": "91a9f4d1b81b69b3a5518f0ccc4ddab6f88db23f281481ac607a790694c54a98",
+      "mtime": "2026-09-14T13:41:07"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 3,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold3_s42/weights/best.pt",
+      "sha256": "11422ec02e6bf3dcda2c60caa12209f44c635e37e5644bc8b788726db51148b7",
+      "mtime": "2026-09-13T21:33:12"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 4,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold4_s1/weights/best.pt",
+      "sha256": "0968c7cb3fc502bb74627d0f706a5fc187ef4eb7a26c06b0e5711ce3aa363e80",
+      "mtime": "2026-09-14T01:54:33"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 4,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold4_s2/weights/best.pt",
+      "sha256": "075cade551b504b64384877dc79982c5bfb5bff8791835eeaa125611f5167c37",
+      "mtime": "2026-09-14T05:55:07"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 4,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold4_s3/weights/best.pt",
+      "sha256": "df229b5fcd8659ba28aec8e2620eeb1105a5f4f2e35d52d25cb03fe2ca7f94a4",
+      "mtime": "2026-09-14T09:57:01"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 4,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold4_s4/weights/best.pt",
+      "sha256": "d9d1c3688fafde024c6c00439991eccddfea6fdf82c0c8d82590dbd3e7b4caf9",
+      "mtime": "2026-09-14T14:11:15"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 4,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold4_s42/weights/best.pt",
+      "sha256": "d921fd386d3b7197979cd97e66468af35deecf84310aac593e3b50ac1099a22c",
+      "mtime": "2026-09-13T21:58:33"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 5,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold5_s1/weights/best.pt",
+      "sha256": "34e760654e08e534b2788236f77d4a755e6d0f2523861f4b42520682d4d0fbcb",
+      "mtime": "2026-09-14T02:20:18"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 5,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold5_s2/weights/best.pt",
+      "sha256": "2b3e39f1fc20deb8541210e090bdf8e1aa2a7106568e792fb36350de447d5ad5",
+      "mtime": "2026-09-14T06:21:08"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 5,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold5_s3/weights/best.pt",
+      "sha256": "ce329f0187f11d590afea077ad2d6b46f1b5b8841f05a07d2c507c8f7323df4d",
+      "mtime": "2026-09-14T10:24:31"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 5,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold5_s4/weights/best.pt",
+      "sha256": "a2df548bc305c4bde502c376fd25740db488ba595b0170d1780d8e8a3cec28d9",
+      "mtime": "2026-09-14T14:39:05"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 5,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold5_s42/weights/best.pt",
+      "sha256": "e0e81d82e30f2a85dee44f78b1ce3de6fc9e7a28ff7c20287337c7ef00656a71",
+      "mtime": "2026-09-13T22:22:48"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 6,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold6_s1/weights/best.pt",
+      "sha256": "bf35e3f326283fdb47cd68ab9d81050072c5bacc85cf80db5cb888e2ab802bba",
+      "mtime": "2026-09-14T02:47:47"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 6,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold6_s2/weights/best.pt",
+      "sha256": "b2f57d3ecb44f2a533ab2fe765c783e5e392be6d6940d79d38e8336b79fa8462",
+      "mtime": "2026-09-14T06:49:05"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 6,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold6_s3/weights/best.pt",
+      "sha256": "7ca1de66d4a5df03bcd5a543897227bc46ced4bde41f864d05f6818babb0708b",
+      "mtime": "2026-09-14T10:52:15"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 6,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold6_s4/weights/best.pt",
+      "sha256": "bb571f033d99e4d1b37475067703c47d01a8d6c0858ef69f47415b0af1111d29",
+      "mtime": "2026-09-14T14:46:37"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 6,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold6_s42/weights/best.pt",
+      "sha256": "39e5d2a21d6a54ae424bca8ea405151147f33f562c45be22da8e7227d83df462",
+      "mtime": "2026-09-13T22:43:56"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 7,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold7_s1/weights/best.pt",
+      "sha256": "a6ac0762553e4e8385ff2b84810a9f2d9f06a118ecbe8b5bac4a3a771a129bd4",
+      "mtime": "2026-09-14T03:16:25"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 7,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold7_s2/weights/best.pt",
+      "sha256": "9a5468f70f4e708ead2cef364f34103c2eff3a6d919a25251586639c9d7af48d",
+      "mtime": "2026-09-14T07:17:59"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 7,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold7_s3/weights/best.pt",
+      "sha256": "1b21fa482f482cf5dca0f13e3a6cb9d03e287f7cf66e1e5da5b33ffe2d16659f",
+      "mtime": "2026-09-14T11:20:48"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 7,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold7_s4/weights/best.pt",
+      "sha256": "5ae9911cad20aed7cd974d209659082291c4d4ae077dd001e5342a2d1bd554cc",
+      "mtime": "2026-09-14T17:23:30"
+    },
+    {
+      "family": "yolo11l",
+      "fold": 7,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11l_byfarm_fold7_s42/weights/best.pt",
+      "sha256": "903f673a048993684865cd8532eb9aef8ff0f5dd01165a82e91428950cf2aab9",
+      "mtime": "2026-09-13T23:11:13"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 0,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold0_s1/weights/best.pt",
+      "sha256": "49ba9206f9a1ff3b005b8c7094ef3a2d88a1b2b6d91bba6fda840284e4598d89",
+      "mtime": "2026-09-12T05:10:19"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 0,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold0_s2/weights/best.pt",
+      "sha256": "5d021375be44c6fca676c19907154698ed46a381a1c0594a942adcd0fd761df1",
+      "mtime": "2026-09-12T07:09:24"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 0,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold0_s3/weights/best.pt",
+      "sha256": "1fc8e0c1a43f3e2a06b8b6e29f7ca87fba896a5fc1bf648241227b2f7d3151e1",
+      "mtime": "2026-09-12T09:06:34"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 0,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold0_s4/weights/best.pt",
+      "sha256": "8024ef32f18502f5caf5331832f681b0d60da406efb7ba890ac798395d483aae",
+      "mtime": "2026-09-12T11:11:40"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 0,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold0_s42/weights/best.pt",
+      "sha256": "5a0e40a045cc53fddd7c3dcfad0234dc9f4e965de82794db6d10a0d1ba6e1181",
+      "mtime": "2026-09-12T03:09:16"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 1,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold1_s1/weights/best.pt",
+      "sha256": "9714dc19558d9bcb9154478f39db2eaed89eaaf5a3cda4da99a285846ecb3ec6",
+      "mtime": "2026-09-12T05:23:39"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 1,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold1_s2/weights/best.pt",
+      "sha256": "f888fd3b7bafe4c85686c4b2393875aa8e1cea434478fdd3c3bbd39cd5cce34b",
+      "mtime": "2026-09-12T07:22:37"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 1,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold1_s3/weights/best.pt",
+      "sha256": "4910e7db8ed2b0252d02ba1ed1c154bccddf9fc0c600b1e72dbbd93618885ef4",
+      "mtime": "2026-09-12T09:20:11"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 1,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold1_s4/weights/best.pt",
+      "sha256": "23ace4b7d5f3ee6603ca2fb91431152b00f91236f490453310ea90447ebce959",
+      "mtime": "2026-09-12T11:29:39"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 1,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold1_s42/weights/best.pt",
+      "sha256": "05b61acfcd38a2808e0a93223e2e6c407e038089964c1b6feac867233bdd97a6",
+      "mtime": "2026-09-12T03:22:52"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 2,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold2_s1/weights/best.pt",
+      "sha256": "8a2da5e85fca16190fd84466688c5d9f282ff63f5864e6eccef2fca6f9f2b1c5",
+      "mtime": "2026-09-12T05:36:25"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 2,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold2_s2/weights/best.pt",
+      "sha256": "296a6c92dd6fe2301eb3aae640c550dad6df94c699d97b6f745054d09a022644",
+      "mtime": "2026-09-12T07:35:05"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 2,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold2_s3/weights/best.pt",
+      "sha256": "6203f71abd36d5c07e1f7527f590c85ea5545f1653977c2975e90fa0529ba6d7",
+      "mtime": "2026-09-12T09:33:25"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 2,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold2_s4/weights/best.pt",
+      "sha256": "e30660bcbc7504630041dfa5690fd952067094db78a76d1f98c5ea43717da4ef",
+      "mtime": "2026-09-12T11:46:44"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 2,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold2_s42/weights/best.pt",
+      "sha256": "70dac0b6082882d1dd39b5c6e7dfb940addf4f881652b31b1be413120f258d56",
+      "mtime": "2026-09-12T03:35:46"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 3,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold3_s1/weights/best.pt",
+      "sha256": "654ad16e1b5dcb4a93976a3ff70cd15a566339c32f9eb5419bf28b3be7208334",
+      "mtime": "2026-09-12T05:50:34"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 3,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold3_s2/weights/best.pt",
+      "sha256": "d925008bff6bc350011b419d673434cdb9faf500ab2fb18126292564f84ff3ee",
+      "mtime": "2026-09-12T07:49:02"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 3,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold3_s3/weights/best.pt",
+      "sha256": "8813ae31bbd9aaba92f52ac60cc405d1ca683462a0aef922db932815e9985478",
+      "mtime": "2026-09-12T09:48:07"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 3,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold3_s4/weights/best.pt",
+      "sha256": "77fc6644f1bf971fd8da0b435c3b2efde383eb467609e596b27146707787a763",
+      "mtime": "2026-09-12T12:04:52"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 3,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold3_s42/weights/best.pt",
+      "sha256": "8973d8da8bdf3f70933df9bd95961ae3ba8e805c73bb69729e05c7b87dad04f4",
+      "mtime": "2026-09-12T03:49:59"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 4,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold4_s1/weights/best.pt",
+      "sha256": "08fb06c167c46ac0121d90ad03b04aa42080510ccefde8086fcdf154448a5d2c",
+      "mtime": "2026-09-12T06:03:50"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 4,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold4_s2/weights/best.pt",
+      "sha256": "6888bc5d3b4d8342753a5ac42f194490aa0e83ee244c1788ea96fffb06632d73",
+      "mtime": "2026-09-12T08:02:10"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 4,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold4_s3/weights/best.pt",
+      "sha256": "c279d5a4f0be182d5779d9ab55cdb453e209de908e6180be452928212282347f",
+      "mtime": "2026-09-12T10:01:52"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 4,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold4_s4/weights/best.pt",
+      "sha256": "ca0dc5bfc520162a3bc0060008c0a8c4b278bfcfd866b6b6ec544c7bc7ae261e",
+      "mtime": "2026-09-12T12:19:22"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 4,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold4_s42/weights/best.pt",
+      "sha256": "e18bc46d0dfd151bfe2152c4a0662a323b48c0c85ef76dbd545a8dc1a5460664",
+      "mtime": "2026-09-12T04:03:50"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 5,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold5_s1/weights/best.pt",
+      "sha256": "4778c5297d1d67ec1bc86ef6b2a0b6948e405f231c5a367f1d51bb11a8cbc4c8",
+      "mtime": "2026-09-12T06:16:36"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 5,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold5_s2/weights/best.pt",
+      "sha256": "8b6eb44e9a558696bab2b904e4dd2e539088d03cafa86f4c67f4eb263132f7b3",
+      "mtime": "2026-09-12T08:14:41"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 5,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold5_s3/weights/best.pt",
+      "sha256": "52d04d4af8a6ac7df871d8a97cddfd767fb5e5d6213f7e906682d132e55238fc",
+      "mtime": "2026-09-12T10:14:38"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 5,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold5_s4/weights/best.pt",
+      "sha256": "9a6db69f449c230787c6435b10163e5a7d270b6236c8dc1f79e7ca54af7b5aa5",
+      "mtime": "2026-09-12T12:33:14"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 5,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold5_s42/weights/best.pt",
+      "sha256": "648eb7e60691355b8afc1ab2328bb2f33fa5865390abd0841c5be5a2e6c5ae4c",
+      "mtime": "2026-09-12T04:17:19"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 6,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold6_s1/weights/best.pt",
+      "sha256": "e560294db6c5c2dac42dec06d8d2dabc5551d8060c97e13dd45d1e8f53a78476",
+      "mtime": "2026-09-12T06:30:04"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 6,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold6_s2/weights/best.pt",
+      "sha256": "419c34a2dd4250d4f8f6acbc3c3dc9ef5ac7a92e2cb0ddd7ac62e3796504ade2",
+      "mtime": "2026-09-12T08:28:06"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 6,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold6_s3/weights/best.pt",
+      "sha256": "6d6e8ec239ac5d7d1fd1d69e960d0d69538abc62b49f397939f76afe7968de23",
+      "mtime": "2026-09-12T10:28:14"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 6,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold6_s4/weights/best.pt",
+      "sha256": "81f2a50efefd00bf763e8aed62e41b4b7e4cbe2e677d53ee6078aebe529ca0e5",
+      "mtime": "2026-09-12T12:48:02"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 6,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold6_s42/weights/best.pt",
+      "sha256": "9fb25df1794c4dc1348c1db1ba782608278ddd0ac0dd45b5b50e34acd009cc53",
+      "mtime": "2026-09-12T04:30:54"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 7,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold7_s1/weights/best.pt",
+      "sha256": "2fc709546c85ea2fff12a0f2d6409fb93d5e86eeb735c9da593ee0d8c50c7fe7",
+      "mtime": "2026-09-12T06:44:07"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 7,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold7_s2/weights/best.pt",
+      "sha256": "418a2dce9fe3b82828e87a9730ac71d27bdcdceeef6eadec4a5936623d637e05",
+      "mtime": "2026-09-12T08:42:20"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 7,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold7_s3/weights/best.pt",
+      "sha256": "45968ea8c887f246d82754b4e0abac36fbe7440947f734744fe515797727dfc0",
+      "mtime": "2026-09-12T10:42:48"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 7,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold7_s4/weights/best.pt",
+      "sha256": "28ceb4a48eb92466e81aff2036f61a1f97884a2a895b205085e4aa14e699af38",
+      "mtime": "2026-09-12T13:02:49"
+    },
+    {
+      "family": "yolo11m",
+      "fold": 7,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11m_byfarm_fold7_s42/weights/best.pt",
+      "sha256": "a1068c2cdafa080d8b7854449babd8739ce78cbe26c69119479d7225833e350c",
+      "mtime": "2026-09-12T04:45:02"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 0,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold0_s1/weights/best.pt",
+      "sha256": "a0bf5223c25b8ebfde8a2b6193dd1fba3bd1bb7f43618b42d07f69f940ec8c05",
+      "mtime": "2026-09-11T16:08:52"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 0,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold0_s2/weights/best.pt",
+      "sha256": "54ac447354878de1362814da26b62b7f4d05c95c885712ac5c294208c931982d",
+      "mtime": "2026-09-11T17:14:27"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 0,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold0_s3/weights/best.pt",
+      "sha256": "13ce37016851d4e0ac105ab46a428be81237d6ec15d39e31d332beb91a6d41da",
+      "mtime": "2026-09-11T18:19:33"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 0,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold0_s4/weights/best.pt",
+      "sha256": "7e68ac3bc47c2111a2ddb546a4d22cb610c4f4ef973b79ca429855de8fd5377b",
+      "mtime": "2026-09-11T19:26:54"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 0,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold0_s42/weights/best.pt",
+      "sha256": "9e34d57c052c0b7527f04c22c745337c24bfeaa918ecc35e618582f07c239bca",
+      "mtime": "2026-09-11T14:59:28"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 1,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold1_s1/weights/best.pt",
+      "sha256": "a6da2de2b082d7d2514a802ba1eaa339e0a08dfd6030cf1f7ad13faea0ec81c4",
+      "mtime": "2026-09-11T16:16:34"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 1,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold1_s2/weights/best.pt",
+      "sha256": "e12100f3aea7657eeac7ce4e73190a5cb85de9c64f638686a0f054b724177c25",
+      "mtime": "2026-09-11T17:21:51"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 1,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold1_s3/weights/best.pt",
+      "sha256": "46fdd3988096044a805014c48c8f32b67e8062a86aeca26c8dfecdbb472e7368",
+      "mtime": "2026-09-11T18:27:05"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 1,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold1_s4/weights/best.pt",
+      "sha256": "ceec2fd4c4d9e22832ba72df229beb3a72de8e971721c51c342ec0992973cb44",
+      "mtime": "2026-09-11T19:34:25"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 1,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold1_s42/weights/best.pt",
+      "sha256": "094da5ba8f5ef9eb1ac9a2b23f90f4c908aa7b75d10a76a5d9c25166aaac3ebd",
+      "mtime": "2026-09-11T15:06:50"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 2,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold2_s1/weights/best.pt",
+      "sha256": "60aa5513ac6b7a680d34028a268c24cc27df3f7fa01d9827bc211be7102820bc",
+      "mtime": "2026-09-11T16:24:07"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 2,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold2_s2/weights/best.pt",
+      "sha256": "7523a8a894790f492a0af776ee89b379d91cafb41d3a5570ce1cdb46010c07d5",
+      "mtime": "2026-09-11T17:28:55"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 2,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold2_s3/weights/best.pt",
+      "sha256": "49e6cb072be667f8d10dd938f7998c8e949424aeca58a7a831ef4cf62d622f03",
+      "mtime": "2026-09-11T18:34:25"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 2,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold2_s4/weights/best.pt",
+      "sha256": "ec00d695659de1d6c1f02d4d5e60528cb5cbf7798ce461dd469735c27d33d3ad",
+      "mtime": "2026-09-11T19:41:10"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 2,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold2_s42/weights/best.pt",
+      "sha256": "2cebfe37903a0b187c91b457abeda0bf6ae0b767281c5ee76afb52761b8cefde",
+      "mtime": "2026-09-11T15:13:45"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 3,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold3_s1/weights/best.pt",
+      "sha256": "31c0ed6fae7ef55e4b072bf403bafe74dfe179b10fd3cb59c7036d70806e5446",
+      "mtime": "2026-09-11T16:32:14"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 3,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold3_s2/weights/best.pt",
+      "sha256": "bd6188cf450bb1235606afc77a5755b27b9a2cb6aad07ea92aea59f6ddbeca4f",
+      "mtime": "2026-09-11T17:37:20"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 3,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold3_s3/weights/best.pt",
+      "sha256": "92ed39fc80c8030ae3d6def0d4a624e5af48ed733de48cbabc77e951e9ff1487",
+      "mtime": "2026-09-11T18:42:10"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 3,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold3_s4/weights/best.pt",
+      "sha256": "d2c4be33056ec8adc021dded92a2681e6d44d83bed223374e3cef3760b9d3a06",
+      "mtime": "2026-09-11T19:48:58"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 3,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold3_s42/weights/best.pt",
+      "sha256": "acb48cb9cd43443dbd3250d996673ae5bfed05d0bbb903adf54768d8ce18a50b",
+      "mtime": "2026-09-11T15:21:24"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 4,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold4_s1/weights/best.pt",
+      "sha256": "f2f2086163ae0d65a45d7e86112e7fcc2bca8aa820e579b0086bf08ad6709ab0",
+      "mtime": "2026-09-11T16:39:45"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 4,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold4_s2/weights/best.pt",
+      "sha256": "27a7fac285f6679a0b6610837ccb6324cec9cd5fae2e7934ce6889185253fbbb",
+      "mtime": "2026-09-11T17:45:24"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 4,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold4_s3/weights/best.pt",
+      "sha256": "7bab5e334a294ac3ba29156534f23164a549ccbb9f7d8b4aed8af0e0dc3aa5f6",
+      "mtime": "2026-09-11T18:49:23"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 4,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold4_s4/weights/best.pt",
+      "sha256": "8dbb6120ffe21f199a13ffd3842b0b17a4de450d4d922ec21d630da6aa0c874e",
+      "mtime": "2026-09-11T19:54:30"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 4,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold4_s42/weights/best.pt",
+      "sha256": "af7294becaab09eed2ebea7a6d327591f607161d8a1631a96134cfff8c2b41a0",
+      "mtime": "2026-09-11T15:30:13"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 5,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold5_s1/weights/best.pt",
+      "sha256": "2dbe1517593be140e42da0e51aae21c735f75b8f2f91e68b56e2bcb73ebb6daf",
+      "mtime": "2026-09-11T16:47:03"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 5,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold5_s2/weights/best.pt",
+      "sha256": "9b7847b8a6e1f078cc24a19ed6dff91c7868a29e6243d9913abf338213e50f8a",
+      "mtime": "2026-09-11T17:52:18"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 5,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold5_s3/weights/best.pt",
+      "sha256": "6fd4aa115362066f0af67793a7187c4c98197aeeaa1271e59a685f8d3e1945bc",
+      "mtime": "2026-09-11T18:56:43"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 5,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold5_s4/weights/best.pt",
+      "sha256": "a28499e41e9345e2f95076f8d4247340652e403de99ca217d7606d4dc4b14d8a",
+      "mtime": "2026-09-11T20:01:02"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 5,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold5_s42/weights/best.pt",
+      "sha256": "9447795ceb198d7f16df04c182ff8ef64fbc98693166f506c78a4a3feff66e20",
+      "mtime": "2026-09-11T15:37:55"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 6,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold6_s1/weights/best.pt",
+      "sha256": "20215b878b2daf0ecf19be7567a0ede9f2c9c5a0e4e044f6d2abad6662c37ae2",
+      "mtime": "2026-09-11T16:53:03"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 6,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold6_s2/weights/best.pt",
+      "sha256": "565d4c7e3e6eca2c3568ab92a4b1c214b9a4667e37f923242917bacdcf45a8e4",
+      "mtime": "2026-09-11T17:57:47"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 6,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold6_s3/weights/best.pt",
+      "sha256": "fdd65709239354fbc2ad181830aff8287cf8722fc884c3549c3044af9ecda29e",
+      "mtime": "2026-09-11T19:04:31"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 6,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold6_s4/weights/best.pt",
+      "sha256": "fa95d774557c770d8574bd1af2e85b756706d0e7e807a00e02b562d0d6dd8277",
+      "mtime": "2026-09-11T20:08:32"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 6,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold6_s42/weights/best.pt",
+      "sha256": "247a5c697c91cc349f1e548a4f1159654ec4e013968b18a39ff1a57a41d8b2af",
+      "mtime": "2026-09-11T15:45:46"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 7,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold7_s1/weights/best.pt",
+      "sha256": "adacc4f8140e9da7bb765e2a4f7ddfecc0e809fc78fb95060af6a50efb85f6c7",
+      "mtime": "2026-09-11T17:00:42"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 7,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold7_s2/weights/best.pt",
+      "sha256": "1f58743ea199b17d4deb904e180cb20faa2ee4a5f28b1400dff2f71d258f07f0",
+      "mtime": "2026-09-11T18:05:20"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 7,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold7_s3/weights/best.pt",
+      "sha256": "aaa18e05682ed4d0743fdec9bad7102cf1632a5ef6ae72ad3ac5b5e9e46a6930",
+      "mtime": "2026-09-11T19:12:44"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 7,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold7_s4/weights/best.pt",
+      "sha256": "10e9b793cfc52b9e7311667e42d32f0c20867b941a1f430317995f72b3af9df6",
+      "mtime": "2026-09-11T20:16:17"
+    },
+    {
+      "family": "yolo11n",
+      "fold": 7,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11n_byfarm_fold7_s42/weights/best.pt",
+      "sha256": "ff7baa5ad950a87e5af8b70862234a610d2fcf51ea3e7666beb6ff5f5d8e68fa",
+      "mtime": "2026-09-11T15:53:56"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 0,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold0_s1/weights/best.pt",
+      "sha256": "b5f42cf87fda319b6cacd67af5708db4a2674f5e3e4fc013a5ca6a4af9e72cf9",
+      "mtime": "2026-09-11T21:51:42"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 0,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold0_s2/weights/best.pt",
+      "sha256": "dcc22afe1118a4205d5c4000f60df66fe5001e4fc672d882f6632fbe133f6db4",
+      "mtime": "2026-09-11T23:11:05"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 0,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold0_s3/weights/best.pt",
+      "sha256": "69d91a5449ca1e1581e798aed3dd34f740f746d00720bc9d4a557029749bb7ee",
+      "mtime": "2026-09-12T00:30:52"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 0,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold0_s4/weights/best.pt",
+      "sha256": "51a9d467a8f05ab8e8bc43c0a2e522bf34ff1e40387fd66bbba5ca25f27e5bfc",
+      "mtime": "2026-09-12T01:46:50"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 0,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold0_s42/weights/best.pt",
+      "sha256": "d7a262d04328fb409922140738bca4e27b3c1fbbf9e6932d693fe41a65ce5eba",
+      "mtime": "2026-09-11T20:31:55"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 1,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold1_s1/weights/best.pt",
+      "sha256": "fba7c578bdd7b55bcd97b3c03b4a3551e9ec693ddc407b3ba134ba9a3e903971",
+      "mtime": "2026-09-11T22:00:46"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 1,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold1_s2/weights/best.pt",
+      "sha256": "dfbd63a283ae3d08c16863fef0dafdd5583f14fa98b0d597daa0f0de12a56888",
+      "mtime": "2026-09-11T23:20:13"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 1,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold1_s3/weights/best.pt",
+      "sha256": "a6dfe7fcbe2d9978b7775086eaf7fab07d9a379a1c2488a6c31317d4aecda17d",
+      "mtime": "2026-09-12T00:39:45"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 1,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold1_s4/weights/best.pt",
+      "sha256": "03e5fa72599c2e22eebcc93b39a19b6f21ea1c7fa0d0aa123bd5fa085b9f41f9",
+      "mtime": "2026-09-12T01:55:30"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 1,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold1_s42/weights/best.pt",
+      "sha256": "7080284498be5822fb915f64f3f8415f1d9d3408ad2d94bddbc831b170f40ccc",
+      "mtime": "2026-09-11T20:40:52"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 2,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold2_s1/weights/best.pt",
+      "sha256": "d2230aa3df238d61c22463bd6cc2ed479be5167d1cc8ed82c7196b5a1a487b22",
+      "mtime": "2026-09-11T22:09:26"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 2,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold2_s2/weights/best.pt",
+      "sha256": "1ff17707491fd6138cdc61a501f9aa256725975cd36bfee1bc8dc6e843c25a01",
+      "mtime": "2026-09-11T23:28:37"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 2,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold2_s3/weights/best.pt",
+      "sha256": "19429354902a45db82bea8bab2bbf06f94b2c641a964f1e2c652b95d526dbfa7",
+      "mtime": "2026-09-12T00:48:17"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 2,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold2_s4/weights/best.pt",
+      "sha256": "b88556abf9f8c8104097f3adb6ef3420c24de32648a468665c744d98b50a5b69",
+      "mtime": "2026-09-12T02:03:47"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 2,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold2_s42/weights/best.pt",
+      "sha256": "8e4f59ff3279891adf33402c3c8f1e888fd881a237cbd07e4dc38055a6ee329a",
+      "mtime": "2026-09-11T20:49:28"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 3,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold3_s1/weights/best.pt",
+      "sha256": "dabfe4ebb03e947859cfc3216818522b764e442b1265c8a8b1d5003e1c7b18c0",
+      "mtime": "2026-09-11T22:18:57"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 3,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold3_s2/weights/best.pt",
+      "sha256": "09cf87e3cacfda6d0457e8635ac1a8f9620dcf837270aef244ca0ac4e31c72e6",
+      "mtime": "2026-09-11T23:37:44"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 3,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold3_s3/weights/best.pt",
+      "sha256": "db024c00440610067998b3790c56af7aa265331f213c30301d7913cedec21d30",
+      "mtime": "2026-09-12T00:57:19"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 3,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold3_s4/weights/best.pt",
+      "sha256": "feb382355ae09ed95b127e3c417f0ac9c5d97ab1c2de511cec05b9349150d0ae",
+      "mtime": "2026-09-12T02:13:20"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 3,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold3_s42/weights/best.pt",
+      "sha256": "3d8436cc5066ac99a872f6f8c847e2d0807793791648284f3ef1d502037e059e",
+      "mtime": "2026-09-11T20:58:47"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 4,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold4_s1/weights/best.pt",
+      "sha256": "87e4c2b5ce7b2acd401b0057b108a29afeb872456f562b0eca506fbf4fd3f0c7",
+      "mtime": "2026-09-11T22:28:05"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 4,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold4_s2/weights/best.pt",
+      "sha256": "005587bca567433f8387fad17a8dc68249fa2b6bee3ccf829ed2f6e6f54723ca",
+      "mtime": "2026-09-11T23:46:55"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 4,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold4_s3/weights/best.pt",
+      "sha256": "046facc351a7553c67bac7d2be791769511455bf79d1339d56dd09f5d11ebe49",
+      "mtime": "2026-09-12T01:06:02"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 4,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold4_s4/weights/best.pt",
+      "sha256": "559ce0c0305e17f65af697c3dcd8364f0e04981a709a438220a1b9e4e03ef035",
+      "mtime": "2026-09-12T02:22:18"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 4,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold4_s42/weights/best.pt",
+      "sha256": "12fb4d64ca7e24d2d8b2eee4207febd5cc13a83277dcb8fb4a391626693ce353",
+      "mtime": "2026-09-11T21:06:56"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 5,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold5_s1/weights/best.pt",
+      "sha256": "1236629fbd51622e420be77c01a32dd19767df9472e18a214e95117aa72a358b",
+      "mtime": "2026-09-11T22:36:53"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 5,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold5_s2/weights/best.pt",
+      "sha256": "f48f45e77ea680f2341c8a1c2cddcf1294012c9bc3e1dcbba8b1716483114f18",
+      "mtime": "2026-09-11T23:55:59"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 5,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold5_s3/weights/best.pt",
+      "sha256": "6aa87e061b65a372d43d4cd7e2bbfa20e179f9fa0f0b0d7add2d603985f68d10",
+      "mtime": "2026-09-12T01:14:30"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 5,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold5_s4/weights/best.pt",
+      "sha256": "882fadb4ae79e9ffeb0793c635e26d384861630006d46e9d6b264d6edeca9807",
+      "mtime": "2026-09-12T02:30:57"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 5,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold5_s42/weights/best.pt",
+      "sha256": "47be5b282c66b6acfa1ee408bb23e0fcef59a793da8ece7ae90d1e23d101387b",
+      "mtime": "2026-09-11T21:15:36"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 6,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold6_s1/weights/best.pt",
+      "sha256": "679b565a365d4dc7c0d643c18f19a58e67567e3716aa7c607eecd84fac381ca3",
+      "mtime": "2026-09-11T22:46:00"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 6,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold6_s2/weights/best.pt",
+      "sha256": "5b4709d8e1b48875195b36a9311ce845a747f2057f0a79f6d3ac7f5d09bd43da",
+      "mtime": "2026-09-12T00:05:03"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 6,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold6_s3/weights/best.pt",
+      "sha256": "238b74d679048922d1c97097ae42961d337c1db30993a4acd08e3464b8b779a4",
+      "mtime": "2026-09-12T01:22:23"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 6,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold6_s4/weights/best.pt",
+      "sha256": "63eb885dab183dcf98c9b051e3c05aabdb894694b18e851f169fa56907bdfb8e",
+      "mtime": "2026-09-12T02:39:58"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 6,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold6_s42/weights/best.pt",
+      "sha256": "c69ce8c92403ca2422791e4dbf8955ef2fc7abb20e07e58caa0fa857ba2b2d9a",
+      "mtime": "2026-09-11T21:24:41"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 7,
+      "seed": 1,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold7_s1/weights/best.pt",
+      "sha256": "c59c279edd5e05feae315593f4f68978ba8a2bbfc1c2142d17772c507b1d74d9",
+      "mtime": "2026-09-11T22:55:32"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 7,
+      "seed": 2,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold7_s2/weights/best.pt",
+      "sha256": "8b2a3156f63c1fd26866d596fb11cb27f5fe59e4f7283b5333a2c1da8cc58bf4",
+      "mtime": "2026-09-12T00:14:10"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 7,
+      "seed": 3,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold7_s3/weights/best.pt",
+      "sha256": "8ab24d5cb796ce5faf393b16b39509b4a266832dfa163d93ac3ffbdb111735a5",
+      "mtime": "2026-09-12T01:30:18"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 7,
+      "seed": 4,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold7_s4/weights/best.pt",
+      "sha256": "e427701cbbfe4c41c5f4eb203c588ef5e0b0c7bd32778129a33fdfe1ae413612",
+      "mtime": "2026-09-12T02:46:20"
+    },
+    {
+      "family": "yolo11s",
+      "fold": 7,
+      "seed": 42,
+      "path": "/root/autodl-tmp/durian/runs/clean_yolo11s_byfarm_fold7_s42/weights/best.pt",
+      "sha256": "e2e348752cdf2cd2efb549db15d32bd211e33cb78bf40ad7acff066d32fc8993",
+      "mtime": "2026-09-11T21:34:06"
+    }
+  ],
+  "model_families": {
+    "rtdetr-l": 40,
+    "yolo11l": 40,
+    "yolo11m": 40,
+    "yolo11n": 40,
+    "yolo11s": 40
+  },
+  "newest_model_mtime": "2026-09-14T17:23:30",
+  "classes": [
+    "Algal",
+    "Leaf_rot",
+    "Phomopsis",
+    "Psyllid",
+    "Psyllid_damage",
+    "leaf_hopper_damage"
+  ],
+  "classes_source": "from lock file prospective/prospective_lock.json (SHA-256 41060961225e046373774dbece48f1e74e97c4592394718df45bf670fad66869)",
+  "excluded_classes": [
+    "pink_disease",
+    "root_disease",
+    "scale_insect",
+    "stem_borer",
+    "weevil",
+    "weevil_damage"
+  ],
+  "tree_rule": "odd",
+  "prelabel_model": null,
+  "metric": "mAP50 over the classes present on the farm (Ultralytics val, imgsz 640, default conf/iou), averaged over seeds then folds (each fold = one LOFO model set that never saw the farm)",
+  "paper_values": {
+    "yolo11n": {
+      "random_pooled": 0.428,
+      "lofo": 0.223
+    },
+    "yolo11s": {
+      "random_pooled": 0.462,
+      "lofo": 0.214
+    },
+    "yolo11m": {
+      "random_pooled": 0.465,
+      "lofo": 0.233
+    },
+    "yolo11l": {
+      "random_pooled": 0.472,
+      "lofo": 0.236
+    },
+    "rtdetr-l": {
+      "random_pooled": 0.499,
+      "lofo": 0.221
+    },
+    "per_farm_range": [
+      0.094,
+      0.356
+    ],
+    "max_detector_gap": 0.022
+  },
+  "predictions": {
+    "P1_primary": "yolo11n mean mAP50 on penang < 0.3255 (midpoint of LOFO 0.223 and random-split 0.428), i.e. closer to the LOFO estimate than to the random-split estimate",
+    "P2": "yolo11n mean mAP50 on penang lies within the per-farm range [0.094, 0.356]",
+    "P3": "the five detector families' penang means differ by at most 0.05 mAP50 (the farm, not the detector, sets the score)",
+    "P4": "if both psyllid classes are present, at least one of them is among the two lowest-AP classes for yolo11n",
+    "P1_threshold": 0.3255
+  },
+  "protocol_note": "Prospective test, site: Penang (second of a planned multi-state series: Pahang, Penang, Malacca, Johor).\nWritten and locked BEFORE the farm was visited, together with the prelocks of the other remaining sites.\n\nFARM\n- One commercial durian farm in Penang, found by the author by approaching farms directly; not previously visited. Visited by the author after this\n  prelock was written; the actual date and the farm's district are recorded in the lock note.\n- Novelty rule, fixed before the visit: the farm must not be any farm already known to have\n  contributed images to the corpus (the nine peninsular sites of the main collection, in\n  Selangor, Negeri Sembilan and the Muar district of Johor, including the eight farms of\n  the analysis pool; the two Sabah orchards; Seremban; Pahang; and any site of this series\n  visited earlier). If it turns out to be one of them, this site is EXCLUDED from\n  the prospective test (its images may still be used for model training), and the exclusion\n  and its reason are reported.\n\nCAPTURE\n- About 20 trees, numbered t1, t2, ... in walking order; number of photographs per tree\n  not limited; hand-held, natural light, same phone as the main collection\n  (iPhone 16 Pro Max), photographed through the SnapDurian PWA camera input.\n- Tree assignment, fixed before the visit: odd-numbered trees (t1, t3, t5, ...) form\n  THIS prospective test set; even-numbered trees (t2, t4, ...) belong to a separate\n  sequential-model-update study and are never scored here. If fewer than 20 trees are\n  photographed, the same rule applies to whatever was photographed.\n- Healthy (no visible symptom) trees are photographed and kept under the same rule.\n- Capture pipeline as for Pahang: the PWA resizes each photograph in the browser to a\n  longest side of 1600 px and re-encodes it as JPEG (quality 0.85), which removes EXIF;\n  the server stores that image after one further JPEG re-encode (quality 0.92). Resized\n  to 640 x 640 before scoring.\n- Location: the PWA's location setting is switched on; latitude/longitude are stored per\n  photograph in the server database (not in the image file).\n- Tree identity: recorded during the walk as time ranges per tree; after export, filenames\n  are rewritten to encode orchard and tree (pg1t1_..., pg1t2_, ...). Each tree's\n  first frame is a separator shot.\n- Difficult views (small targets, leaf undersides, side leaves) are deliberately included\n  in the same walk, as for Pahang; this can only lower the farm's score.\n- All photographs of the assigned trees are annotated; none are set aside.\n\nANNOTATION\n- Pre-labelled by the model active on the SnapDurian server on the visit day, planned to\n  be v1 (v0's training set plus all Pahang images, same training recipe as v0). That model does not exist when this prelock is written; its SHA-256 is\n  recorded at the lock step, before scoring. The 200 LOFO models that are scored are NOT\n  the pre-labelling model.\n- The PWA detector uses an 11-class product label space. Every leaf_spot_blight /\n  web_blight pre-label is reassigned by hand to Phomopsis or Leaf_rot (that class covers\n  both paper classes); the preparation script refuses unresolved boxes.\n- Pre-labels of 'scale_insect' on the upper leaf surface are relabelled Psyllid; on the\n  underside they remain scale insect and are removed.\n- Corrections are logged per image (boxes added / removed / relabelled) and reported as a\n  correction rate in the lock note.\n- A random subset of at least 40 images is additionally annotated from scratch with model\n  output hidden; agreement with the corrected labels will be reported.\n- Class rule for white waxy insects on the leaf upper surface: labelled Psyllid\n  (indistinguishable from scale insects in a photograph; same control).\n- Boxes of classes outside the six paper classes (scale insect, root disease, pink disease,\n  stem borer, weevil, weevil damage) are removed; the images are kept.\n\nPREDICTIONS (identical to Seremban and Pahang; scored with the same 200 frozen LOFO models)\n- P1. YOLO11n (deployed architecture) scores below 0.3255 mAP50, the midpoint of its\n      unseen-farm (0.223) and random-split (0.428) figures.\n- P2. YOLO11n lies within the range of the eight held-out farms, 0.094-0.356.\n- P3. The five detectors' means differ by at most 0.05 mAP50.\n- P4. If both psyllid classes are present, at least one is among the two lowest-AP\n      classes for YOLO11n.\n- Aggregation: mAP50 over classes present on the farm, seeds averaged within each\n  held-out-farm model set, then the eight sets averaged."
+}

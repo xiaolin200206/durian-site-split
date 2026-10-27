@@ -3,10 +3,22 @@
 Seremban 的流程原样保留（`prospective_seremban.py` 不动）。新站点用 `prospective_site.py`，
 多了一道**出发前预锁定**，预测和模型哈希在拍照之前就定下来，这才叫前瞻。
 
-每个站点四步，站名用小写：`pahang`、`penang`、`malacca`、`johor`、`perak`。
-Pahang 的脚本在 `pahang/`（预锁定已完成，只剩 2–4 步）。下一站的预锁定用 `prelock_next_site.sh`，
-`prepare` / `lock` / `score` 把 `pahang/` 里的脚本复制一份、改 `SITE=`。
+每个站点四步，站名用小写：`pahang`、`penang`、`malacca`、`johor`（`perak` 备用）。
+四个站的预锁定**都已完成**，每站的文件夹里只剩 2–4 步的脚本。
 `prepare` 会按预锁定的树规则自动只收单数号树，文件名里没有树号的会被拒收。
+
+| 站 | 预锁定文件 | 预锁定时间 (MYT) | 文件名前缀 | 预标模型 |
+|---|---|---|---|---|
+| Pahang | `pahang_prelock.json` | 2026-10-26 13:57 | `p1t1_…` | v0（哈希在预锁定里） |
+| Penang | `penang_prelock.json` | 2026-10-27 14:01 | `pg1t1_…` | 计划 v1，哈希在 `3_lock.sh` 记 |
+| Malacca | `malacca_prelock.json` | 2026-10-27 14:01 | `ml1t1_…` | 计划 v2，哈希在 `3_lock.sh` 记 |
+| Johor | `johor_prelock.json` | 2026-10-27 14:01 | `jh1t1_…` | 计划 v2 或 v3，哈希在 `3_lock.sh` 记 |
+
+四个站的预测 P1–P4、200 个模型哈希、六个类别完全相同（只有站名不同），都沿用 Seremban 的锁定文件。
+Penang / Malacca / Johor 的预锁定多了一条**新农场规则**：如果到了发现是语料里已有的农场，这一站从前瞻测试里排除
+（图照样可以拿去训练），并在论文里说明。
+后面三站的预标模型那时还没训出来，所以预锁定里不记，`lock` 时用 `--pwa-weights` 记下实际用的那个文件——
+没有它 `lock` 会拒绝运行。打分的永远是那 200 个冻结的 LOFO 模型，不是预标模型。
 
 ## 周五出发前（Pahang）
 
@@ -46,7 +58,16 @@ Pahang 的脚本在 `pahang/`（预锁定已完成，只剩 2–4 步）。下�
 - [ ] `3_lock.sh` 填数字 → 跑 → **SHA-256 再发一封邮件 / commit**。
 - [ ] `4_score.sh`（GPU）。
 - [ ] 结果在 `prospective/pahang_result.txt`、`pahang_per_model.csv`。
-- [ ] 这一站的图全部进 v1 的训练集；v1 训好后，Penang 的 `1_prelock.sh` 里 PWA 权重换成 v1。
+- [ ] 这一站的图全部进 v1 的训练集；v1 训好、在服务器上 `use` 之后再去 Penang。
+      Penang 回来后在 `penang/3_lock.sh` 里填 v1 的文件名（后面两站同理）。
+
+## Penang / Malacca / Johor
+
+和 Pahang 一样，区别只有三处：
+- 文件名前缀分别是 `pg1` / `ml1` / `jh1`（`pg1t1_…`、`pg1t2_…`）。
+- `3_lock.sh` 顶上多填三样：这一站实际预标用的模型文件（`PWA_FILE`、`PWA_VERSION`）、访问日期、农场所在的县/区。
+  导出的 `photos.csv` 里 `model` 一栏应该全是这个版本。
+- 到了先确认不是语料里已有的农场（新农场规则）。
 
 ## 类别映射（脚本里已写好）
 
@@ -74,7 +95,7 @@ psyllid_damage, root_disease, scale_insect, stem_borer, web_blight, weevil_damag
 | `<site>_lock.json` | 预锁定哈希 + 测试集指纹 + QC 记账（打分前） |
 | `<site>_per_model.csv`、`<site>_result.txt` | 结果 |
 
-`.gitignore` 里照 Seremban 加四行，让新站的图进仓库：
+`.gitignore` 里照 Seremban 每站加四行，让新站的图进仓库（`pahang` 换成各站站名）：
 
 ```
 !prospective/pahang_640/images/
@@ -87,3 +108,5 @@ psyllid_damage, root_disease, scale_insect, stem_borer, web_blight, weevil_damag
 
 `prospective_site.py` 的 prelock / prepare / lock 在假数据上跑通过；篡改标签后 score 会拒绝；
 重复 prelock、没有 prelock 就 prepare、站名不合法都会被拦下。score 的评估部分和 Seremban 版逐字相同。
+`lock --pwa-weights` 也在假数据上测过：预锁定里没有预标模型时不带 `--pwa-weights` 会拒绝、文件不存在会拒绝、
+不会留下半个锁定文件；Pahang 那种预锁定里已有预标模型的，不带也照常锁定。

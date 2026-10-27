@@ -446,6 +446,22 @@ def cmd_lock(args):
             if Path(f["path"]).exists() and sha256_file(Path(f["path"])) != f["sha256"]:
                 print(f"（提示）PWA 预标模型文件已变化：{f['path']}——如果你在 QC 后更新了 v1 这是正常的，"
                       f"prelock 里记录的是 v0 的哈希。")
+    prelabel_at_lock = None
+    if args.pwa_weights:
+        ws = [Path(w) for w in args.pwa_weights]
+        for w in ws:
+            if not w.exists():
+                sys.exit(f"PWA 模型文件不存在：{w}")
+        prelabel_at_lock = {
+            "role": "model that pre-labelled this site's images inside the PWA, recorded at lock "
+                    "(NOT among the scored LOFO models)",
+            "version": args.pwa_version or "",
+            "files": [dict(path=str(w), sha256=sha256_file(w)) for w in ws],
+        }
+        print(f"这一站的 PWA 预标模型：{[f['sha256'][:12] + '…' for f in prelabel_at_lock['files']]}  "
+              f"版本 {prelabel_at_lock['version']}（应与服务器 admin.py models 里那一站用的模型一致）")
+    elif not pre.get("prelabel_model"):
+        sys.exit("预锁定里没有记录预标模型，lock 时必须用 --pwa-weights 指定这一站实际用的那个模型文件。")
     fp, n_img = dataset_fingerprint(P["data"])
     MODEL_CLASSES = yaml_classes(P["yaml"])
     if MODEL_CLASSES != pre["classes"]:
@@ -462,6 +478,8 @@ def cmd_lock(args):
         "model_families": pre["model_families"],
         "newest_model_mtime": pre["newest_model_mtime"],
         "prelabel_model": pre.get("prelabel_model"),
+        "prelabel_model_at_lock": prelabel_at_lock,
+        "tree_rule": pre.get("tree_rule", "all"),
         "test_set": {"path": str(P["data"]), "n_images": n_img, "fingerprint_sha256": fp,
                      "classes": MODEL_CLASSES, "excluded_classes": sorted(EXCLUDED),
                      "preprocessing": "auto-orient, resize 640x640 (stretch), as in the submitted paper"},
@@ -596,6 +614,8 @@ def main():
             s.add_argument("--resize640", action="store_true", help="把图片 stretch 到 640×640（PWA 导出原图时用）")
         if name == "lock":
             s.add_argument("--note", default="", help="标注阶段的说明，例如 QC 修正率、从零标的子集数")
+            s.add_argument("--pwa-weights", nargs="*", help="这一站 PWA 实际用来预标的模型文件（预锁定里没记录时必填）")
+            s.add_argument("--pwa-version", default="", help="这一站 PWA 用的模型版本说明")
         if name == "score":
             s.add_argument("--device", default="0")
     args = ap.parse_args()

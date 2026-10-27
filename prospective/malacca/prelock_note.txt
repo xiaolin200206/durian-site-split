@@ -1,0 +1,64 @@
+Prospective test, site: Malacca (third of a planned multi-state series: Pahang, Penang, Malacca, Johor).
+Written and locked BEFORE the farm was visited, together with the prelocks of the other remaining sites.
+
+FARM
+- One commercial durian farm in Malacca, arranged by the author; not previously visited. Visited by the author after this
+  prelock was written; the actual date and the farm's district are recorded in the lock note.
+- Novelty rule, fixed before the visit: the farm must not be any farm already known to have
+  contributed images to the corpus (the nine peninsular sites of the main collection, in
+  Selangor, Negeri Sembilan and the Muar district of Johor, including the eight farms of
+  the analysis pool; the two Sabah orchards; Seremban; Pahang; and any site of this series
+  visited earlier). If it turns out to be one of them, this site is EXCLUDED from
+  the prospective test (its images may still be used for model training), and the exclusion
+  and its reason are reported.
+
+CAPTURE
+- About 20 trees, numbered t1, t2, ... in walking order; number of photographs per tree
+  not limited; hand-held, natural light, same phone as the main collection
+  (iPhone 16 Pro Max), photographed through the SnapDurian PWA camera input.
+- Tree assignment, fixed before the visit: odd-numbered trees (t1, t3, t5, ...) form
+  THIS prospective test set; even-numbered trees (t2, t4, ...) belong to a separate
+  sequential-model-update study and are never scored here. If fewer than 20 trees are
+  photographed, the same rule applies to whatever was photographed.
+- Healthy (no visible symptom) trees are photographed and kept under the same rule.
+- Capture pipeline as for Pahang: the PWA resizes each photograph in the browser to a
+  longest side of 1600 px and re-encodes it as JPEG (quality 0.85), which removes EXIF;
+  the server stores that image after one further JPEG re-encode (quality 0.92). Resized
+  to 640 x 640 before scoring.
+- Location: the PWA's location setting is switched on; latitude/longitude are stored per
+  photograph in the server database (not in the image file).
+- Tree identity: recorded during the walk as time ranges per tree; after export, filenames
+  are rewritten to encode orchard and tree (ml1t1_..., ml1t2_, ...). Each tree's
+  first frame is a separator shot.
+- Difficult views (small targets, leaf undersides, side leaves) are deliberately included
+  in the same walk, as for Pahang; this can only lower the farm's score.
+- All photographs of the assigned trees are annotated; none are set aside.
+
+ANNOTATION
+- Pre-labelled by the model active on the SnapDurian server on the visit day, planned to
+  be v2 (v1's training set plus all Penang images, same recipe). That model does not exist when this prelock is written; its SHA-256 is
+  recorded at the lock step, before scoring. The 200 LOFO models that are scored are NOT
+  the pre-labelling model.
+- The PWA detector uses an 11-class product label space. Every leaf_spot_blight /
+  web_blight pre-label is reassigned by hand to Phomopsis or Leaf_rot (that class covers
+  both paper classes); the preparation script refuses unresolved boxes.
+- Pre-labels of 'scale_insect' on the upper leaf surface are relabelled Psyllid; on the
+  underside they remain scale insect and are removed.
+- Corrections are logged per image (boxes added / removed / relabelled) and reported as a
+  correction rate in the lock note.
+- A random subset of at least 40 images is additionally annotated from scratch with model
+  output hidden; agreement with the corrected labels will be reported.
+- Class rule for white waxy insects on the leaf upper surface: labelled Psyllid
+  (indistinguishable from scale insects in a photograph; same control).
+- Boxes of classes outside the six paper classes (scale insect, root disease, pink disease,
+  stem borer, weevil, weevil damage) are removed; the images are kept.
+
+PREDICTIONS (identical to Seremban and Pahang; scored with the same 200 frozen LOFO models)
+- P1. YOLO11n (deployed architecture) scores below 0.3255 mAP50, the midpoint of its
+      unseen-farm (0.223) and random-split (0.428) figures.
+- P2. YOLO11n lies within the range of the eight held-out farms, 0.094-0.356.
+- P3. The five detectors' means differ by at most 0.05 mAP50.
+- P4. If both psyllid classes are present, at least one is among the two lowest-AP
+      classes for YOLO11n.
+- Aggregation: mAP50 over classes present on the farm, seeds averaged within each
+  held-out-farm model set, then the eight sets averaged.
